@@ -1,0 +1,72 @@
+version: '2.0'
+meta:
+  username: example
+  display_name: Example
+  created_at: '2026-04-17 09:00'
+  generated_by: poxiao-setup
+
+research_domains:
+  RL 推断 & 对齐 (RLHF/GRPO/PPO):
+    keywords:
+    - RLHF
+    - GRPO
+    - PPO
+    - DPO
+    - reasoning
+    - alignment
+    - reward model
+    arxiv_categories:
+    - cs.AI
+    - cs.LG
+    priority: 5.0
+    deep_analysis: true
+
+  LLM Agent 工程 (工具调用/多智能体):
+    keywords:
+    - agent
+    - multi-agent
+    - tool use
+    - MCP
+    - planning
+    arxiv_categories:
+    - cs.AI
+    - cs.MA
+    priority: 4.0
+    deep_analysis: true
+
+business_focus:
+  sectors:
+  - 硅谷动态
+  - 国内大厂动向
+  - 芯片 & 算力基础设施
+  noise_filter_prompt: 排除纯宏观经济和传统金融新闻；保留 AI 算力、顶尖 AI 初创融资、科技大厂 AI 战略变动。
+  tracked_companies:
+    tier1:
+    - Anthropic
+    - OpenAI
+    - DeepSeek
+    tier2:
+    - Meta AI
+    - 字节跳动
+    - 阿里云
+    tier3:
+    - NVIDIA
+    - 台积电
+
+format_preference:
+  academic_top_n: 8
+  community_top_n: 10
+  finance_top_n: 8
+  trigger_deep_analysis_threshold: 4.5
+  summary_style: tier2
+  language: zh
+
+excluded_keywords:
+- workshop
+- medical image
+- pathology
+
+system:
+  semantic_scholar_api_key: ''
+  python_path: python3
+  work_dir: .

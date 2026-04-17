@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+
+# 敏感配置
+.env
+*.pem
+*.key
+
+# 系统数据（不提交运行时数据）
+.poxiao_system/raw/
+.poxiao_system/cache/
+PoXiao_Briefs/*.md
+
+# 保留示例
+!.poxiao_system/profiles/profile_example.yaml
+!examples/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# 日志
+logs/
+*.log
+
+# 测试
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 临时文件
+*.tmp
+*.temp
+*.bak

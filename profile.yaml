@@ -1,0 +1,269 @@
+# ============================================================
+# Personal Info System - 用户兴趣画像配置
+# ============================================================
+# 本文件是整个情报系统的「过滤核心」。
+# 修改此文件来调整推送的方向与粒度。
+#
+# 关键设计：
+#   priority 是乘数，不是加分项。
+#   最终评分 = base_score × domain_priority_multiplier
+#   priority=5.0 的域，命中后评分最高可达 10×5/5=10
+#   priority=1.0 的域，同等 base_score 后评分仅为原来的 1/5
+# ============================================================
+
+version: "2.0"
+
+# ------------------------------------------------------------------
+# 维度一：核心技术栈与研究领域
+#   用于：学术简报评分加权 + 社区内容相关性加分
+# ------------------------------------------------------------------
+research_domains:
+
+  "RL & Reasoning":
+    keywords:
+      - "RLHF"
+      - "GRPO"
+      - "PPO"
+      - "DPO"
+      - "Agent Reasoning"
+      - "Mathematical Reasoning"
+      - "reasoning"
+      - "chain-of-thought"
+      - "CoT"
+      - "reward model"
+      - "alignment"
+      - "preference learning"
+    arxiv_categories:
+      - "cs.AI"
+      - "cs.LG"
+      - "cs.MA"
+    priority: 5.0         # 最高优先级：遇到必推，触发深度分析
+    deep_analysis: true   # 高于 trigger_deep_analysis_threshold 时自动触发 paper-analyze
+
+  "Inference & Acceleration":
+    keywords:
+      - "vLLM"
+      - "PagedAttention"
+      - "TensorRT"
+      - "ONNX"
+      - "Operator Optimization"
+      - "speculative decoding"
+      - "quantization"
+      - "GGUF"
+      - "MoE"
+      - "mixture of experts"
+      - "efficient inference"
+      - "throughput"
+      - "latency"
+      - "KV cache"
+      - "token merging"
+    arxiv_categories:
+      - "cs.LG"
+      - "cs.AR"
+      - "cs.PF"
+    priority: 4.0
+    deep_analysis: true
+
+  "LLM Agent Engineering":
+    keywords:
+      - "agent"
+      - "agentic"
+      - "multi-agent"
+      - "tool use"
+      - "tool calling"
+      - "function calling"
+      - "MCP"
+      - "model context protocol"
+      - "orchestration"
+      - "planning"
+      - "long-horizon"
+      - "agent memory"
+      - "agent reliability"
+    arxiv_categories:
+      - "cs.AI"
+      - "cs.MA"
+      - "cs.CL"
+    priority: 4.0
+    deep_analysis: true
+
+  "Coding Agent & AI Programming":
+    keywords:
+      - "code agent"
+      - "coding agent"
+      - "Vibe Coding"
+      - "Coding Agent"
+      - "Action-Level Sandbox"
+      - "software engineering"
+      - "code generation"
+      - "SWE-bench"
+      - "repository"
+      - "automated debugging"
+      - "code repair"
+      - "devin"
+    arxiv_categories:
+      - "cs.SE"
+      - "cs.AI"
+      - "cs.PL"
+    priority: 3.0
+    deep_analysis: false
+
+  "Multimodal & Audio":
+    keywords:
+      - "Speaker Embedding"
+      - "ASR"
+      - "DINOv3"
+      - "CLIP"
+      - "CAM++"
+      - "multimodal"
+      - "vision-language"
+      - "VLM"
+      - "audio"
+      - "speech"
+      - "text-to-speech"
+    arxiv_categories:
+      - "cs.CV"
+      - "cs.SD"
+      - "cs.MM"
+      - "eess.AS"
+    priority: 3.5
+    deep_analysis: false
+
+  "RAG & Knowledge Systems":
+    keywords:
+      - "RAG"
+      - "retrieval augmented generation"
+      - "retrieval"
+      - "knowledge base"
+      - "vector database"
+      - "embedding"
+      - "reranking"
+      - "information retrieval"
+    arxiv_categories:
+      - "cs.IR"
+      - "cs.CL"
+    priority: 3.0
+    deep_analysis: false
+
+  "Foundation Models (General)":
+    keywords:
+      - "large language model"
+      - "LLM"
+      - "foundation model"
+      - "pre-training"
+      - "fine-tuning"
+      - "LoRA"
+      - "PEFT"
+      - "scaling law"
+      - "transformer"
+    arxiv_categories:
+      - "cs.CL"
+      - "cs.AI"
+      - "cs.LG"
+    priority: 2.0    # 通用基础方向，降权避免噪音
+    deep_analysis: false
+
+  "AI Safety & Reliability":
+    keywords:
+      - "safety"
+      - "jailbreak"
+      - "red teaming"
+      - "hallucination"
+      - "robustness"
+      - "adversarial"
+      - "interpretability"
+      - "trustworthy"
+    arxiv_categories:
+      - "cs.AI"
+      - "cs.CR"
+    priority: 2.5
+    deep_analysis: false
+
+# ------------------------------------------------------------------
+# 维度二：商业与行业关注面
+#   用于：财经简报过滤与评分加权
+# ------------------------------------------------------------------
+business_focus:
+  sectors:
+    - "Quantitative Finance"
+    - "AI Secondary Market"
+    - "Financial Machine Learning"
+    - "AI Infrastructure Investment"
+    - "Embodied Intelligence"
+    - "AI Chips & Compute"
+
+  # LLM 过滤提示词：用于 AI 二次过滤财经条目
+  noise_filter_prompt: >
+    排除纯宏观经济（利率、汇率、大宗商品）和传统银行/保险业务新闻。
+    重点保留：
+    1. 大模型在量化选股、交易机制、金融预测上的应用
+    2. AI 算力基础设施（GPU/芯片/数据中心）的融资与扩产动态
+    3. 顶尖 AI 初创公司（估值>1亿美元）的融资事件
+    4. 科技大厂（字节/阿里/腾讯/百度/华为/Anthropic/OpenAI/Google/Meta）的 AI 战略变动
+    5. AI 产品商业化里程碑（月活、营收、定价调整）
+
+  # 公司关注名单：命中则自动提升财经条目评分 +2
+  tracked_companies:
+    tier1:  # 核心关注，命中+3
+      - "Anthropic"
+      - "OpenAI"
+      - "DeepSeek"
+      - "Google DeepMind"
+    tier2:  # 重要关注，命中+2
+      - "Meta AI"
+      - "Mistral"
+      - "Cohere"
+      - "Scale AI"
+      - "字节跳动"
+      - "阿里云"
+      - "百度"
+      - "腾讯"
+      - "华为"
+      - "快手"
+    tier3:  # 一般关注，命中+1
+      - "Sequoia"
+      - "Andreessen Horowitz"
+      - "经纬创投"
+      - "红杉"
+      - "NVIDIA"
+      - "台积电"
+      - "AMD"
+
+# ------------------------------------------------------------------
+# 维度三：内容形态偏好
+#   用于：控制输出格式与自动触发阈值
+# ------------------------------------------------------------------
+format_preference:
+  # 学术简报
+  academic_top_n: 8                    # 精读区展示条数
+  trigger_deep_analysis_threshold: 4.5 # 评分高于此值自动触发 paper-analyze
+
+  # 社区简报
+  community_top_n: 10
+  topic_dedup: true                    # 同一事件多帖子合并为单条 Topic
+
+  # 财经简报
+  finance_top_n: 8
+  finance_min_score: 3.0               # 低于此分值不展示
+
+  # 输出风格
+  summary_style: "tier2"               # tier1=一句话 | tier2=含折叠深分析
+  language: "zh"
+
+# ------------------------------------------------------------------
+# 排除规则（全局）
+# ------------------------------------------------------------------
+excluded_keywords:
+  - "workshop"
+  - "survey"               # 综述论文降权（不排除但通过 quality 分数已自然降权）
+  - "medical image"
+  - "pathology"
+  - "remote sensing"
+  - "radiology"
+
+# ------------------------------------------------------------------
+# 系统配置
+# ------------------------------------------------------------------
+system:
+  semantic_scholar_api_key: ""         # 填入后启用 Hot Papers 搜索（减少限流）
+  python_path: "~/.pyenv/versions/3.11.10/bin/python3"
+  work_dir: "."

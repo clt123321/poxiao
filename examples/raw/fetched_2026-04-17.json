@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "id": "hn_001",
+      "title": "OpenAI releases GPT-5 preview",
+      "url": "https://news.ycombinator.com/item?id=001",
+      "source": "hackernews",
+      "score": 523,
+      "time": "2026-04-17T08:00:00Z",
+      "description": "OpenAI today announced GPT-5 preview with significant improvements in reasoning...",
+      "metadata": {"category": "community"}
+    },
+    {
+      "id": "reddit_001",
+      "title": "DeepSeek V3 open source model released",
+      "url": "https://reddit.com/r/LocalLLaMA/comments/001",
+      "source": "reddit",
+      "score": 1200,
+      "time": "2026-04-17T07:30:00Z",
+      "description": "DeepSeek has open sourced their V3 model with 67B parameters...",
+      "metadata": {"category": "community", "subreddit": "LocalLLaMA"}
+    }
+  ],
+  "stats": {
+    "total": 127,
+    "by_source": {"hackernews": 45, "reddit": 52, "rss": 30}
+  }
+}

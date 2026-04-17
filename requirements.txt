@@ -1,0 +1,45 @@
+# ============================================================
+# 破晓 PoXiao — 依赖管理
+# ============================================================
+# 安装：pip install -r requirements.txt
+# 建议使用虚拟环境或 pyenv：
+#   pyenv virtualenv 3.11.10 poxiao
+#   pyenv activate poxiao
+#   pip install -r requirements.txt
+# ============================================================
+
+# ---------- 核心运行时 ----------
+PyYAML>=6.0,<7.0              # profile.yaml / config.json 解析
+httpx>=0.27.0,<1.0            # HTTP 客户端（fetch.py 使用）
+requests>=2.31.0,<3.0         # 备用 HTTP 客户端（search_papers.py）
+
+# ---------- 生产级重试（可选但强烈推荐）----------
+tenacity>=8.2.0,<10.0         # @resilient 装饰器的增强后端
+
+# ---------- 学术检索 ----------
+# arXiv 搜索使用标准库 urllib，无额外依赖
+# Semantic Scholar 使用 requests
+
+# ---------- 社区聚类 ----------
+# cluster_topics.py 纯标准库实现，无额外依赖
+
+# ---------- 内容解析 ----------
+feedparser>=6.0.11,<7.0       # RSS/Atom feed 解析（fetch.py 备用）
+lxml>=5.2.0,<6.0              # XML/HTML 解析加速
+
+# ---------- 数据处理 ----------
+python-dateutil>=2.9.0,<3.0   # 时间解析（多格式兼容）
+
+# ---------- 可选增强 ----------
+# 安装后自动启用对应功能
+
+# 论文图片提取（evil-read-arxiv: extract-paper-images）
+# PyMuPDF>=1.24.0             # PDF 图片提取；uncommit 若需要
+
+# 顶会论文搜索（conf-papers）
+# 无额外依赖，使用 requests
+
+# ---------- 开发工具（开发环境安装）----------
+# pytest>=8.0.0
+# ruff>=0.4.0
+# mypy>=1.10.0
