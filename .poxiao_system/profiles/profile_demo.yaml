@@ -1,0 +1,95 @@
+version: '2.0'
+meta:
+  username: demo
+  display_name: demo
+  created_at: 2026-04-17 17:31
+  generated_by: poxiao-setup
+research_domains:
+  RL 推断 & 对齐 (RLHF/GRPO/PPO):
+    keywords:
+    - RLHF
+    - GRPO
+    - PPO
+    - DPO
+    - reasoning
+    - alignment
+    - reward model
+    arxiv_categories:
+    - cs.AI
+    - cs.LG
+    - cs.MA
+    priority: 5.0
+    deep_analysis: true
+  LLM Agent 工程 (工具调用/多智能体):
+    keywords:
+    - agent
+    - multi-agent
+    - tool use
+    - MCP
+    - planning
+    - long-horizon
+    arxiv_categories:
+    - cs.AI
+    - cs.MA
+    - cs.CL
+    priority: 4.0
+    deep_analysis: true
+  算力优化 & 推理加速 (vLLM/量化/MoE):
+    keywords:
+    - vLLM
+    - PagedAttention
+    - quantization
+    - speculative decoding
+    - MoE
+    - KV cache
+    arxiv_categories:
+    - cs.LG
+    - cs.AR
+    priority: 4.0
+    deep_analysis: true
+business_focus:
+  sectors:
+  - 硅谷动态 (Anthropic/OpenAI/Meta AI 产品与融资)
+  - 国内大厂动向 (字节/阿里/腾讯/百度/华为/快手)
+  - 芯片 & 算力基础设施 (NVIDIA/台积电/AMD)
+  noise_filter_prompt: 排除纯宏观经济和传统金融新闻；保留 AI 算力、顶尖 AI 初创融资、科技大厂 AI 战略变动、AI 产品商业化里程碑。
+  tracked_companies:
+    tier1:
+    - Anthropic
+    - OpenAI
+    - DeepSeek
+    - Google DeepMind
+    tier2:
+    - Meta AI
+    - Mistral
+    - 字节跳动
+    - 阿里云
+    - 华为
+    - 快手
+    - 腾讯
+    - 百度
+    tier3:
+    - NVIDIA
+    - 台积电
+    - AMD
+    - Sequoia
+format_preference:
+  academic_top_n: 8
+  community_top_n: 10
+  finance_top_n: 8
+  finance_min_score: 3.0
+  trigger_deep_analysis_threshold: 4.5
+  topic_dedup: true
+  summary_style: tier2
+  language: zh
+  output_name: demo
+excluded_keywords:
+- workshop
+- medical image
+- pathology
+- remote sensing
+- radiology
+system:
+  semantic_scholar_api_key: ''
+  python_path: /Users/chenglitao/.pyenv/versions/3.11.10/bin/python3
+  work_dir: /Users/chenglitao/Desktop/work_project/info-source-skill
