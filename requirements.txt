@@ -26,6 +26,7 @@ tenacity>=8.2.0,<10.0         # @resilient 装饰器的增强后端
 # ---------- 内容解析 ----------
 feedparser>=6.0.11,<7.0       # RSS/Atom feed 解析（fetch.py 备用）
 lxml>=5.2.0,<6.0              # XML/HTML 解析加速
+beautifulsoup4>=4.12.0,<5.0   # HTML 解析（fetch.py 使用）
 
 # ---------- 数据处理 ----------
 python-dateutil>=2.9.0,<3.0   # 时间解析（多格式兼容）

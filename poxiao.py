@@ -151,28 +151,63 @@ def auto_detect_days() -> int:
 # LLM 聊天接口（OpenAI 兼容）
 # ──────────────────────────────────────────────────────────────────────
 
-def call_llm(prompt: str, model: str = "gpt-4o-mini", temperature: float = 0.3) -> str:
+def call_llm(prompt: str, model: str = "glm-4-flash", temperature: float = 0.3) -> str:
     """
-    调用 OpenAI 兼容 API 进行 LLM 聊天。
-    支持的环境变量：
-      OPENAI_API_KEY      → 使用 OpenAI 官方
-      OPENAI_BASE_URL     → 自定义 base_url（代理）
-      OPENAI_MODEL        → 自定义默认模型
-    """
-    api_key = os.environ.get("OPENAI_API_KEY", "")
-    base_url = os.environ.get("OPENAI_BASE_URL", "")
-    if not api_key:
-        logger.warning("OPENAI_API_KEY 未设置，LLM 功能将跳过")
-        return ""
+    调用 LLM 进行聊天。自动检测可用提供商，优先级：
 
-    model = os.environ.get("OPENAI_MODEL", model)
+    1. ZHIPU_API_KEY     → 智谱 GLM（默认推荐）
+    2. MINIMAX_API_KEY   → MiniMax
+    3. VOLC_API_KEY      → 火山引擎
+    4. ANTHROPIC_API_KEY → Claude
+    5. OPENAI_API_KEY    → OpenAI
+    6. DEEPSEEK_API_KEY  → DeepSeek
+    7. LOCAL_LLM_URL     → 本地 Ollama 等
+    """
+    api_key = os.environ.get("ZHIPU_API_KEY", "")
+    base_url = "https://open.bigmodel.cn/api/paas/v4"
+    model = os.environ.get("ZHIPU_MODEL", "glm-4-flash")
+
+    if not api_key:
+        api_key = os.environ.get("MINIMAX_API_KEY", "")
+        base_url = "https://api.minimax.chat/v1"
+        model = os.environ.get("MINIMAX_MODEL", "MiniMax-Text-01")
+
+    if not api_key:
+        api_key = os.environ.get("VOLC_API_KEY", "")
+        base_url = "https://ARK.cn-beijing.volces.com/api/v1"
+        model = os.environ.get("VOLC_MODEL", "doubao-pro-32k")
+
+    if not api_key:
+        api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+        base_url = os.environ.get("ANTHROPIC_BASE_URL", "")
+        if api_key and "anthropic" not in base_url.lower():
+            base_url = ""
+
+    if not api_key:
+        api_key = os.environ.get("OPENAI_API_KEY", "")
+        base_url = os.environ.get("OPENAI_BASE_URL", "")
+        model = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
+
+    if not api_key:
+        api_key = os.environ.get("DEEPSEEK_API_KEY", "")
+        base_url = "https://api.deepseek.com/v1"
+        model = os.environ.get("DEEPSEEK_MODEL", "deepseek-chat")
+
+    if not api_key and os.environ.get("LOCAL_LLM_URL"):
+        base_url = os.environ.get("LOCAL_LLM_URL", "")
+        api_key = "local"
+        model = os.environ.get("LOCAL_MODEL", "llama3")
+
+    if not api_key:
+        logger.warning("未检测到任何 LLM API Key（支持：GLM/MiniMax/火山引擎/Claude/OpenAI/DeepSeek），将使用原生摘要模式")
+        return ""
 
     try:
         import openai
-        client = openai.OpenAI(
-            api_key=api_key,
-            base_url=base_url or None,
-        )
+        client_kwargs = {"api_key": api_key}
+        if base_url:
+            client_kwargs["base_url"] = base_url
+        client = openai.OpenAI(**client_kwargs)
         response = client.chat.completions.create(
             model=model,
             messages=[
@@ -184,7 +219,7 @@ def call_llm(prompt: str, model: str = "gpt-4o-mini", temperature: float = 0.3) 
         )
         return response.choices[0].message.content.strip()
     except ImportError:
-        logger.warning("openai 库未安装，LLM 功能跳过。请 pip install openai")
+        logger.warning("openai 库未安装，LLM 功能跳过")
         return ""
     except Exception as e:
         logger.error("LLM 调用失败: %s", e)
@@ -687,7 +722,7 @@ def cmd_generate(args: argparse.Namespace) -> int:
             fetch_success = True
         else:
             logger.info("开始社区抓取 (days=%d)...", days)
-            ret = _run_script("scripts/fetch.py", ["--config", "config.json", "--days", str(days)])
+            ret = _run_script("scripts/fetch.py", ["--config", "config.json", "--days", str(days), "--output", str(output_dir)])
             if ret != 0:
                 logger.error("fetch.py 运行失败（exit=%d），社区和财经简报将无法生成", ret)
                 # 记录到警告
@@ -992,6 +1027,9 @@ def build_parser() -> argparse.ArgumentParser:
     p_gen.add_argument("--days",  type=int, default=None, help="抓取时间窗口（天）")
     p_gen.add_argument("--type",  default="all", choices=["all", "academic", "community", "finance"])
     p_gen.add_argument("--date",  default=None, help="目标日期 YYYY-MM-DD")
+    p_gen.add_argument("--force-refresh", action="store_true", help="强制重新抓取数据（忽略缓存）")
+    p_gen.add_argument("--skip-llm", action="store_true", help="跳过 LLM 过滤，使用原生摘要模式")
+    p_gen.add_argument("--output", default=None, help="自定义输出目录")
 
     p_ana = sub.add_parser("analyze", help="深度分析单篇 arXiv 论文")
     p_ana.add_argument("arxiv_id", help="arXiv 论文编号，如 2401.12345（不含 arXiv: 前缀）")

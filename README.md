@@ -3,13 +3,101 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/Vibe%20Coding-Ready-purple.svg" alt="Vibe Coding">
+  <img src="https://img.shields.io/badge/Skill-Ready-purple.svg" alt="Skill Ready">
 </p>
 
 <p align="center">
   <strong>不出门，可知天下事</strong><br>
   <sub>每天早晨自动生成学术/社区/财经三份高信噪比 Markdown 早报</sub>
 </p>
+
+---
+
+## 🎯 Skill 化使用方式（Vibe Coding 平台）
+
+破晓设计为 **Vibe Coding 平台的 Skill 模块**，可以通过自然语言触发：
+
+### 触发方式
+
+在支持 Skill 的 AI 编程助手（CodeFlicker、Claude Code、Cursor、Trae 等）中，直接发送：
+
+```
+/poxiao
+```
+
+或者更具体地：
+
+```
+/briefing --user demo
+/poxiao --type academic
+/deep_dive 2401.12345
+```
+
+### 完整命令参考
+
+```bash
+# 生成今日三份简报
+python poxiao.py generate --user demo
+
+# 仅生成学术简报（快速预览）
+python poxiao.py generate --user demo --type academic --skip-llm
+
+# 强制刷新数据（忽略缓存）
+python poxiao.py generate --user demo --force-refresh
+
+# 跳过 LLM，使用原生摘要（无需 API Key）
+python poxiao.py generate --user demo --skip-llm
+```
+
+---
+
+## 🤖 LLM 提供商支持（默认智谱 GLM）
+
+破晓**默认使用智谱 GLM**，国内厂商优先，同时支持多种 LLM 提供商自动切换：
+
+### 1. 智谱 AI（GLM）✓ 默认推荐
+```bash
+export ZHIPU_API_KEY=sk-...
+export ZHIPU_MODEL=glm-4-flash
+```
+
+### 2. MiniMax
+```bash
+export MINIMAX_API_KEY=sk-...
+export MINIMAX_MODEL=MiniMax-Text-01
+```
+
+### 3. 火山引擎（字节）
+```bash
+export VOLC_API_KEY=sk-...
+export VOLC_MODEL=doubao-pro-32k
+```
+
+### 4. DeepSeek
+```bash
+export DEEPSEEK_API_KEY=sk-...
+export DEEPSEEK_MODEL=deepseek-chat
+```
+
+### 5. Claude（Anthropic）
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...
+```
+
+### 6. OpenAI
+```bash
+export OPENAI_API_KEY=sk-...
+export OPENAI_BASE_URL=https://api.openai.com/v1
+```
+
+### 7. 本地 Ollama
+```bash
+export LOCAL_LLM_URL=http://localhost:11434/v1
+export LOCAL_MODEL=llama3
+```
+
+### 零配置模式
+如不配置任何 LLM Key，破晓将自动切换至**原生摘要模式**（无需 API Key），仍可生成基础简报。
 
 ---
 
@@ -39,58 +127,53 @@ cd poxiao
 ### 2. 安装依赖
 
 ```bash
+# 创建虚拟环境（推荐）
+py -m venv venv
+.\venv\Scripts\activate  # Windows
+source venv/bin/activate   # macOS/Linux
+
+# 安装依赖
 pip install -r requirements.txt
 ```
 
-### 3. 配置 LLM（可选但推荐）
-
-创建 `.env` 文件：
-
-```env
-OPENAI_API_KEY=sk-...
-OPENAI_BASE_URL=https://api.openai.com/v1  # 可选，代理地址
-```
-
-> 未配置时自动降级为关键词模式（效果较差）
-
-### 4. 运行配置引导
+### 3. 配置用户
 
 ```bash
-python setup.py
+python poxiao.py setup
 ```
 
-按提示输入：
-- 用户名（如 `andy`）
-- 显示名称（如 `Andy`）
-- 研究领域（多选）
-- 商业关注面（多选）
-- 是否创建 `.env` 文件
-- 定时任务方式
-
-### 5. 生成早报
+或使用默认 demo 用户（已有示例配置）直接运行：
 
 ```bash
-python poxiao.py generate --user andy
+python poxiao.py generate --user demo --skip-llm
 ```
 
-输出位置：`PoXiao_Briefs/2026-04-17_Andy的学术概览.md`
+### 4. 查看输出
+
+生成的简报位于 `data/{username}/{date}/` 目录：
+
+```
+data/demo/2026-04-18/
+├── demo的早报_学术概览_2026-04-18.md
+├── demo的早报_社区速递_2026-04-18.md
+├── demo的早报_财经简报_2026-04-18.md
+└── demo的早报_今日索引_2026-04-18.md
+```
 
 ---
 
 ## 🖥️ Vibe Coding 平台适配
 
-破晓原生支持主流 AI 编程助手的 Skill 系统：
+### 支持的平台
 
 | 平台 | 触发方式 | 配置文件 |
 |------|---------|----------|
-| **CodeFlicker / KwaiPilot** | `/poxiao`, `/briefing`, `/deep_dive` | `SKILL.md`（项目根目录） |
+| **CodeFlicker / KwaiPilot** | `/poxiao`, `/briefing`, `/deep_dive` | `SKILL.md` |
 | **Claude Code** | 自动识别 `SKILL.md` | `SKILL.md` |
 | **Cursor** | 自动识别 `SKILL.md` | `SKILL.md` |
-| **Trae / 其他 Skill 兼容平台** | 手动导入 | `SKILL.md` |
+| **Trae** | 手动导入 | `SKILL.md` |
 
-### 定时任务配置
-
-**CodeFlicker 定时任务**：
+### 定时任务配置（CodeFlicker）
 
 1. 打开 CodeFlicker 设置 → 定时任务
 2. 添加新任务：
@@ -98,10 +181,10 @@ python poxiao.py generate --user andy
    - Cron: `0 9 * * 1-5`（工作日早 9 点）
    - 工作目录：项目根目录
 
-**macOS launchd**（setup.py 自动安装）：
+### macOS launchd
 
 ```bash
-python setup.py  # 选择 "launchd"
+python setup.py  # 选择 "launchd" 自动安装
 ```
 
 ---
@@ -115,7 +198,7 @@ poxiao/
 ├── config.json            # RSS/Reddit/HN 源配置
 ├── profile.yaml           # 用户兴趣画像模板
 ├── requirements.txt       # Python 依赖
-├── SKILL.md               # Vibe Coding Skill 定义
+├── SKILL.md               # Vibe Coding Skill 定义（核心！）
 │
 ├── scripts/               # 核心脚本
 │   ├── fetch.py           # 社区数据抓取
@@ -126,26 +209,41 @@ poxiao/
 │   ├── text_utils.py      # HTML 清理 + 摘要提取
 │   └── path_utils.py      # 路径定义模块
 │
-├── .poxiao_system/        # 系统数据（隐藏）
-│   ├── profiles/          # 用户画像
-│   ├── cache/             # SQLite 缓存
-│   └── raw/               # 原始 JSON 数据
+├── .poxiao_system/        # 系统数据
+│   └── profiles/          # 用户画像
 │
-├── PoXiao_Briefs/         # 输出简报（用户主要交互面）
-│
-└── examples/              # 示例数据
-    ├── briefs/            # 示例简报
-    └── raw/               # 示例原始数据
+└── data/                  # 输出数据（按用户/日期组织）
+    └── {user}/
+        └── {date}/
+            ├── fetched.json
+            ├── clustered.json
+            ├── papers.json
+            └── demo的早报_*.md
 ```
 
 ---
 
 ## 🎯 使用场景
 
-- **研究者**：每天追踪 arXiv 最新论文，自动识别高相关度研究
-- **工程师**：监控 HackerNews/Reddit 技术热点，聚类去重
-- **投资人**：关注 AI 行业融资/IPO 动态
-- **产品经理**：追踪竞品发布、技术趋势
+| 用户类型 | 使用方式 |
+|---------|---------|
+| **研究者** | `/poxiao --type academic` 追踪 arXiv 最新论文 |
+| **工程师** | `/poxiao --type community` 监控技术热点 |
+| **投资人** | `/poxiao --type finance` 关注 AI 融资动态 |
+| **产品经理** | `/poxiao` 获取每日三路简报 |
+
+---
+
+## 🔧 命令行参数
+
+| 参数 | 用途 |
+|------|------|
+| `--user <name>` | 指定用户名（默认 demo） |
+| `--type <type>` | 简报类型：`all`, `academic`, `community`, `finance` |
+| `--days <N>` | 抓取时间窗口（默认周一3天，其他1天） |
+| `--force-refresh` | 强制重新抓取，忽略缓存 |
+| `--skip-llm` | 跳过 LLM，使用原生摘要（无需 API Key） |
+| `--output <dir>` | 自定义输出目录 |
 
 ---
 
@@ -210,7 +308,7 @@ ruff check scripts/
 破晓的诞生离不开以下开源项目：
 
 - [arXiv](https://arxiv.org/) — 开放学术预印本平台
-- [Semantic Scholar](https://www.semanticscholar.org/) — 学术论文知识图谱
+- [Semantic Scholar](https://www.semanticschcholar.org/) — 学术论文知识图谱
 - [Hacker News](https://news.ycombinator.com/) — 技术社区风向标
 - [OpenAI API](https://openai.com/) — LLM 聚类引擎
 - [httpx](https://www.python-httpx.org/) — 高性能异步 HTTP 客户端

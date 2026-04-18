@@ -727,9 +727,9 @@ def merge_cross_source_duplicates(items: List[ContentItem]) -> List[ContentItem]
 # run_fetch — main async logic
 # ---------------------------------------------------------------------------
 
-async def run_fetch(config_path: Path, days: int | None = None) -> None:
+async def run_fetch(config_path: Path, days: int | None = None, output_dir: Path | None = None) -> None:
     config = load_config(config_path)
-    output_dir = config_path.parent
+    output_dir = output_dir or config_path.parent
 
     filtering = config.get("filtering", {})
     output_cfg = config.get("output", {})
@@ -823,10 +823,16 @@ def main() -> None:
         default=None,
         help="Fetch content from last N days (overrides time_window_hours in config)",
     )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=None,
+        help="Output directory for fetched.json (default: cwd)",
+    )
     args = parser.parse_args()
 
     try:
-        asyncio.run(run_fetch(args.config, days=args.days))
+        asyncio.run(run_fetch(args.config, days=args.days, output_dir=args.output))
     except KeyboardInterrupt:
         logger.info("Interrupted.")
         sys.exit(0)
