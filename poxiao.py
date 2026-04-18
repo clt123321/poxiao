@@ -271,6 +271,7 @@ def llm_filter_and_summarize(
               "consensus": "社区共识（可选，50字以内）",
               "debate": "主要争议/吐槽（可选，50字以内）",
               "relevance_score": 0-10 的整数,
+              "url": "最相关的原始链接",
               "sources": ["源1标题", "源2标题"],
               "source_count": 数字
             }}
@@ -291,6 +292,7 @@ def llm_filter_and_summarize(
               "title": "标题",
               "summary": "一句话摘要（30字以内）",
               "relevance_score": 0-10 的整数,
+              "url": "原始链接",
               "sources": ["源1", "源2"]
             }}
             只返回 JSON，不要额外文字。
@@ -304,7 +306,7 @@ def llm_filter_and_summarize(
         if topic.get("item_count", 0) < 1:
             continue
         sources_text = "\n".join(
-            f"- [{s.get('feed', '')}] {s.get('title', '')}"
+            f"- [{s.get('feed', '')}] {s.get('title', '')} (URL: {s.get('url', '')})"
             for s in topic.get("sources", [])[:5]
         )
         input_items.append({
@@ -357,6 +359,7 @@ def llm_filter_and_summarize(
             "consensus": item.get("consensus", ""),
             "debate": item.get("debate", ""),
             "relevance_score": score,
+            "url": item.get("url", ""),
             "sources": item.get("sources", []),
             "source_count": item.get("source_count", 0),
             "tier2_details": {
@@ -561,6 +564,8 @@ def generate_community_markdown(
                     consensus=tier2.get("consensus", ""),
                     debate=tier2.get("debate", ""),
                 ))
+            if item.get("url"):
+                sections.append(f"🔗 [原文链接]({item.get('url', '')})")
         else:
             # 降级模式下的 Tier 2
             sections.append(render_community_item_tier2(item))
@@ -633,6 +638,8 @@ def generate_finance_markdown(
 
             sections.append(f"### {i}. {title}")
             sections.append(f"> {summary} · 相关性 {score}/10")
+            if item.get("url"):
+                sections.append(f"🔗 [详细报道]({item.get('url', '')})")
             sections.append("")
 
     sections.append("---")
