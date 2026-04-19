@@ -1,191 +1,97 @@
-# 破晓 PoXiao - AI 原生驱动的个人情报系统
+# 破晓 PoXiao V2.0 - AI 原生驱动的个人情报系统
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/Skill-Ready-purple.svg" alt="Skill Ready">
+  <img src="https://img.shields.io/badge/Skill-V2.0-purple.svg" alt="Skill V2.0">
 </p>
 
 <p align="center">
   <strong>不出门，可知天下事</strong><br>
-  <sub>每天早晨自动生成学术/社区/财经三份高信噪比 Markdown 早报</sub>
+  <sub>AI 驱动 • Vibe Coding 原生 • HermeScroll 双核</sub>
 </p>
 
 ---
 
-## 🎯 Skill 化使用方式（Vibe Coding 平台）
-
-破晓设计为 **Vibe Coding 平台的 Skill 模块**，可以通过自然语言触发：
+## 🎯 快速开始
 
 ### 触发方式
 
-在支持 Skill 的 AI 编程助手（CodeFlicker、Claude Code、Cursor、Trae 等）中，直接发送：
+在支持 Skill 的 AI 编程助手中，直接发送：
 
 ```
 /poxiao
 ```
 
-或者更具体地：
+或使用完整命令：
 
 ```
-/briefing --user demo
-/poxiao --type academic
-/deep_dive 2401.12345
+/briefing
+/早报
+/deep_dive <arxiv_id>   # 单篇论文深度分析
 ```
 
-### 完整命令参考
+### 本地运行
 
 ```bash
-# 生成今日三份简报
-python poxiao.py generate --user demo
+# 抓取数据
+python fetch/vibe_fetch.py
 
-# 仅生成学术简报（快速预览）
-python poxiao.py generate --user demo --type academic --skip-llm
+# 输出：PoXiao_Briefs/raw_context.md
 
-# 强制刷新数据（忽略缓存）
-python poxiao.py generate --user demo --force-refresh
-
-# 跳过 LLM，使用原生摘要（无需 API Key）
-python poxiao.py generate --user demo --skip-llm
+# 深度分析某篇论文
+python fetch/deep_dive.py 2604.14895
+# 输出：PoXiao_Briefs/deep_context.md
 ```
 
 ---
 
-## 🤖 LLM 提供商支持（默认智谱 GLM）
+## 📐 架构设计
 
-破晓**默认使用智谱 GLM**，国内厂商优先，同时支持多种 LLM 提供商自动切换：
-
-### 1. 智谱 AI（GLM）✓ 默认推荐
-```bash
-export ZHIPU_API_KEY=sk-...
-export ZHIPU_MODEL=glm-4-flash
-```
-
-### 2. MiniMax
-```bash
-export MINIMAX_API_KEY=sk-...
-export MINIMAX_MODEL=MiniMax-Text-01
-```
-
-### 3. 火山引擎（字节）
-```bash
-export VOLC_API_KEY=sk-...
-export VOLC_MODEL=doubao-pro-32k
-```
-
-### 4. DeepSeek
-```bash
-export DEEPSEEK_API_KEY=sk-...
-export DEEPSEEK_MODEL=deepseek-chat
-```
-
-### 5. Claude（Anthropic）
-```bash
-export ANTHROPIC_API_KEY=sk-ant-...
-```
-
-### 6. OpenAI
-```bash
-export OPENAI_API_KEY=sk-...
-export OPENAI_BASE_URL=https://api.openai.com/v1
-```
-
-### 7. 本地 Ollama
-```bash
-export LOCAL_LLM_URL=http://localhost:11434/v1
-export LOCAL_MODEL=llama3
-```
-
-### 零配置模式
-如不配置任何 LLM Key，破晓将自动切换至**原生摘要模式**（无需 API Key），仍可生成基础简报。
-
----
-
-## ✨ 核心特性
-
-| 模块 | 能力 |
-|------|------|
-| 🎓 **学术简报** | arXiv + Semantic Scholar 混合检索，priority 加权评分，自动触发深读 |
-| 🔥 **社区简报** | HackerNews + Reddit + RSS 聚合，话题聚类降噪，共识/争议提取 |
-| 💰 **财经简报** | 融资/IPO/算力动态，三级公司名单过滤，AI 行业聚焦 |
-| 🤖 **LLM 聚类** | OpenAI 兼容 API 驱动的话题聚类与摘要生成 |
-| 🔄 **降级模式** | 无 LLM 时自动切换关键词过滤 + 原生摘要 |
-| 🧠 **熔断器** | Semantic Scholar API 智能熔断，避免连环 429 限流 |
-| 📦 **本地缓存** | SQLite 缓存论文数据，7 天 TTL，减少 API 调用 |
-
----
-
-## 🚀 快速开始
-
-### 1. 克隆仓库
-
-```bash
-git clone https://github.com/clt123321/poxiao.git
-cd poxiao
-```
-
-### 2. 安装依赖
-
-```bash
-# 创建虚拟环境（推荐）
-py -m venv venv
-.\venv\Scripts\activate  # Windows
-source venv/bin/activate   # macOS/Linux
-
-# 安装依赖
-pip install -r requirements.txt
-```
-
-### 3. 配置用户
-
-```bash
-python poxiao.py setup
-```
-
-或使用默认 demo 用户（已有示例配置）直接运行：
-
-```bash
-python poxiao.py generate --user demo --skip-llm
-```
-
-### 4. 查看输出
-
-生成的简报位于 `data/{username}/{date}/` 目录：
+### 双核引擎
 
 ```
-data/demo/2026-04-18/
-├── demo的早报_学术概览_2026-04-18.md
-├── demo的早报_社区速递_2026-04-18.md
-├── demo的早报_财经简报_2026-04-18.md
-└── demo的早报_今日索引_2026-04-18.md
+┌─────────────────────────────────────────────────────────────┐
+│                        破晓 V2.0                            │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│   ┌──────────────┐    ┌──────────────┐                    │
+│   │  Hermes 循环  │    │ HermeScroll  │                    │
+│   │  (品味引擎)   │    │  (数据引擎)   │                    │
+│   │              │    │              │                    │
+│   │  • 读 profile│    │  • 抓取 raw  │                    │
+│   │  • 写 profile│    │  • 格式化 md │                    │
+│   │  • 自我进化  │    │  • 异步并发  │                    │
+│   └──────┬───────┘    └──────┬───────┘                    │
+│          │                   │                             │
+│          └─────────┬─────────┘                             │
+│                    ▼                                       │
+│          ┌─────────────────┐                              │
+│          │  raw_context.md │                              │
+│          └────────┬────────┘                              │
+│                   ▼                                       │
+│          ┌─────────────────┐                              │
+│          │   Trae/Skill    │                              │
+│          │  (智能过滤/输出) │                              │
+│          └────────┬────────┘                              │
+│                   ▼                                       │
+│          ┌─────────────────┐                              │
+│          │ YYYY-MM-DD_早报 │                              │
+│          └─────────────────┘                              │
+└─────────────────────────────────────────────────────────────┘
 ```
 
----
+### 核心模块
 
-## 🖥️ Vibe Coding 平台适配
-
-### 支持的平台
-
-| 平台 | 触发方式 | 配置文件 |
-|------|---------|----------|
-| **CodeFlicker / KwaiPilot** | `/poxiao`, `/briefing`, `/deep_dive` | `SKILL.md` |
-| **Claude Code** | 自动识别 `SKILL.md` | `SKILL.md` |
-| **Cursor** | 自动识别 `SKILL.md` | `SKILL.md` |
-| **Trae** | 手动导入 | `SKILL.md` |
-
-### 定时任务配置（CodeFlicker）
-
-1. 打开 CodeFlicker 设置 → 定时任务
-2. 添加新任务：
-   - Prompt: `/briefing --days 1`
-   - Cron: `0 9 * * 1-5`（工作日早 9 点）
-   - 工作目录：项目根目录
-
-### macOS launchd
-
-```bash
-python setup.py  # 选择 "launchd" 自动安装
-```
+| 模块 | 文件 | 职责 |
+|------|------|------|
+| **数据抓取** | `fetch/vibe_fetch.py` | 异步并发抓取 arXiv/RSS/HackerNews |
+| **深度分析** | `fetch/deep_dive.py` | 根据 arXiv ID 获取论文完整信息 |
+| **品味引擎** | `profiles/profile_demo.yaml` | 用户兴趣配置，Hermes 联动 |
+| **原始数据** | `PoXiao_Briefs/raw_context.md` | 所有抓取数据的统一输出 |
+| **早报生成** | `.trae/skills/poxiao/SKILL.md` | Trae 执行的 Skill 指令定义 |
+| **早报输出** | `PoXiao_Briefs/YYYY-MM-DD_早报.md` | 最终格式化早报 |
+| **信源配置** | `config.json` | RSS/API 源配置与开关 |
 
 ---
 
@@ -193,132 +99,216 @@ python setup.py  # 选择 "launchd" 自动安装
 
 ```
 poxiao/
-├── poxiao.py              # 统一 CLI 入口
-├── setup.py               # 交互式配置引导
-├── config.json            # RSS/Reddit/HN 源配置
-├── profile.yaml           # 用户兴趣画像模板
-├── requirements.txt       # Python 依赖
-├── SKILL.md               # Vibe Coding Skill 定义（核心！）
-│
-├── scripts/               # 核心脚本
-│   ├── fetch.py           # 社区数据抓取
-│   ├── search_papers.py   # 学术论文检索
-│   ├── cluster_topics.py  # 话题聚类
-│   ├── retry.py           # 重试装饰器 + 警告收集
-│   ├── cache_manager.py   # SQLite 缓存 + S2 熔断器
-│   ├── text_utils.py      # HTML 清理 + 摘要提取
-│   └── path_utils.py      # 路径定义模块
-│
-├── .poxiao_system/        # 系统数据
-│   └── profiles/          # 用户画像
-│
-└── data/                  # 输出数据（按用户/日期组织）
-    └── {user}/
-        └── {date}/
-            ├── fetched.json
-            ├── clustered.json
-            ├── papers.json
-            └── demo的早报_*.md
+├── fetch/
+│   ├── vibe_fetch.py          # 极简数据抓取（V2.0 核心）
+│   ├── deep_dive.py           # 论文深度分析（/deep_dive 引擎）
+│   └── diagnose_sources.py    # 信源诊断工具
+├── profiles/
+│   ├── profile_demo.yaml      # 演示用户品味配置
+│   └── profile_example.yaml   # 示例模板
+├── PoXiao_Briefs/
+│   ├── raw_context.md         # 原始数据（自动生成）
+│   └── YYYY-MM-DD_早报.md     # 格式化早报
+├── .trae/skills/poxiao/
+│   └── SKILL.md              # Vibe Coding Skill 定义
+├── config.json                # RSS/API 源配置
+├── requirements.txt           # Python 依赖
+└── README.md                 # 本文件
 ```
 
 ---
 
-## 🎯 使用场景
+## � 筛选逻辑详解
 
-| 用户类型 | 使用方式 |
-|---------|---------|
-| **研究者** | `/poxiao --type academic` 追踪 arXiv 最新论文 |
-| **工程师** | `/poxiao --type community` 监控技术热点 |
-| **投资人** | `/poxiao --type finance` 关注 AI 融资动态 |
-| **产品经理** | `/poxiao` 获取每日三路简报 |
+### 三层过滤架构
 
----
+#### 第一层：时间过滤（Time Filter）
+```python
+# vibe_fetch.py 中的时间窗口控制
+TIME_WINDOW_HOURS = 48  # 默认 48 小时
 
-## 🔧 命令行参数
+# 论文是否在时间窗口内
+published > datetime.now(timezone.utc) - timedelta(hours=TIME_WINDOW_HOURS)
+```
+- **目的**：只保留最近 48 小时内的内容，避免信息过载
+- **Fallback**：如果某关键词在 48 小时内无新论文，收集最新 5 篇
 
-| 参数 | 用途 |
-|------|------|
-| `--user <name>` | 指定用户名（默认 demo） |
-| `--type <type>` | 简报类型：`all`, `academic`, `community`, `finance` |
-| `--days <N>` | 抓取时间窗口（默认周一3天，其他1天） |
-| `--force-refresh` | 强制重新抓取，忽略缓存 |
-| `--skip-llm` | 跳过 LLM，使用原生摘要（无需 API Key） |
-| `--output <dir>` | 自定义输出目录 |
+#### 第二层：关键词匹配（Keyword Matching）
+```yaml
+# profile_demo.yaml 中的关键词配置
+research_domains:
+  RL 推断 & 对齐:
+    keywords: [RLHF, GRPO, PPO, DPO, reasoning, alignment]
+    priority: 5.0
+  LLM Agent 工程:
+    keywords: [agent, multi-agent, tool use, MCP]
+    priority: 4.0
+  算力优化 & 推理加速:
+    keywords: [vLLM, PagedAttention, quantization, MoE]
+    priority: 4.0
+```
 
----
+**匹配逻辑**：
+```python
+def match_score(paper_title: str, keywords: list[str]) -> float:
+    """计算论文与关键词的匹配分数"""
+    title_lower = paper_title.lower()
+    score = 0.0
+    for keyword in keywords:
+        if keyword.lower() in title_lower:
+            score += 1.0
+    return score
+```
 
-## 🔮 未来迭代方向
+#### 第三层：噪声过滤（Noise Filter）
+```yaml
+# profile_demo.yaml 中的噪声过滤
+noise_filter_prompt: >
+  排除纯宏观经济和传统金融新闻；
+  保留 AI 算力、顶尖 AI 初创融资、
+  科技大厂 AI 战略变动、AI 产品商业化里程碑。
 
-### 短期（V1.3）
+excluded_keywords:
+  - workshop
+  - medical image
+  - pathology
+  - remote sensing
+  - radiology
+```
 
-- [ ] 多语言支持（英文简报选项）
-- [ ] 邮件/微信推送集成
-- [ ] Web UI 配置界面
+### 优先级评分公式
 
-### 中期（V2.0）
+```
+final_score = base_priority * keyword_match_count * time_decay_factor
 
-- [ ] 多模态内容支持（播客/视频摘要）
-- [ ] 协作过滤推荐（基于相似用户）
-- [ ] 自定义信源接入（Notion/飞书）
+其中：
+- base_priority: 用户配置的领域优先级（0-5）
+- keyword_match_count: 标题中匹配的关键词数量
+- time_decay_factor: 时间衰减因子（越新越高）
+```
 
-### 长期
+### 相似论文去重（SimHash）
 
-- [ ] 本地 LLM 支持（Ollama/LM Studio）
-- [ ] 知识图谱构建
-- [ ] Agent 自主探索模式
+```python
+def compute_similarity_hash(title: str) -> int:
+    """计算标题的特征哈希"""
+    words = title.lower().split()
+    # 取关键词的哈希叠加
+    hash_value = 0
+    for word in words:
+        if len(word) > 4:  # 忽略短词
+            hash_value ^= hash(word)
+    return hash_value
 
----
-
-## 🔑 SEO 关键词
-
-`AI 早报` `个人情报系统` `LLM 聚类` `arXiv 监控` `HackerNews 聚合` `RSS 阅读器替代` `Vibe Coding` `Skill 系统` `CodeFlicker` `Claude Code` `Cursor` `知识管理` `信息过载` `自动化早报` `Semantic Scholar` `论文追踪` `技术情报`
-
----
-
-## 🤝 参与贡献
-
-欢迎二次开发！破晓采用 MIT 协议开源。
-
-### 贡献方式
-
-1. **Fork 仓库** → 创建你的分支
-2. **添加新信源**：编辑 `config.json`，添加 RSS/API
-3. **改进聚类算法**：修改 `scripts/cluster_topics.py`
-4. **优化 UI 模板**：调整 Markdown 渲染逻辑
-5. **提交 PR**：描述你的改进
-
-### 开发指南
-
-```bash
-# 安装开发依赖
-pip install -r requirements.txt
-pip install pytest ruff mypy
-
-# 运行测试
-python -m pytest tests/
-
-# 代码检查
-ruff check scripts/
+def deduplicate(papers: list[dict]) -> list[dict]:
+    """去除相似论文（哈希值相近的）"""
+    seen_hashes = set()
+    unique_papers = []
+    for paper in papers:
+        h = compute_similarity_hash(paper['title'])
+        if h not in seen_hashes:
+            seen_hashes.add(h)
+            unique_papers.append(paper)
+    return unique_papers
 ```
 
 ---
 
-## 🙏 致谢
+## �🔧 配置说明
 
-破晓的诞生离不开以下开源项目：
+### 用户品味 (profile_demo.yaml)
+
+```yaml
+research_domains:
+  RL 推断 & 对齐 (RLHF/GRPO/PPO):
+    keywords: [RLHF, GRPO, PPO, DPO, reasoning, alignment]
+    priority: 5.0
+  LLM Agent 工程:
+    keywords: [agent, multi-agent, tool use, MCP]
+    priority: 4.0
+  算力优化 & 推理加速:
+    keywords: [vLLM, PagedAttention, quantization, MoE]
+    priority: 4.0
+
+business_focus:
+  sectors:
+    - 硅谷动态 (Anthropic/OpenAI/Meta AI)
+    - 国内大厂动向 (字节/阿里/腾讯)
+    - 芯片 & 算力基础设施
+  tracked_companies:
+    tier1: [Anthropic, OpenAI, DeepSeek, Google DeepMind]
+    tier2: [Meta AI, Mistral, 字节跳动, 阿里云]
+    tier3: [NVIDIA, 台积电, AMD]
+
+format_preference:
+  academic_top_n: 8
+  community_top_n: 10
+  finance_top_n: 8
+```
+
+### 信源配置 (config.json)
+
+```json
+{
+  "sources": {
+    "arxiv": {
+      "enabled": true,
+      "time_window_hours": 48,
+      "categories": ["cs.AI", "cs.LG", "cs.CL"]
+    },
+    "hackernews": { "enabled": true, "min_upvotes": 10 },
+    "rss": [
+      {
+        "name": "TechCrunch AI",
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+        "enabled": true,
+        "category": "finance"
+      }
+    ]
+  }
+}
+```
+
+---
+
+## 🚀 迭代方向（Sign Action）
+
+### Phase 1: 巩固数据层（已实现）
+- [x] arXiv 学术论文抓取
+- [x] HackerNews 社区热点
+- [x] RSS 财经动态
+- [x] 用户品味绑定（profile.yaml）
+- [x] /deep_dive 深度分析
+
+### Phase 2: 增强交互层（进行中）
+- [ ] **Hermes 品味闭环验证**：测试 IDE 是否能响应用户修正，自动修改 profile.yaml
+- [ ] **多轮对话记忆**：在同一次 /poxiao 会话中记住上下文
+- [ ] **实时反馈机制**：用户对单条新闻点赞/踩，系统记录并调整权重
+
+### Phase 3: 扩展信源层（规划中）
+- [ ] **PDF 全文提取**：/deep_dive 不仅抓摘要，还要能下载 PDF 并提取正文
+- [ ] **Twitter/X 追踪**：抓取特定 AI 研究员的最新动态
+- [ ] **Reddit 专题订阅**：追踪 r/MachineLearning 等高质量社区
+- [ ] **中文信源增强**：36kr、机器之心等国内高质量源
+
+### Phase 4: 智能化层（远期规划）
+- [ ] **MCP 工具链集成**：标准化工具调用协议
+- [ ] **Crawl4AI 精读引擎**：网页深度内容提取
+- [ ] **向量数据库**：存储历史早报，支持语义检索
+- [ ] **多模型路由**：根据内容类型路由到最适合的 LLM
+
+---
+
+## 🤝 致谢
 
 - [arXiv](https://arxiv.org/) — 开放学术预印本平台
-- [Semantic Scholar](https://www.semanticschcholar.org/) — 学术论文知识图谱
 - [Hacker News](https://news.ycombinator.com/) — 技术社区风向标
-- [OpenAI API](https://openai.com/) — LLM 聚类引擎
-- [httpx](https://www.python-httpx.org/) — 高性能异步 HTTP 客户端
+- [TechCrunch](https://techcrunch.com/) — 全球创业融资第一手资讯
+- [httpx](https://www.python-httpx.org/) — 异步 HTTP 客户端
 - [feedparser](https://github.com/kurtmckee/feedparser) — RSS 解析利器
-
-特别感谢 **CodeFlicker / KwaiPilot** 团队提供的 Vibe Coding 基础设施。
 
 ---
 
 <p align="center">
-  <strong>破晓 PoXiao — 让 AI 帮你看世界</strong><br>
-  <sub>如果觉得有用，请给个 ⭐ Star 支持一下！</sub>
+  <strong>破晓 PoXiao — 让 AI 帮你看世界</strong>
 </p>
