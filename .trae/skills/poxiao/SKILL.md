@@ -24,8 +24,8 @@ description: "AI-driven daily briefing system. Generates academic, community and
 当用户触发 `/poxiao`、`/briefing` 或 `/早报` 时，按以下步骤执行：
 
 ### 步骤 1: 初始化与读取
-1. **检查生肉数据**：读取 `PoXiao_Briefs/raw_context.md`
-2. **如果不存在，调用**：`python fetch/vibe_fetch.py` 重新获取
+1. **检查生肉数据**：读取 `briefs/YYYY-MM-DD/raw_context.md`（YYYY-MM-DD 为今日日期）
+2. **如果不存在，调用**：`python fetch/vibe_fetch.py` 重新获取（自动生成当日目录）
 3. **加载用户品味**：读取 `profiles/profile_demo.yaml`（或用户指定的 profile）
 
 ### 步骤 2: 精准过滤与聚类（在对话框中完成）
@@ -36,7 +36,7 @@ description: "AI-driven daily briefing system. Generates academic, community and
 
 ### 步骤 3: 流式渲染与落盘
 1. **聊天界面流式输出**：美观分层展示，包含 🎓 学术概览、🔥 社区速递、💰 财经简报三个板块
-2. **自动保存 Markdown**：调用 `Write` 工具将最终报告写入 `PoXiao_Briefs/YYYY-MM-DD_早报.md`
+2. **自动保存 Markdown**：调用 `Write` 工具将最终报告写入 `briefs/YYYY-MM-DD/早报.md`
 
 ---
 
@@ -52,7 +52,7 @@ python fetch/deep_dive.py <arxiv_id>
 例如：`python fetch/deep_dive.py 2604.14895`
 
 ### 步骤 2: 读取深度上下文
-脚本会生成 `PoXiao_Briefs/deep_context_<arxiv_id>.md`，包含：
+脚本会生成 `briefs/YYYY-MM-DD/deep_context_<arxiv_id>.md`，包含：
 - 论文完整标题和作者
 - 完整摘要（而非 300 字预览）
 - PDF 下载链接
@@ -94,15 +94,15 @@ python fetch/deep_dive.py <arxiv_id>
 ## 🚨 铁律（必须遵守）
 
 ### 1. 反幻觉机制
-**你的所有总结必须 100% 来源于 `PoXiao_Briefs/raw_context.md` 中的内容！**
+**你的所有总结必须 100% 来源于 `briefs/YYYY-MM-DD/raw_context.md` 中的内容！**
 - 如果数据源中没有相关领域的信息，请直接回答"今日无该领域相关动态"
 - **绝对禁止**动用预训练记忆编造新闻！
 - 所有引用的标题、链接、摘要都必须来自 `raw_context.md`
 
 ### 2. 强制工具调用
-**在生成早报的最后一步，必须主动调用 `Write` 工具，将 Markdown 结果物理保存到 `PoXiao_Briefs/YYYY-MM-DD_早报.md`！**
-- 文件名格式：`PoXiao_Briefs/2026-04-19_早报.md`
-- 使用当天日期
+**在生成早报的最后一步，必须主动调用 `Write` 工具，将 Markdown 结果物理保存到 `briefs/YYYY-MM-DD/早报.md`！**
+- 文件名格式：`briefs/2026-04-20/早报.md`
+- 使用当天日期作为目录名，文件名固定为 `早报.md`
 - 必须保存完整内容，不要只保存一部分
 
 ### 3. 严格的质量控制
@@ -149,20 +149,20 @@ python fetch/deep_dive.py <arxiv_id>
 ```bash
 python fetch/vibe_fetch.py
 ```
-它会生成 `PoXiao_Briefs/raw_context.md`。
+它会自动创建 `briefs/YYYY-MM-DD/` 目录并生成 `raw_context.md`。
 
 ---
 
 ## Vibe-Native 架构
 
 ```
-fetch/vibe_fetch.py (极简) → raw_context.md
-                                     ↓
-                               Trae/Skill (我)
-                                     ↓
-                               过滤、聚类、分析
-                                     ↓
-                               YYYY-MM-DD_早报.md
+fetch/vibe_fetch.py (极简) → briefs/YYYY-MM-DD/raw_context.md
+                                          ↓
+                                    Vibe Coding (我)
+                                          ↓
+                                   过滤、聚类、分析
+                                          ↓
+                               briefs/YYYY-MM-DD/早报.md
 ```
 
 **核心原则：**
@@ -326,7 +326,7 @@ fetch/vibe_fetch.py (极简) → raw_context.md
 
 在生成报告前，你必须检查：
 
-- [ ] 所有信息都来自 `PoXiao_Briefs/raw_context.md`
+- [ ] 所有信息都来自 `briefs/YYYY-MM-DD/raw_context.md`
 - [ ] 没有使用预训练记忆编造内容
 - [ ] 所有链接都能在原始数据中找到
 - [ ] 摘要准确反映原始内容，没有添加额外信息

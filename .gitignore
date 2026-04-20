@@ -15,7 +15,8 @@ __pycache__/
 # 系统数据（不提交运行时数据）
 .poxiao_system/raw/
 .poxiao_system/cache/
-PoXiao_Briefs/*.md
+PoXiao_Briefs/
+briefs/*/raw_context.md
 
 # 保留示例
 !.poxiao_system/profiles/profile_example.yaml

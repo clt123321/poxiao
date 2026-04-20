@@ -18,8 +18,9 @@ logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(levelname)s] - 
 logger = logging.getLogger(__name__)
 
 ARXIV_ABSTRACT_URL = "http://export.arxiv.org/api/query"
-OUTPUT_DIR = Path("PoXiao_Briefs")
-DEEP_CONTEXT_PATH = OUTPUT_DIR / "deep_context.md"
+OUTPUT_DIR = Path("briefs")
+DATE_STR = __import__('datetime').datetime.now().strftime("%Y-%m-%d")
+DEEP_CONTEXT_PATH = OUTPUT_DIR / DATE_STR / "deep_context.md"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -153,7 +154,7 @@ def write_deep_context(content: str, output_path: Path = None):
         output_path = DEEP_CONTEXT_PATH
     
     try:
-        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
         
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(content)

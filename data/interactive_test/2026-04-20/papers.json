@@ -1,0 +1,649 @@
+{
+  "target_date": "2026-04-20",
+  "date_windows": {
+    "recent_30d": {
+      "start": "2026-03-21",
+      "end": "2026-04-20"
+    },
+    "past_year": {
+      "start": "2025-04-20",
+      "end": "2026-03-20"
+    }
+  },
+  "total_recent": 200,
+  "total_hot": 5,
+  "total_unique": 191,
+  "top_papers": [
+    {
+      "id": "http://arxiv.org/abs/2604.16022v1",
+      "title": "SocialGrid: A Benchmark for Planning and Social Reasoning in Embodied Multi-Agent Systems",
+      "summary": "As Large Language Models (LLMs) transition from text processors to autonomous agents, evaluating their social reasoning in embodied multi-agent settings becomes critical. We introduce SocialGrid, an embodied multi-agent environment inspired by Among Us that evaluates LLM agents on planning, task execution, and social reasoning. Our evaluations reveal that even the strongest open model (GPT-OSS-120B) achieves below 60% accuracy in task completion and planning, with agents getting stuck in repetitive behaviors or failing to navigate basic obstacles. Since poor navigation confounds evaluation of social intelligence, SocialGrid offers an optional Planning Oracle to isolate social reasoning from planning deficits. While planning assistance improves task completion, social reasoning remains a bottleneck: agents fail to detect deception at near-random chance regardless of scale, relying on shallow heuristics rather than accumulating behavioral evidence. SocialGrid provides automatic failure analysis and fine-grained metrics, enabling developers to diagnose and improve their agents. We also establish a competitive leaderboard using Elo ratings from adversarial league play.",
+      "authors": [
+        "Hikaru Shindo",
+        "Hanzhao Lin",
+        "Lukas Helff",
+        "Patrick Schramowski",
+        "Kristian Kersting"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T12:51:46Z",
+      "published_date": "2026-04-17 12:51:46+00:00",
+      "updated": "2026-04-17T12:51:46Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.MA"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.16022v1",
+      "url": "http://arxiv.org/abs/2604.16022v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 3.5,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 1.1,
+        "recommendation": 9.03
+      },
+      "matched_domain": "RL & Reasoning",
+      "matched_keywords": [
+        "reasoning",
+        "cs.AI",
+        "cs.LG",
+        "cs.MA"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "SocialGrid_A_Benchmark_for_Planning_and_Social_Reasoning_in_Embodied_Multi-Agent_Systems"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.16158v1",
+      "title": "AtManRL: Towards Faithful Reasoning via Differentiable Attention Saliency",
+      "summary": "Large language models (LLMs) increasingly rely on chain-of-thought (CoT) reasoning to solve complex tasks. Yet ensuring that the reasoning trace both contributes to and faithfully reflects the processes underlying the model's final answer, rather than merely accompanying it, remains challenging. We introduce AtManRL, a method that leverages differentiable attention manipulation to learn more faithful reasoning through reinforcement learning. By training an additive attention mask that identifies tokens in the CoT crucial for producing correct answers, we derive a saliency reward signal that encourages the model to generate reasoning traces that genuinely influence its final predictions. We integrate this saliency reward with outcome-based rewards within the GRPO framework to jointly optimize for correctness and interpretability. Experiments on GSM8K and MMLU with Llama-3.2-3B-Instruct demonstrate that our approach can identify influential reasoning tokens and enable training more transparent reasoning models.",
+      "authors": [
+        "Max Henning Höth",
+        "Kristian Kersting",
+        "Björn Deiseroth",
+        "Letitia Parcalabescu"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T15:27:35Z",
+      "published_date": "2026-04-17 15:27:35+00:00",
+      "updated": "2026-04-17T15:27:35Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.16158v1",
+      "url": "http://arxiv.org/abs/2604.16158v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 3.4,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 1.2,
+        "recommendation": 8.93
+      },
+      "matched_domain": "RL & Reasoning",
+      "matched_keywords": [
+        "GRPO",
+        "reasoning",
+        "chain-of-thought",
+        "CoT",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "AtManRL_Towards_Faithful_Reasoning_via_Differentiable_Attention_Saliency"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.15972v1",
+      "title": "Weak-Link Optimization for Multi-Agent Reasoning and Collaboration",
+      "summary": "LLM-driven multi-agent frameworks address complex reasoning tasks through multi-role collaboration. However, existing approaches often suffer from reasoning instability, where individual agent errors are amplified through collaboration, undermining overall performance. Current research mainly focuses on enhancing high-capability agents or suppressing unreliable outputs to improve framework effectiveness, while systematic identification and reinforcement of performance-limiting agents receive less attention. To address this gap, we propose WORC, a \\underline{w}eak-link \\underline{o}ptimization framework for multi-agent \\underline{r}easoning and \\underline{c}ollaboration, grounded in the weak-link principle. WORC follows a two-stage workflow. In the weak agent localization stage, task features are constructed, and a meta-learning-based weight predictor trained on optimal configurations identified by swarm intelligence algorithms (SIAs) enables zero-shot mapping from these features to agent performance weights, where the agent with the lowest predicted weight is identified as the weak agent. In the weak-link optimization stage, an uncertainty-driven allocation strategy assigns additional reasoning budgets to weak agents, with lower predicted weights leading to larger repeated-sampling quotas to compensate for reliability deficiencies. Experimental results show that WORC achieves an average accuracy of 82.2\\% on reasoning benchmarks while improving framework stability and cross-architecture generalization, suggesting that compensating for weak links, rather than reinforcing strengths alone, enhances the robustness of multi-agent systems.",
+      "authors": [
+        "Haoyu Bian",
+        "Chaoning Zhang",
+        "Jiaquan Zhang",
+        "Xingyao Li",
+        "Yuanfang Guo",
+        "Wei Dong",
+        "Yang Yang"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T11:36:20Z",
+      "published_date": "2026-04-17 11:36:20+00:00",
+      "updated": "2026-04-17T11:36:20Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.MA"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.15972v1",
+      "url": "http://arxiv.org/abs/2604.15972v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 3.2,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 1.6,
+        "recommendation": 8.8
+      },
+      "matched_domain": "LLM Agent Engineering",
+      "matched_keywords": [
+        "agent",
+        "multi-agent",
+        "cs.AI",
+        "cs.MA",
+        "cs.CL"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "Weak-Link_Optimization_for_Multi-Agent_Reasoning_and_Collaboration"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.15877v1",
+      "title": "Experience Compression Spectrum: Unifying Memory, Skills, and Rules in LLM Agents",
+      "summary": "As LLM agents scale to long-horizon, multi-session deployments, efficiently managing accumulated experience becomes a critical bottleneck. Agent memory systems and agent skill discovery both address this challenge -- extracting reusable knowledge from interaction traces -- yet a citation analysis of 1,136 references across 22 primary papers reveals a cross-community citation rate below 1%. We propose the \\emph{Experience Compression Spectrum}, a unifying framework that positions memory, skills, and rules as points along a single axis of increasing compression (5--20$\\times$ for episodic memory, 50--500$\\times$ for procedural skills, 1,000$\\times$+ for declarative rules), directly reducing context consumption, retrieval latency, and compute overhead. Mapping 20+ systems onto this spectrum reveals that every system operates at a fixed, predetermined compression level -- none supports adaptive cross-level compression, a gap we term the \\emph{missing diagonal}. We further show that specialization alone is insufficient -- both communities independently solve shared sub-problems without exchanging solutions -- that evaluation methods are tightly coupled to compression levels, that transferability increases with compression at the cost of specificity, and that knowledge lifecycle management remains largely neglected. We articulate open problems and design principles for scalable, full-spectrum agent learning systems.",
+      "authors": [
+        "Xing Zhang",
+        "Guanghui Wang",
+        "Yanwei Cui",
+        "Wei Qiu",
+        "Ziyuan Li",
+        "Bing Zhu",
+        "Peiyang He"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T09:26:25Z",
+      "published_date": "2026-04-17 09:26:25+00:00",
+      "updated": "2026-04-17T09:26:25Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.MA"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.15877v1",
+      "url": "http://arxiv.org/abs/2604.15877v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 3.28,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 1.2,
+        "recommendation": 8.77
+      },
+      "matched_domain": "LLM Agent Engineering",
+      "matched_keywords": [
+        "agent",
+        "long-horizon",
+        "agent memory",
+        "cs.AI",
+        "cs.MA",
+        "cs.CL"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "Experience_Compression_Spectrum_Unifying_Memory,_Skills,_and_Rules_in_LLM_Agents"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.15727v1",
+      "title": "Structured Abductive-Deductive-Inductive Reasoning for LLMs via Algebraic Invariants",
+      "summary": "Large language models exhibit systematic limitations in structured logical reasoning: they conflate hypothesis generation with verification, cannot distinguish conjecture from validated knowledge, and allow weak reasoning steps to propagate unchecked through inference chains. We present a symbolic reasoning scaffold that operationalizes Peirce's tripartite inference -- abduction, deduction, and induction -- as an explicit protocol for LLM-assisted reasoning. The framework enforces logical consistency through five algebraic invariants (the Gamma Quintet), the strongest of which -- the Weakest Link bound -- ensures that no conclusion in a reasoning chain can exceed the reliability of its least-supported premise. This principle, independently grounded as weakest link resolution in possibilistic logic and empirically validated for chain-of-thought reasoning, prevents logical inconsistencies from accumulating across multi-step inference. We verify all invariants through a property-based testing suite of 100 properties and 16 fuzz tests over 10^5+ generated cases, providing a verified reference implementation of the invariants suitable as a foundation for future reasoning benchmarks.",
+      "authors": [
+        "Sankalp Gilda",
+        "Shlok Gilda"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T05:59:16Z",
+      "published_date": "2026-04-17 05:59:16+00:00",
+      "updated": "2026-04-17T05:59:16Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.LO"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.15727v1",
+      "url": "http://arxiv.org/abs/2604.15727v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 3.1,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 0.9,
+        "recommendation": 8.43
+      },
+      "matched_domain": "RL & Reasoning",
+      "matched_keywords": [
+        "PPO",
+        "reasoning",
+        "chain-of-thought",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "Structured_Abductive-Deductive-Inductive_Reasoning_for_LLMs_via_Algebraic_Invariants"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.15725v1",
+      "title": "Reasoning-targeted Jailbreak Attacks on Large Reasoning Models via Semantic Triggers and Psychological Framing",
+      "summary": "Large Reasoning Models (LRMs) have demonstrated strong capabilities in generating step-by-step reasoning chains alongside final answers, enabling their deployment in high-stakes domains such as healthcare and education. While prior jailbreak attack studies have focused on the safety of final answers, little attention has been given to the safety of the reasoning process. In this work, we identify a novel problem that injects harmful content into the reasoning steps while preserving unchanged answers. This type of attack presents two key challenges: 1) manipulating the input instructions may inadvertently alter the LRM's final answer, and 2) the diversity of input questions makes it difficult to consistently bypass the LRM's safety alignment mechanisms and embed harmful content into its reasoning process. To address these challenges, we propose the Psychology-based Reasoning-targeted Jailbreak Attack (PRJA) Framework, which integrates a Semantic-based Trigger Selection module and a Psychology-based Instruction Generation module. Specifically, the proposed PRJA automatically selects manipulative reasoning triggers via semantic analysis and leverages psychological theories of obedience to authority and moral disengagement to generate adaptive instructions for enhancing the LRM's compliance with harmful content generation. Extensive experiments on five question-answering datasets demonstrate that PRJA achieves an average attack success rate of 83.6\\% against several commercial LRMs, including DeepSeek R1, Qwen2.5-Max, and OpenAI o4-mini.",
+      "authors": [
+        "Zehao Wang",
+        "Lanjun Wang"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T05:56:46Z",
+      "published_date": "2026-04-17 05:56:46+00:00",
+      "updated": "2026-04-17T05:56:46Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.15725v1",
+      "url": "http://arxiv.org/abs/2604.15725v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 2.8,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 1.6,
+        "recommendation": 8.27
+      },
+      "matched_domain": "RL & Reasoning",
+      "matched_keywords": [
+        "reasoning",
+        "alignment",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "Reasoning-targeted_Jailbreak_Attacks_on_Large_Reasoning_Models_via_Semantic_Triggers_and_Psychological_Framing"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.16027v1",
+      "title": "Where does output diversity collapse in post-training?",
+      "summary": "Post-trained language models produce less varied outputs than their base counterparts. This output diversity collapse undermines inference-time scaling methods that rely on varied samples, and risks homogenizing model outputs on creative and value-laden tasks. Prior work attributes collapse to specific post-training methods, without separating the role of training data composition from the method, or the generation format from the model weights. We trace output diversity through three parallel post-training lineages of Olmo 3, Think (chain-of-thought distillation), Instruct (broad multi-source data), and RL-Zero, across 15 tasks and four text diversity metrics. We find that the location of collapse co-varies with data composition: the Think lineage loses most semantic diversity at supervised fine-tuning, and the effect of DPO is larger in Instruct than in Think. Suppressing chain-of-thought reasoning at inference in Think models drops accuracy on hard tasks, yet leaves answer-level diversity unchanged, showing that the collapse is embedded in the model weights by training data, not imposed by the generation format. Decomposing diversity loss on six verifiable tasks into a quality-control component (removal of incorrect outputs) and a residual component (genuine narrowing among correct outputs) reveals that the split is task-dependent, and Think models retain more correct-answer diversity than Instruct despite collapsing more in aggregate. Our results indicate that diversity collapse is determined during training by data composition and cannot be addressed at inference time alone.",
+      "authors": [
+        "Constantinos Karouzos",
+        "Xingwei Tan",
+        "Nikolaos Aletras"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T12:56:31Z",
+      "published_date": "2026-04-17 12:56:31+00:00",
+      "updated": "2026-04-17T12:56:31Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.16027v1",
+      "url": "http://arxiv.org/abs/2604.16027v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 2.9,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 0.8,
+        "recommendation": 8.13
+      },
+      "matched_domain": "RL & Reasoning",
+      "matched_keywords": [
+        "DPO",
+        "reasoning",
+        "chain-of-thought",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "Where_does_output_diversity_collapse_in_post-training"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.15851v1",
+      "title": "DPrivBench: Benchmarking LLMs' Reasoning for Differential Privacy",
+      "summary": "Differential privacy (DP) has a wide range of applications for protecting data privacy, but designing and verifying DP algorithms requires expert-level reasoning, creating a high barrier for non-expert practitioners. Prior works either rely on specialized verification languages that demand substantial domain expertise or remain semi-automated and require human-in-the-loop guidance. In this work, we investigate whether large language models (LLMs) can automate DP reasoning. We introduce DPrivBench, a benchmark in which each instance asks whether a function or algorithm satisfies a stated DP guarantee under specified assumptions. The benchmark is carefully designed to cover a broad range of DP topics, span diverse difficulty levels, and resist shortcut reasoning through trivial pattern matching. Experiments show that while the strongest models handle textbook mechanisms well, all models struggle with advanced algorithms, revealing substantial gaps in current DP reasoning capabilities. Through further analytic study and failure-mode analysis, we identify several promising directions for improving automated DP reasoning. Our benchmark provides a solid foundation for developing and evaluating such methods, and complements existing benchmarks for mathematical reasoning.",
+      "authors": [
+        "Erchi Wang",
+        "Pengrun Huang",
+        "Eli Chien",
+        "Om Thakkar",
+        "Kamalika Chaudhuri",
+        "Yu-Xiang Wang",
+        "Ruihan Wu"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T09:03:11Z",
+      "published_date": "2026-04-17 09:03:11+00:00",
+      "updated": "2026-04-17T09:03:11Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CR"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.15851v1",
+      "url": "http://arxiv.org/abs/2604.15851v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 2.8,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 1.2,
+        "recommendation": 8.13
+      },
+      "matched_domain": "RL & Reasoning",
+      "matched_keywords": [
+        "Mathematical Reasoning",
+        "reasoning",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "DPrivBench_Benchmarking_LLMs'_Reasoning_for_Differential_Privacy"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.15750v1",
+      "title": "DepCap: Adaptive Block-Wise Parallel Decoding for Efficient Diffusion LM Inference",
+      "summary": "Diffusion language models (DLMs) have emerged as a promising alternative to autoregressive language generation due to their potential for parallel decoding and global refinement of the entire sequence. To unlock this potential, DLM inference must carefully balance generation quality and decoding speed. Recent block-wise DLM decoding methods improve this trade-off by performing diffusion-based decoding sequentially in blocks. However, existing methods typically rely on fixed block schedules or current-step local signals to determine block boundaries, and use conservative confidence-based parallel decoding to avoid conflicts, limiting the quality-speed trade-off. In this paper, we argue that block-wise DLM inference requires more suitable signals for its two core decisions: cross-step signals for determining block boundaries, and token-level conflict signals for parallel decoding. Based on this view, we propose DepCap, a training-free framework for efficient block-wise DLM inference. Specifically, DepCap instantiates the cross-step signal as the influence of the last decoded block and uses it to adaptively determine how far the next block should extend, while identifying a conflict-free subset of tokens for safe parallel decoding within each block, enabling substantial inference acceleration with negligible quality degradation. DepCap is a plug-and-play method applicable to various DLMs, and compatible with existing KV-cache strategies for block-wise DLM. An information-theoretic analysis further suggests that the cumulative last-block influence on a candidate block is approximately additive across tokens, supporting the proposed block-partitioning criterion. Experimental results show that DepCap achieves favorable speed-quality trade-offs across multiple DLM backbones and reasoning and coding benchmarks, with up to 5.63$\\times$ speedup without significant performance degradation.",
+      "authors": [
+        "Xiang Xia",
+        "Wuyang Zhang",
+        "Jiazheng Liu",
+        "Cheng Yan",
+        "Yanyong Zhang"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T06:53:27Z",
+      "published_date": "2026-04-17 06:53:27+00:00",
+      "updated": "2026-04-17T06:53:27Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.15750v1",
+      "url": "http://arxiv.org/abs/2604.15750v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 2.6,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 1.6,
+        "recommendation": 8.0
+      },
+      "matched_domain": "RL & Reasoning",
+      "matched_keywords": [
+        "PPO",
+        "reasoning",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "DepCap_Adaptive_Block-Wise_Parallel_Decoding_for_Efficient_Diffusion_LM_Inference"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.16076v1",
+      "title": "Prototype-Grounded Concept Models for Verifiable Concept Alignment",
+      "summary": "Concept Bottleneck Models (CBMs) aim to improve interpretability in Deep Learning by structuring predictions through human-understandable concepts, but they provide no way to verify whether learned concepts align with the human's intended meaning, hurting interpretability. We introduce Prototype-Grounded Concept Models (PGCMs), which ground concepts in learned visual prototypes: image parts that serve as explicit evidence for the concepts. This grounding enables direct inspection of concept semantics and supports targeted human intervention at the prototype level to correct misalignments. Empirically, PGCMs match the predictive performance of state-of-the-art CBMs while substantially improving transparency, interpretability, and intervenability.",
+      "authors": [
+        "Stefano Colamonaco",
+        "David Debot",
+        "Pietro Barbiero",
+        "Giuseppe Marra"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T14:04:14Z",
+      "published_date": "2026-04-17 14:04:14+00:00",
+      "updated": "2026-04-17T14:04:14Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.NE"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.16076v1",
+      "url": "http://arxiv.org/abs/2604.16076v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 2.8,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 0.7,
+        "recommendation": 7.97
+      },
+      "matched_domain": "RL & Reasoning",
+      "matched_keywords": [
+        "PPO",
+        "alignment",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "Prototype-Grounded_Concept_Models_for_Verifiable_Concept_Alignment"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.16004v1",
+      "title": "AgentV-RL: Scaling Reward Modeling with Agentic Verifier",
+      "summary": "Verifiers have been demonstrated to enhance LLM reasoning via test-time scaling (TTS). Yet, they face significant challenges in complex domains. Error propagation from incorrect intermediate reasoning can lead to false positives for seemingly plausible solutions, while lacking external grounding makes verifiers unreliable on computation or knowledge-intensive tasks. To address these challenges, we propose Agentic Verifier, a framework that transforms reward modeling into a multi-turn, tool-augmented deliberative process. We introduce complementary forward and backward agents: one traces solutions from premises to conclusions, while the other re-checks conclusions against their underlying premises. This bidirectional process enables a comprehensive, reliable, and interpretable assessment of solutions. To facilitate practical deployment, we propose AgentV-RL. Through proactive exploration and reinforcement learning, the verifier autonomously interleaves tool-use with internal reasoning. Extensive experiments show that Agentic Verifier yields consistent performance gains under both parallel and sequential TTS. Notably, our 4B variant surpasses state-of-the-art ORMs by 25.2%, positioning it as a promising paradigm for agentic reward modeling.",
+      "authors": [
+        "Jiazheng Zhang",
+        "Ziche Fu",
+        "Zhiheng Xi",
+        "Wenqing Jing",
+        "Mingxu Chai",
+        "Wei He",
+        "Guoqiang Zhang",
+        "Chenghao Fan",
+        "Chenxin An",
+        "Wenxiang Chen",
+        "Zhicheng Liu",
+        "Haojie Pan",
+        "Dingwei Zhu",
+        "Tao Gui",
+        "Qi Zhang",
+        "Xuanjing Huang"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T12:27:36Z",
+      "published_date": "2026-04-17 12:27:36+00:00",
+      "updated": "2026-04-17T12:27:36Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.16004v1",
+      "url": "http://arxiv.org/abs/2604.16004v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 2.4,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 2.3,
+        "recommendation": 7.97
+      },
+      "matched_domain": "LLM Agent Engineering",
+      "matched_keywords": [
+        "agent",
+        "agentic",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "AgentV-RL_Scaling_Reward_Modeling_with_Agentic_Verifier"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.15839v1",
+      "title": "Discover and Prove: An Open-source Agentic Framework for Hard Mode Automated Theorem Proving in Lean 4",
+      "summary": "Most ATP benchmarks embed the final answer within the formal statement -- a convention we call \"Easy Mode\" -- a design that simplifies the task relative to what human competitors face and may lead to optimistic estimates of model capability. We call the stricter, more realistic setting \"Hard Mode\": the system must independently discover the answer before constructing a formal proof. To enable Hard Mode research, we make two contributions. First, we release MiniF2F-Hard and FIMO-Hard, expert-reannotated Hard Mode variants of two widely-used ATP benchmarks. Second, we introduce Discover And Prove (DAP), an agentic framework that uses LLM natural-language reasoning with explicit self-reflection to discover answers, then rewrites Hard Mode statements into Easy Mode ones for existing ATP provers. DAP sets the state of the art: on CombiBench it raises solved problems from 7 (previous SOTA, Pass@16) to 10; on PutnamBench it is the first system to formally prove 36 theorems in Hard Mode -- while simultaneously revealing that state-of-the-art LLMs exceed 80% answer accuracy on the same problems where formal provers manage under 10%, exposing a substantial gap that Hard Mode benchmarks are uniquely suited to measure.",
+      "authors": [
+        "Chengwu Liu",
+        "Yichun Yin",
+        "Ye Yuan",
+        "Jiaxuan Xie",
+        "Botao Li",
+        "Siqi Li",
+        "Jianhao Shen",
+        "Yan Xu",
+        "Lifeng Shang",
+        "Ming Zhang"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T08:40:48Z",
+      "published_date": "2026-04-17 08:40:48+00:00",
+      "updated": "2026-04-17T08:40:48Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LO"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.15839v1",
+      "url": "http://arxiv.org/abs/2604.15839v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 2.4,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 2.3,
+        "recommendation": 7.97
+      },
+      "matched_domain": "LLM Agent Engineering",
+      "matched_keywords": [
+        "agent",
+        "agentic",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "Discover_and_Prove_An_Open-source_Agentic_Framework_for_Hard_Mode_Automated_Theorem_Proving_in_Lean_4"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.15866v1",
+      "title": "DiZiNER: Disagreement-guided Instruction Refinement via Pilot Annotation Simulation for Zero-shot Named Entity Recognition",
+      "summary": "Large language models (LLMs) have advanced information extraction (IE) by enabling zero-shot and few-shot named entity recognition (NER), yet their generative outputs still show persistent and systematic errors. Despite progress through instruction fine-tuning, zero-shot NER still lags far behind supervised systems. These recurring errors mirror inconsistencies observed in early-stage human annotation processes that resolve disagreements through pilot annotation. Motivated by this analogy, we introduce DiZiNER (Disagreement-guided Instruction Refinement via Pilot Annotation Simulation for Zero-shot Named Entity Recognition), a framework that simulates the pilot annotation process, employing LLMs to act as both annotators and supervisors. Multiple heterogeneous LLMs annotate shared texts, and a supervisor model analyzes inter-model disagreements to refine task instructions. Across 18 benchmarks, DiZiNER achieves zero-shot SOTA results on 14 datasets, improving prior bests by +8.0 F1 and reducing the zero-shot to supervised gap by over +11 points. It also consistently outperforms its supervisor, GPT-5 mini, indicating that improvements stem from disagreement-guided instruction refinement rather than model capacity. Pairwise agreement between models shows a strong correlation with NER performance, further supporting this finding.",
+      "authors": [
+        "Siun Kim",
+        "Hyung-Jin Yoon"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T09:16:30Z",
+      "published_date": "2026-04-17 09:16:30+00:00",
+      "updated": "2026-04-17T09:16:30Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.15866v1",
+      "url": "http://arxiv.org/abs/2604.15866v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 2.3,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 2.3,
+        "recommendation": 7.83
+      },
+      "matched_domain": "RL & Reasoning",
+      "matched_keywords": [
+        "PPO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "DiZiNER_Disagreement-guided_Instruction_Refinement_via_Pilot_Annotation_Simulation_for_Zero-shot_Named_Entity_Recognition"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.15715v1",
+      "title": "GTA-2: Benchmarking General Tool Agents from Atomic Tool-Use to Open-Ended Workflows",
+      "summary": "The development of general-purpose agents requires a shift from executing simple instructions to completing complex, real-world productivity workflows. However, current tool-use benchmarks remain misaligned with real-world requirements, relying on AI-generated queries, dummy tools, and limited system-level coordination. To address this, we propose GTA-2, a hierarchical benchmark for General Tool Agents (GTA) spanning atomic tool use and open-ended workflows. Built on real-world authenticity, it leverages real user queries, deployed tools, and multimodal contexts. (i) GTA-Atomic, inherited from our prior GTA benchmark, evaluates short-horizon, closed-ended tool-use precision. (ii) GTA-Workflow introduces long-horizon, open-ended tasks for realistic end-to-end completion. To evaluate open-ended deliverables, we propose a recursive checkpoint-based evaluation mechanism that decomposes objectives into verifiable sub-goals, enabling unified evaluation of both model capabilities and agent execution frameworks (i.e., execution harnesses). Experiments reveal a pronounced capability cliff: while frontier models already struggle on atomic tasks (below 50%), they largely fail on workflows, with top models achieving only 14.39% success. Further analysis shows that checkpoint-guided feedback improves performance, while advanced frameworks such as Manus and OpenClaw substantially enhance workflow completion, highlighting the importance of execution harness design beyond the underlying model capacity. These findings provide guidance for developing reliable personal and professional assistants. Dataset and code will be available at https://github.com/open-compass/GTA.",
+      "authors": [
+        "Jize Wang",
+        "Xuanxuan Liu",
+        "Yining Li",
+        "Songyang Zhang",
+        "Yijun Wang",
+        "Zifei Shan",
+        "Xinyi Le",
+        "Cailian Chen",
+        "Xinping Guan",
+        "Dacheng Tao"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T05:36:00Z",
+      "published_date": "2026-04-17 05:36:00+00:00",
+      "updated": "2026-04-17T05:36:00Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.15715v1",
+      "url": "http://arxiv.org/abs/2604.15715v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 2.48,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 1.2,
+        "recommendation": 7.71
+      },
+      "matched_domain": "LLM Agent Engineering",
+      "matched_keywords": [
+        "agent",
+        "tool use",
+        "long-horizon",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "GTA-2_Benchmarking_General_Tool_Agents_from_Atomic_Tool-Use_to_Open-Ended_Workflows"
+    },
+    {
+      "id": "http://arxiv.org/abs/2604.15794v1",
+      "title": "Self-Distillation as a Performance Recovery Mechanism for LLMs: Counteracting Compression and Catastrophic Forgetting",
+      "summary": "Large Language Models (LLMs) have achieved remarkable success, underpinning diverse AI applications. However, they often suffer from performance degradation due to factors such as catastrophic forgetting during Supervised Fine-Tuning (SFT), quantization, and pruning. In this work, we introduce a performance recovery framework based on Self-Distillation Fine-Tuning (SDFT) that effectively restores model capabilities. Complementing this practical contribution, we provide a rigorous theoretical explanation for the underlying recovery mechanism. We posit that an LLM's generative capability fundamentally relies on the high-dimensional manifold constructed by its hidden layers. To investigate this, we employ Centered Kernel Alignment (CKA) to quantify the alignment between student and teacher activation trajectories, leveraging its invariance to orthogonal transformations and scaling. Our experiments demonstrate a strong correlation between performance recovery and manifold alignment, substantiating the claim that self-distillation effectively aligns the student's high-dimensional manifold with the optimal structure represented by the teacher. This study bridges the gap between practical recovery frameworks and geometric representation theory, offering new insights into the internal mechanisms of self-distillation.",
+      "authors": [
+        "Chi Liu",
+        "Xin Chen",
+        "Xu Zhou",
+        "Fangbo Tu",
+        "Srinivasan Manoharan"
+      ],
+      "affiliations": [],
+      "published": "2026-04-17T07:55:38Z",
+      "published_date": "2026-04-17 07:55:38+00:00",
+      "updated": "2026-04-17T07:55:38Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2604.15794v1",
+      "url": "http://arxiv.org/abs/2604.15794v1",
+      "source": "arxiv",
+      "scores": {
+        "relevance": 2.3,
+        "recency": 3.0,
+        "popularity": 2.0,
+        "quality": 1.2,
+        "recommendation": 7.47
+      },
+      "matched_domain": "RL & Reasoning",
+      "matched_keywords": [
+        "alignment",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "is_hot_paper": false,
+      "trigger_deep_analysis": true,
+      "note_filename": "Self-Distillation_as_a_Performance_Recovery_Mechanism_for_LLMs_Counteracting_Compression_and_Catastrophic_Forgetting"
+    }
+  ]
+}

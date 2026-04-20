@@ -23,7 +23,7 @@ from email.utils import parsedate_to_datetime
 
 # 配置文件路径
 CONFIG_PATH = Path("config.json")
-OUTPUT_DIR = Path("PoXiao_Briefs")
+OUTPUT_DIR = Path("briefs")
 LOG_DIR = Path("logs")
 PROFILE_DIR = Path("profiles")
 DEFAULT_PROFILE = PROFILE_DIR / "profile_demo.yaml"
@@ -521,7 +521,7 @@ def write_raw_context(all_items, output_path):
     """扁平化输出到 raw_context.md"""
     try:
         logger.info(f"开始写入原始数据到: {output_path}")
-        OUTPUT_DIR.mkdir(exist_ok=True)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
 
         content = "# 破晓 PoXiao — 原始数据 (Raw Context)\n"
         content += f"生成时间: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}\n"
@@ -544,12 +544,10 @@ async def main(days=2):
         logger.info(f"开始执行数据抓取任务 - 抓取最近 {days} 天的内容")
         config = load_config()
         
-        try:
-            OUTPUT_DIR.mkdir(exist_ok=True)
-            logger.info(f"输出目录已创建: {OUTPUT_DIR}")
-        except Exception as e:
-            logger.critical(f"创建输出目录失败: {e}")
-            raise
+        date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        date_dir = OUTPUT_DIR / date_str
+        date_dir.mkdir(parents=True, exist_ok=True)
+        logger.info(f"输出目录已创建: {date_dir}")
 
         since = datetime.now(timezone.utc) - timedelta(days=days)
         
@@ -562,7 +560,7 @@ async def main(days=2):
         async with httpx.AsyncClient(timeout=30, proxy=proxy, trust_env=bool(proxy)) as http_client:
             all_items = await fetch_all(config, since, http_client)
 
-        write_raw_context(all_items, OUTPUT_DIR / "raw_context.md")
+        write_raw_context(all_items, date_dir / "raw_context.md")
         logger.info(f"数据抓取任务完成 - 共抓取 {len(all_items)} 条内容")
     except Exception as e:
         logger.critical(f"执行数据抓取任务时发生错误: {e}")
