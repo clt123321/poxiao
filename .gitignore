@@ -16,7 +16,7 @@ __pycache__/
 .poxiao_system/raw/
 .poxiao_system/cache/
 PoXiao_Briefs/
-briefs/*/raw_context.md
+# briefs/*/raw_context.md  # 现在提交原始数据
 
 # 保留示例
 !.poxiao_system/profiles/profile_example.yaml

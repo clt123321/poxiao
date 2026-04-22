@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "task-1776830000000-poxiao1",
+      "name": "破晓日报 · 每日自动生成",
+      "scheduleType": "cron",
+      "cron": "30 9 * * *",
+      "prompt": "请按照以下步骤生成今天的破晓日报：\n\n1. 执行数据抓取命令：\n```bash\npython fetch/vibe_fetch.py\n```\n\n2. 等待命令完成后，读取今日原始数据文件 `briefs/{今日日期}/raw_context.md`（日期格式 YYYY-MM-DD）\n\n3. 读取用户偏好配置文件 `profiles/profile_demo.yaml`\n\n4. 严格按照 `.trae/skills/poxiao/SKILL.md` 中规定的格式，基于 raw_context.md 中的真实数据，生成完整的日报，包含：\n   - 📡 学术概览（Tier 1 + Tier 2）\n   - 🔥 社区速递（Tier 1 + Tier 2）\n   - 💰 财经简报\n   - 📊 今日总结\n\n5. 将生成的日报保存到 `briefs/{今日日期}/早报.md`\n\n6. 执行 git 推送：\n```bash\ngit add -A && git commit -m \"feat: add {今日日期} daily briefing\" && git push origin main\n```\n\n注意：所有内容必须来自 raw_context.md 中的真实数据，不得使用预训练知识编造内容。",
+      "enabled": true,
+      "sessionMode": "new",
+      "agentMode": "jam",
+      "createdAt": 1776830000000,
+      "updatedAt": 1776830000000
+    }
+  ]
+}
