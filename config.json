@@ -18,14 +18,14 @@
     ],
     "hackernews": {
       "enabled": true,
-      "fetch_top_stories": 15,
-      "note": "替代原先的 Zeli/Buzzing 等二手聚合，直连硅谷科技源头"
+      "fetch_top_stories": 20,
+      "note": "直连硅谷科技源头，增加到20条覆盖更广"
     },
     "arxiv": {
       "enabled": true,
-      "categories": ["cs.AI", "cs.LG", "cs.CL"],
+      "categories": ["cs.AI", "cs.LG", "cs.CL", "cs.CV", "cs.RO", "eess.AS"],
       "keywords": ["LLM", "RLHF", "alignment", "transformer", "vLLM"],
-      "note": "从 arXiv 抓取最新学术论文，会结合用户品味配置的关键词"
+      "note": "从 arXiv 抓取最新学术论文，会结合 profile 的关键词；新增 cs.CV(视觉)/cs.RO(机器人)/eess.AS(语音)"
     },
     "rss": [
       {
@@ -33,35 +33,42 @@
         "url": "https://www.reddit.com/r/LocalLLaMA/hot.rss",
         "enabled": true,
         "category": "community",
-        "note": "替代原先的 TechURLs，获取开源大模型第一线折腾经验"
+        "note": "开源大模型第一线折腾经验"
       },
       {
         "name": "Reddit MachineLearning (学术风向)",
         "url": "https://www.reddit.com/r/MachineLearning/hot.rss",
         "enabled": true,
         "category": "community",
-        "note": "获取 AI 学术界最热门的论文讨论"
+        "note": "AI 学术界最热门的论文讨论"
       },
       {
         "name": "Hugging Face Daily Papers (顶尖学术)",
         "url": "https://rsshub.app/huggingface/daily-papers",
         "enabled": true,
         "category": "research",
-        "note": "替换为 RSSHub 路由，解决官方源 404 问题"
+        "note": "HuggingFace 每日精选论文"
       },
       {
-        "name": "机器之心 (中文资讯)",
+        "name": "机器之心 (中文AI资讯)",
         "url": "https://decemberpei.cyou/rssbox/wechat-jiqizhixin.xml",
         "enabled": true,
         "category": "news",
-        "note": "高频 AI 媒体，依赖 vibe_fetch 的代理和 UA 伪装突破 403"
+        "note": "国内 AI 媒体，覆盖国内大厂动态"
+      },
+      {
+        "name": "量子位 (国内AI动态)",
+        "url": "https://decemberpei.cyou/rssbox/wechat-qbitai.xml",
+        "enabled": true,
+        "category": "news",
+        "note": "国内 AI 科技媒体，BAT 大厂产品动态第一手来源"
       },
       {
         "name": "VentureBeat AI (融资动态)",
         "url": "https://venturebeat.com/category/ai/feed/",
         "enabled": true,
         "category": "finance",
-        "note": "北美 AI 融资和商业化动态，高频更新"
+        "note": "北美 AI 融资和商业化动态"
       },
       {
         "name": "TechCrunch AI (创业融资)",
@@ -76,6 +83,34 @@
         "enabled": true,
         "category": "finance",
         "note": "国内 AI 创业融资动态"
+      },
+      {
+        "name": "The Verge AI (科技大厂动态)",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+        "enabled": true,
+        "category": "news",
+        "note": "美国科技大厂 AI 产品动态，覆盖 Apple/Google/Meta/Microsoft"
+      },
+      {
+        "name": "Ars Technica AI (深度技术)",
+        "url": "https://feeds.arstechnica.com/arstechnica/technology-lab",
+        "enabled": true,
+        "category": "news",
+        "note": "科技深度报道，覆盖 AI 安全、监管、芯片等议题"
+      },
+      {
+        "name": "Reddit Jobs & Careers (职场动态)",
+        "url": "https://www.reddit.com/r/cscareerquestions/hot.rss",
+        "enabled": true,
+        "category": "career",
+        "note": "Tech 职场动态：AI 就业市场、裁员、薪资、转型趋势"
+      },
+      {
+        "name": "Layoffs.fyi (裁员追踪)",
+        "url": "https://layoffs.fyi/feed/",
+        "enabled": false,
+        "category": "career",
+        "note": "科技裁员追踪，暂时关闭（RSS 不稳定）"
       }
     ]
   },

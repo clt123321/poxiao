@@ -4,23 +4,86 @@ meta:
   display_name: demo
   created_at: 2026-04-17 17:31
   generated_by: poxiao-setup
+
+# ===================== 学术领域 =====================
 research_domains:
-  RL 推断 & 对齐 (RLHF/GRPO/PPO):
+
+  # --- 后训练 / 对齐 ---
+  后训练 & 对齐 (RLHF/GRPO/PPO/DPO):
     keywords:
     - RLHF
     - GRPO
     - PPO
     - DPO
-    - reasoning
     - alignment
     - reward model
-    arxiv_categories:
-    - cs.AI
-    - cs.LG
-    - cs.MA
+    - preference optimization
+    - constitutional AI
     priority: 5.0
     deep_analysis: true
-  LLM Agent 工程 (工具调用/多智能体):
+
+  # --- 推理能力 ---
+  推理能力 & CoT:
+    keywords:
+    - reasoning
+    - chain-of-thought
+    - test-time compute
+    - self-consistency
+    - process reward
+    priority: 5.0
+    deep_analysis: true
+
+  # --- 基础大模型 / 预训练 ---
+  基础大模型 & 预训练:
+    keywords:
+    - pretraining
+    - foundation model
+    - scaling law
+    - language model
+    - transformer architecture
+    - mixture of experts
+    priority: 5.0
+    deep_analysis: true
+
+  # --- 多模态 / 视觉智能 ---
+  多模态 & 视觉智能:
+    keywords:
+    - multimodal
+    - vision language model
+    - VLM
+    - image generation
+    - video generation
+    - visual reasoning
+    - diffusion model
+    priority: 4.5
+    deep_analysis: true
+
+  # --- 语音智能 ---
+  语音智能:
+    keywords:
+    - speech synthesis
+    - TTS
+    - ASR
+    - speech recognition
+    - audio language model
+    - voice generation
+    priority: 4.0
+    deep_analysis: false
+
+  # --- 具身智能 / 机器人 ---
+  具身智能 & 机器人:
+    keywords:
+    - embodied AI
+    - robotics
+    - humanoid robot
+    - manipulation
+    - sim-to-real
+    - world model
+    priority: 4.5
+    deep_analysis: true
+
+  # --- LLM Agent 工程 ---
+  LLM Agent & 工具调用:
     keywords:
     - agent
     - multi-agent
@@ -28,53 +91,95 @@ research_domains:
     - MCP
     - planning
     - long-horizon
-    arxiv_categories:
-    - cs.AI
-    - cs.MA
-    - cs.CL
+    - agentic
     priority: 4.0
     deep_analysis: true
-  算力优化 & 推理加速 (vLLM/量化/MoE):
+
+  # --- 机器学习系统 / 算力优化 ---
+  机器学习系统 & 算力优化:
     keywords:
     - vLLM
-    - PagedAttention
+    - KV cache
     - quantization
     - speculative decoding
     - MoE
-    - KV cache
-    arxiv_categories:
-    - cs.LG
-    - cs.AR
+    - kernel optimization
+    - distributed training
+    - memory efficiency
     priority: 4.0
     deep_analysis: true
+
+  # --- 大模型应用 ---
+  大模型应用 & 产品化:
+    keywords:
+    - RAG
+    - retrieval augmented
+    - code generation
+    - LLM evaluation
+    - benchmark
+    - hallucination
+    - safety
+    priority: 3.5
+    deep_analysis: false
+
+# ===================== 商业 & 新闻关注 =====================
 business_focus:
   sectors:
-  - 硅谷动态 (Anthropic/OpenAI/Meta AI 产品与融资)
-  - 国内大厂动向 (字节/阿里/腾讯/百度/华为/快手)
-  - 芯片 & 算力基础设施 (NVIDIA/台积电/AMD)
-  noise_filter_prompt: 排除纯宏观经济和传统金融新闻；保留 AI 算力、顶尖 AI 初创融资、科技大厂 AI 战略变动、AI 产品商业化里程碑。
+  - 硅谷大厂动态 (OpenAI/Anthropic/Google DeepMind/Meta AI/Apple/Microsoft/Amazon)
+  - 国内大厂动向 (字节/阿里/腾讯/百度/华为/快手/小米)
+  - 顶尖 AI 初创 (Moonshot/Mistral/xAI/Inflection/Character/Cohere/Stability)
+  - 芯片 & 算力基础设施 (NVIDIA/台积电/AMD/Intel/华为昇腾)
+  - 职场 & 行业动态 (AI 就业/裁员/融资/IPO/监管政策)
+
+  noise_filter_prompt: >
+    保留：AI 技术突破、顶尖模型发布、大厂 AI 战略、AI 产品商业化里程碑、AI 融资与并购、
+    AI 监管与政策、职场与就业动态（AI 相关岗位、裁员、薪资）。
+    排除：纯宏观经济、传统金融、非 AI 领域新闻。
+
   tracked_companies:
-    tier1:
-    - Anthropic
+    # 美国科技七子 + 顶尖 AI 实验室
+    us_big_tech:
     - OpenAI
-    - DeepSeek
+    - Anthropic
     - Google DeepMind
-    tier2:
     - Meta AI
-    - Mistral
-    - 字节跳动
-    - 阿里云
-    - 华为
-    - 快手
-    - 腾讯
-    - 百度
-    tier3:
+    - Apple
+    - Microsoft
+    - Amazon AWS
+    - xAI (Grok)
     - NVIDIA
-    - 台积电
-    - AMD
-    - Sequoia
+
+    # 顶尖 AI 初创
+    ai_startups:
+    - Moonshot AI (Kimi)
+    - Mistral AI
+    - Cohere
+    - Inflection AI
+    - Stability AI
+    - Perplexity AI
+    - Cursor
+    - Anysphere
+
+    # 国内大厂
+    china_big_tech:
+    - 字节跳动 (豆包)
+    - 阿里云 (通义/Qwen)
+    - 腾讯 (混元)
+    - 百度 (文心)
+    - 华为 (盘古)
+    - 快手
+    - 小米
+    - 商汤
+    - 智谱 AI
+    - 零一万物
+    - 深度求索 (DeepSeek)
+
+# ===================== 排版偏好 =====================
 format_preference:
-  academic_top_n: 8
+  # 学术 Tier1 条件：影响范式/算法创新/顶会级别/极高社区热度
+  # Tier1 目标数量：5-8篇，Tier2：3-5篇
+  academic_tier1_min: 5
+  academic_top_n: 12
   community_top_n: 10
   finance_top_n: 8
   finance_min_score: 3.0
@@ -83,12 +188,16 @@ format_preference:
   summary_style: tier2
   language: zh
   output_name: demo
+
+# ===================== 过滤词 =====================
 excluded_keywords:
 - workshop
 - medical image
 - pathology
 - remote sensing
 - radiology
+- survey (unless highly cited)
+
 system:
   semantic_scholar_api_key: ''
   python_path: /Users/chenglitao/.pyenv/versions/3.11.10/bin/python3
