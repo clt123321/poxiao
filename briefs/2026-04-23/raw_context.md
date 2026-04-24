@@ -1,5 +1,5 @@
 # 破晓 PoXiao — 原始数据 (Raw Context)
-生成时间: 2026-04-23 02:59 UTC
+生成时间: 2026-04-23 03:01 UTC
 ================================================================================
 
 [RSS:Reddit LocalLLaMA (社区共识)]
@@ -87,15 +87,15 @@ I created this chart with recent open models from last 6 months. Few might be ol
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Given how good Qwen become, is it time to grab a 128gb m5 max?
-https://www.reddit.com/r/LocalLLaMA/comments/1sszoo2/given_how_good_qwen_become_is_it_time_to_grab_a/
-I was on the fence of updating my m1 pro 32gb, but seeing how got Qwen is becoming, isnt it the time to start experimenting with local models? My experience so far was that it never came close to opus, but i see that the 27b models are now getting close to the 4.5 opus (???), which sounds exciting! 
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
 Qwen 3.6 is actually useful for vibe-coding, and way cheaper than Claude
 https://www.reddit.com/r/LocalLLaMA/comments/1st3m8y/qwen_36_is_actually_useful_for_vibecoding_and_way/
 Launched claude code, pointed it at my running Qwen, and, well, it vibe codes perfectly fine. I started a project with Qwen3.6-35B-A3B (Q4) yesterday, and then this morning switched to 27B (Q8), and both worked fine! Running on a dual 3090 rig with 200k context. Running Unsloth Q_8. No fancy setup, 
+---
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+Given how good Qwen become, is it time to grab a 128gb m5 max?
+https://www.reddit.com/r/LocalLLaMA/comments/1sszoo2/given_how_good_qwen_become_is_it_time_to_grab_a/
+I was on the fence of updating my m1 pro 32gb, but seeing how got Qwen is becoming, isnt it the time to start experimenting with local models? My experience so far was that it never came close to opus, but i see that the 27b models are now getting close to the 4.5 opus (???), which sounds exciting! 
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
@@ -317,19 +317,19 @@ Score: 1394 | Comments: 481
 [HACKERNEWS]
 Apple fixes bug that cops used to extract deleted chat messages from iPhones
 https://techcrunch.com/2026/04/22/apple-fixes-bug-that-cops-used-to-extract-deleted-chat-messages-from-iphones/
-Score: 399 | Comments: 101
+Score: 400 | Comments: 101
 ---
 
 [HACKERNEWS]
 We found a stable Firefox identifier linking all your private Tor identities
 https://fingerprint.com/blog/firefox-tor-indexeddb-privacy-vulnerability/
-Score: 468 | Comments: 139
+Score: 469 | Comments: 139
 ---
 
 [HACKERNEWS]
 Qwen3.6-27B: Flagship-Level Coding in a 27B Dense Model
 https://qwen.ai/blog?id=qwen3.6-27b
-Score: 725 | Comments: 349
+Score: 727 | Comments: 349
 ---
 
 [HACKERNEWS]
@@ -347,7 +347,7 @@ Score: 306 | Comments: 173
 [HACKERNEWS]
 Website streamed live directly from a model
 https://flipbook.page/
-Score: 173 | Comments: 61
+Score: 174 | Comments: 61
 ---
 
 [HACKERNEWS]
@@ -365,19 +365,19 @@ Score: 211 | Comments: 50
 [HACKERNEWS]
 The handmade beauty of Machine Age data visualizations
 https://resobscura.substack.com/p/the-handmade-beauty-of-machine-age
-Score: 14 | Comments: 1
+Score: 15 | Comments: 1
 ---
 
 [HACKERNEWS]
 Ping-pong robot beats top-level human players
 https://www.reuters.com/sports/ping-pong-robot-ace-makes-history-by-beating-top-level-human-players-2026-04-22/
-Score: 78 | Comments: 91
+Score: 80 | Comments: 91
 ---
 
 [HACKERNEWS]
 Our eighth generation TPUs: two chips for the agentic era
 https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/
-Score: 409 | Comments: 200
+Score: 410 | Comments: 200
 ---
 
 [HACKERNEWS]
@@ -389,25 +389,19 @@ Score: 26 | Comments: 4
 [HACKERNEWS]
 3.4M Solar Panels
 https://tech.marksblogg.com/american-solar-farms-v2.html
-Score: 294 | Comments: 230
+Score: 294 | Comments: 232
 ---
 
 [HACKERNEWS]
 Scoring Show HN submissions for AI design patterns
 https://www.adriankrebs.ch/blog/design-slop/
-Score: 279 | Comments: 208
+Score: 280 | Comments: 208
 ---
 
 [HACKERNEWS]
 Parallel agents in Zed
 https://zed.dev/blog/parallel-agents
-Score: 175 | Comments: 105
----
-
-[HACKERNEWS]
-The Illuminated Man: an unconventional portrait of JG Ballard
-https://www.theguardian.com/books/2026/apr/20/the-illuminated-man-by-christopher-priest-and-nina-allan-review-an-unconventional-portrait-of-jg-ballard
-Score: 49 | Comments: 17
+Score: 176 | Comments: 106
 ---
 
 [ACADEMIC - ARXIV]

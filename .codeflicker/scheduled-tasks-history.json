@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "id": "exec-1776994781801-5v3hh8",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1776994781766,
+      "startedAt": 1776994781801,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1776994781766",
+      "finishedAt": 1776994782031,
+      "durationMs": 230
+    }
+  ],
+  "maxRecordsPerTask": 100
+}
