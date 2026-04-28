@@ -8,7 +8,7 @@ meta:
 # ===================== 学术领域 =====================
 research_domains:
 
-  # --- 多 Agent 系统 (新增，高优先级) ---
+  # --- 多 Agent 系统 ---
   多 Agent 系统与协作:
     keywords:
     - multi-agent
@@ -21,6 +21,7 @@ research_domains:
     - emergent behavior
     priority: 5.0
     deep_analysis: true
+    prefer_tech_report: true
 
   # --- 推理能力 ---
   推理能力 & CoT:
@@ -32,6 +33,7 @@ research_domains:
     - process reward
     priority: 5.0
     deep_analysis: true
+    prefer_tech_report: true
 
   # --- 基础大模型 / 预训练 ---
   基础大模型 & 预训练:
@@ -44,8 +46,9 @@ research_domains:
     - mixture of experts
     priority: 5.0
     deep_analysis: true
+    prefer_tech_report: true
 
-  # --- 训练与推理框架 (新增，高优先级) ---
+  # --- 训练与推理框架 ---
   训练与推理框架:
     keywords:
     - PyTorch
@@ -60,8 +63,9 @@ research_domains:
     - GPU optimization
     priority: 5.0
     deep_analysis: true
+    prefer_tech_report: true
 
-  # --- 自监督学习 (新增，高优先级) ---
+  # --- 自监督学习 ---
   自监督学习 & 表示学习:
     keywords:
     - self-supervised
@@ -75,8 +79,9 @@ research_domains:
     - MAE
     priority: 4.5
     deep_analysis: true
+    prefer_tech_report: true
 
-  # --- 生成模型 (新增，高优先级) ---
+  # --- 生成模型 ---
   生成模型:
     keywords:
     - generative model
@@ -90,6 +95,7 @@ research_domains:
     - latent diffusion
     priority: 4.5
     deep_analysis: true
+    prefer_tech_report: true
 
   # --- 多模态 / 视觉智能 ---
   多模态 & 视觉智能:
@@ -102,6 +108,7 @@ research_domains:
     - visual reasoning
     priority: 4.5
     deep_analysis: true
+    prefer_tech_report: true
 
   # --- 语音智能 ---
   语音智能:
@@ -114,6 +121,7 @@ research_domains:
     - voice generation
     priority: 4.0
     deep_analysis: false
+    prefer_tech_report: true
 
   # --- 具身智能 / 机器人 ---
   具身智能 & 机器人:
@@ -126,20 +134,24 @@ research_domains:
     - world model
     priority: 4.5
     deep_analysis: true
+    prefer_tech_report: true
 
   # --- LLM Agent 工程 (降低权重) ---
   LLM Agent & 工具调用:
     keywords:
     - agent
+    - multi-agent
     - tool use
     - MCP
     - planning
+    - long-horizon
     - agentic
     priority: 3.5
     deep_analysis: true
+    prefer_tech_report: true
 
   # --- 后训练 / 对齐 (降低权重) ---
-  后训练 & 对齐 (RLHF/GRPO/PPO/DPO):
+  后训练 & 对齐:
     keywords:
     - RLHF
     - GRPO
@@ -148,19 +160,24 @@ research_domains:
     - alignment
     - reward model
     - preference optimization
-    priority: 3.5
+    priority: 3.0
     deep_analysis: false
+    prefer_tech_report: true
 
   # --- 机器学习系统 / 算力优化 ---
   机器学习系统 & 算力优化:
     keywords:
+    - vLLM
     - KV cache
     - quantization
     - speculative decoding
+    - MoE
     - kernel optimization
+    - distributed training
     - memory efficiency
     priority: 4.0
     deep_analysis: true
+    prefer_tech_report: true
 
   # --- 大模型应用 ---
   大模型应用 & 产品化:
@@ -174,6 +191,39 @@ research_domains:
     - safety
     priority: 3.5
     deep_analysis: false
+    prefer_tech_report: true
+
+# ===================== 来源偏好 =====================
+source_preference:
+  # 技术报告优先级高于顶会
+  tech_report_boost: 2.0
+  arxiv_boost: 1.5
+  
+  # 大厂实验室优先
+  preferred_organizations:
+  - OpenAI
+  - Anthropic
+  - Google DeepMind
+  - Google Research
+  - Meta AI
+  - Meta FAIR
+  - Microsoft Research
+  - Apple ML
+  - NVIDIA Research
+  - NVIDIA
+  - ByteDance
+  - Alibaba
+  - Tencent
+  - Huawei
+  - Moonshot AI
+  - Mistral AI
+  - DeepSeek
+  - xAI
+  
+  # 降低学术水论文权重
+  academic_penalty: 0.5
+  # 顶会不额外加分（之前可能过于重视）
+  conference_boost: 0.0
 
 # ===================== 商业 & 新闻关注 =====================
 business_focus:
@@ -254,10 +304,10 @@ business_focus:
 
 # ===================== 排版偏好 =====================
 format_preference:
-  # 学术 Tier1 条件：影响范式/算法创新/顶会级别/极高社区热度
-  # Tier1 目标数量：5-8篇，Tier2：3-5篇
-  academic_tier1_min: 5
-  academic_top_n: 12
+  # 学术 Tier1 条件：大厂技术报告/影响范式/极高社区热度
+  # 降低纯学术论文的 Tier1 门槛
+  academic_tier1_min: 4
+  academic_top_n: 10
   community_top_n: 10
   finance_top_n: 8
   finance_min_score: 3.0
@@ -274,7 +324,8 @@ excluded_keywords:
 - pathology
 - remote sensing
 - radiology
-- survey (unless highly cited)
+- survey (unless highly cited or from big labs)
+- dataset paper (unless benchmark-setting)
 
 system:
   semantic_scholar_api_key: ''

@@ -56,6 +56,11 @@ def get_proxy_dict():
 MAX_RETRIES = 3
 RETRY_DELAY = 2  # 秒
 
+# 4. arXiv API 速率限制防护
+ARXIV_REQUEST_DELAY = 3.0  # 每个关键词查询之间的固定延迟（秒）
+ARXIV_BACKOFF_BASE = 5.0   # 429错误的指数退避基数（秒）
+ARXIV_MAX_BACKOFF = 60.0   # 最大退避时间（秒）
+
 # 配置日志
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
 LOG_FORMAT = "[%(asctime)s] [%(levelname)s] [%(module)s] - %(message)s"
@@ -400,14 +405,25 @@ async def fetch_github_releases(sources, since, http_client):
 
 
 async def fetch_arxiv_papers(categories, keywords, since, http_client):
-    """抓取 arXiv 论文元数据"""
+    """抓取 arXiv 论文元数据，带速率限制防护"""
     items = []
+    consecutive_429s = 0  # 连续429计数
+    
     try:
-        logger.info(f"开始抓取 arXiv 论文 - 分类: {categories}, 关键词: {keywords}")
+        logger.info(f"开始抓取 arXiv 论文 - 分类: {categories}, 关键词数量: {len(keywords)}")
         
         # 为每个关键词单独查询
-        for keyword in keywords:
-            logger.info(f"正在查询关键词: {keyword}")
+        for idx, keyword in enumerate(keywords):
+            logger.info(f"正在查询关键词 [{idx+1}/{len(keywords)}]: {keyword}")
+            
+            # 关键词之间的固定延迟（第一个关键词不延迟）
+            if idx > 0:
+                delay = ARXIV_REQUEST_DELAY
+                # 如果之前有连续429，增加延迟
+                if consecutive_429s > 0:
+                    delay = min(ARXIV_BACKOFF_BASE * (2 ** consecutive_429s), ARXIV_MAX_BACKOFF)
+                    logger.info(f"检测到之前有{consecutive_429s}次429，增加延迟至 {delay:.1f} 秒")
+                await asyncio.sleep(delay)
             
             # 构建查询参数
             query_parts = []
@@ -491,6 +507,8 @@ async def fetch_arxiv_papers(categories, keywords, since, http_client):
                     # 添加到总列表
                     items.extend(keyword_items)
                     
+                    # 成功获取后重置429计数
+                    consecutive_429s = 0
                     # 成功获取后跳出重试循环
                     break
                 except httpx.TimeoutException as e:
@@ -499,13 +517,26 @@ async def fetch_arxiv_papers(categories, keywords, since, http_client):
                         logger.info(f"等待 {RETRY_DELAY} 秒后重试...")
                         await asyncio.sleep(RETRY_DELAY)
                 except httpx.HTTPStatusError as e:
-                    if e.response.status_code in (403, 404, 410):
+                    if e.response.status_code == 429:
+                        # 429 Too Many Requests - 速率限制
+                        consecutive_429s += 1
+                        backoff_time = min(ARXIV_BACKOFF_BASE * (2 ** consecutive_429s), ARXIV_MAX_BACKOFF)
+                        logger.warning(f"[429] arXiv API 速率限制 (连续第{consecutive_429s}次)，等待 {backoff_time:.1f} 秒后重试...")
+                        if attempt < MAX_RETRIES - 1:
+                            await asyncio.sleep(backoff_time)
+                            continue
+                        else:
+                            logger.error(f"关键词 {keyword} 重试{MAX_RETRIES}次后仍被限流，跳过")
+                            break
+                    elif e.response.status_code in (403, 404, 410):
                         logger.error(f"[ERROR] arXiv API 返回致命错误 {e.response.status_code}，跳过此关键词")
                         break
-                    logger.warning(f"[ERROR] arXiv API HTTP 错误 (尝试 {attempt + 1}/{MAX_RETRIES}): {e}")
-                    if attempt < MAX_RETRIES - 1:
-                        logger.info(f"等待 {RETRY_DELAY} 秒后重试...")
-                        await asyncio.sleep(RETRY_DELAY)
+                    else:
+                        consecutive_429s = 0  # 重置429计数
+                        logger.warning(f"[ERROR] arXiv API HTTP 错误 (尝试 {attempt + 1}/{MAX_RETRIES}): {e}")
+                        if attempt < MAX_RETRIES - 1:
+                            logger.info(f"等待 {RETRY_DELAY} 秒后重试...")
+                            await asyncio.sleep(RETRY_DELAY)
                 except Exception as e:
                     logger.error(f"[ERROR] 处理关键词 {keyword} 时发生错误: {e}")
                     break
