@@ -8,17 +8,17 @@ meta:
 # ===================== 学术领域 =====================
 research_domains:
 
-  # --- 后训练 / 对齐 ---
-  后训练 & 对齐 (RLHF/GRPO/PPO/DPO):
+  # --- 多 Agent 系统 (新增，高优先级) ---
+  多 Agent 系统与协作:
     keywords:
-    - RLHF
-    - GRPO
-    - PPO
-    - DPO
-    - alignment
-    - reward model
-    - preference optimization
-    - constitutional AI
+    - multi-agent
+    - agent collaboration
+    - agent communication
+    - decentralized agent
+    - agent coordination
+    - swarm intelligence
+    - game theory agent
+    - emergent behavior
     priority: 5.0
     deep_analysis: true
 
@@ -45,6 +45,52 @@ research_domains:
     priority: 5.0
     deep_analysis: true
 
+  # --- 训练与推理框架 (新增，高优先级) ---
+  训练与推理框架:
+    keywords:
+    - PyTorch
+    - Triton
+    - JAX
+    - DeepSpeed
+    - Megatron
+    - vLLM
+    - TensorRT
+    - CUDA
+    - distributed training
+    - GPU optimization
+    priority: 5.0
+    deep_analysis: true
+
+  # --- 自监督学习 (新增，高优先级) ---
+  自监督学习 & 表示学习:
+    keywords:
+    - self-supervised
+    - contrastive learning
+    - representation learning
+    - masked language model
+    - pre-training objective
+    - SSL
+    - contrastive
+    - SimCLR
+    - MAE
+    priority: 4.5
+    deep_analysis: true
+
+  # --- 生成模型 (新增，高优先级) ---
+  生成模型:
+    keywords:
+    - generative model
+    - diffusion model
+    - GAN
+    - VAE
+    - autoregressive
+    - flow-based model
+    - score-based model
+    - DDPM
+    - latent diffusion
+    priority: 4.5
+    deep_analysis: true
+
   # --- 多模态 / 视觉智能 ---
   多模态 & 视觉智能:
     keywords:
@@ -54,7 +100,6 @@ research_domains:
     - image generation
     - video generation
     - visual reasoning
-    - diffusion model
     priority: 4.5
     deep_analysis: true
 
@@ -82,29 +127,37 @@ research_domains:
     priority: 4.5
     deep_analysis: true
 
-  # --- LLM Agent 工程 ---
+  # --- LLM Agent 工程 (降低权重) ---
   LLM Agent & 工具调用:
     keywords:
     - agent
-    - multi-agent
     - tool use
     - MCP
     - planning
-    - long-horizon
     - agentic
-    priority: 4.0
+    priority: 3.5
     deep_analysis: true
+
+  # --- 后训练 / 对齐 (降低权重) ---
+  后训练 & 对齐 (RLHF/GRPO/PPO/DPO):
+    keywords:
+    - RLHF
+    - GRPO
+    - PPO
+    - DPO
+    - alignment
+    - reward model
+    - preference optimization
+    priority: 3.5
+    deep_analysis: false
 
   # --- 机器学习系统 / 算力优化 ---
   机器学习系统 & 算力优化:
     keywords:
-    - vLLM
     - KV cache
     - quantization
     - speculative decoding
-    - MoE
     - kernel optimization
-    - distributed training
     - memory efficiency
     priority: 4.0
     deep_analysis: true
@@ -125,29 +178,54 @@ research_domains:
 # ===================== 商业 & 新闻关注 =====================
 business_focus:
   sectors:
-  - 硅谷大厂动态 (OpenAI/Anthropic/Google DeepMind/Meta AI/Apple/Microsoft/Amazon)
+  - 硅谷大厂动态 (OpenAI/Anthropic/Google DeepMind/Meta AI/Apple/Microsoft/Amazon/NVIDIA)
   - 国内大厂动向 (字节/阿里/腾讯/百度/华为/快手/小米)
   - 顶尖 AI 初创 (Moonshot/Mistral/xAI/Inflection/Character/Cohere/Stability)
-  - 芯片 & 算力基础设施 (NVIDIA/台积电/AMD/Intel/华为昇腾)
+  - 芯片 & 半导体产业链 (NVIDIA/台积电/AMD/Intel/三星/ASML/高通/博通/SK海力士/美光)
   - 职场 & 行业动态 (AI 就业/裁员/融资/IPO/监管政策)
 
   noise_filter_prompt: >
     保留：AI 技术突破、顶尖模型发布、大厂 AI 战略、AI 产品商业化里程碑、AI 融资与并购、
-    AI 监管与政策、职场与就业动态（AI 相关岗位、裁员、薪资）。
+    AI 监管与政策、职场与就业动态（AI 相关岗位、裁员、薪资）、半导体产业链动态。
     排除：纯宏观经济、传统金融、非 AI 领域新闻。
 
   tracked_companies:
-    # 美国科技七子 + 顶尖 AI 实验室
-    us_big_tech:
+    # 核心关注：美国 AI 五巨头 (最高优先级)
+    core_focus:
     - OpenAI
     - Anthropic
     - Google DeepMind
     - Meta AI
+    - NVIDIA
+
+    # 美国科技大厂
+    us_big_tech:
     - Apple
     - Microsoft
     - Amazon AWS
     - xAI (Grok)
+
+    # 半导体产业链上游
+    semiconductor_upstream:
+    - TSMC (台积电)
+    - ASML
+    - Samsung (三星)
+    - SK Hynix (SK海力士)
+    - Micron (美光)
+    - Qualcomm (高通)
+    - Broadcom (博通)
+    - AMD
+    - Intel
+
+    # AI 芯片设计
+    ai_chip:
     - NVIDIA
+    - AMD
+    - Intel
+    - Google (TPU)
+    - Amazon (Trainium/Inferentia)
+    - Microsoft (Maia)
+    - Huawei (昇腾)
 
     # 顶尖 AI 初创
     ai_startups:
