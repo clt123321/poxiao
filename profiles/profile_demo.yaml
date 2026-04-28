@@ -6,24 +6,25 @@ meta:
   generated_by: poxiao-setup
 
 # ===================== 学术领域 =====================
+# 精简策略：只保留高优先级核心关键词，减少arXiv API压力
 research_domains:
 
-  # --- 多 Agent 系统 ---
+  # --- 多 Agent 系统 (8个关键词) ---
   多 Agent 系统与协作:
     keywords:
     - multi-agent
     - agent collaboration
-    - agent communication
-    - decentralized agent
     - agent coordination
+    - decentralized agent
     - swarm intelligence
     - game theory agent
+    - agent communication
     - emergent behavior
     priority: 5.0
     deep_analysis: true
     prefer_tech_report: true
 
-  # --- 推理能力 ---
+  # --- 推理能力 (5个关键词) ---
   推理能力 & CoT:
     keywords:
     - reasoning
@@ -35,20 +36,20 @@ research_domains:
     deep_analysis: true
     prefer_tech_report: true
 
-  # --- 基础大模型 / 预训练 ---
+  # --- 基础大模型 (6个关键词) ---
   基础大模型 & 预训练:
     keywords:
     - pretraining
     - foundation model
     - scaling law
     - language model
-    - transformer architecture
     - mixture of experts
+    - transformer architecture
     priority: 5.0
     deep_analysis: true
     prefer_tech_report: true
 
-  # --- 训练与推理框架 ---
+  # --- 训练与推理框架 (10个关键词) ---
   训练与推理框架:
     keywords:
     - PyTorch
@@ -65,23 +66,20 @@ research_domains:
     deep_analysis: true
     prefer_tech_report: true
 
-  # --- 自监督学习 ---
+  # --- 自监督学习 (6个关键词) ---
   自监督学习 & 表示学习:
     keywords:
     - self-supervised
     - contrastive learning
     - representation learning
     - masked language model
-    - pre-training objective
-    - SSL
-    - contrastive
     - SimCLR
     - MAE
     priority: 4.5
     deep_analysis: true
     prefer_tech_report: true
 
-  # --- 生成模型 ---
+  # --- 生成模型 (6个关键词) ---
   生成模型:
     keywords:
     - generative model
@@ -89,15 +87,12 @@ research_domains:
     - GAN
     - VAE
     - autoregressive
-    - flow-based model
-    - score-based model
-    - DDPM
     - latent diffusion
     priority: 4.5
     deep_analysis: true
     prefer_tech_report: true
 
-  # --- 多模态 / 视觉智能 ---
+  # --- 多模态 (6个关键词) ---
   多模态 & 视觉智能:
     keywords:
     - multimodal
@@ -110,20 +105,7 @@ research_domains:
     deep_analysis: true
     prefer_tech_report: true
 
-  # --- 语音智能 ---
-  语音智能:
-    keywords:
-    - speech synthesis
-    - TTS
-    - ASR
-    - speech recognition
-    - audio language model
-    - voice generation
-    priority: 4.0
-    deep_analysis: false
-    prefer_tech_report: true
-
-  # --- 具身智能 / 机器人 ---
+  # --- 具身智能 (6个关键词) ---
   具身智能 & 机器人:
     keywords:
     - embodied AI
@@ -136,58 +118,55 @@ research_domains:
     deep_analysis: true
     prefer_tech_report: true
 
-  # --- LLM Agent 工程 (降低权重) ---
-  LLM Agent & 工具调用:
+  # --- 语音智能 (4个关键词) ---
+  语音智能:
     keywords:
-    - agent
-    - multi-agent
-    - tool use
-    - MCP
-    - planning
-    - long-horizon
-    - agentic
-    priority: 3.5
-    deep_analysis: true
-    prefer_tech_report: true
-
-  # --- 后训练 / 对齐 (降低权重) ---
-  后训练 & 对齐:
-    keywords:
-    - RLHF
-    - GRPO
-    - PPO
-    - DPO
-    - alignment
-    - reward model
-    - preference optimization
-    priority: 3.0
+    - speech synthesis
+    - TTS
+    - ASR
+    - audio language model
+    priority: 4.0
     deep_analysis: false
     prefer_tech_report: true
 
-  # --- 机器学习系统 / 算力优化 ---
+  # --- ML系统 (5个关键词) ---
   机器学习系统 & 算力优化:
     keywords:
-    - vLLM
     - KV cache
     - quantization
     - speculative decoding
-    - MoE
     - kernel optimization
-    - distributed training
     - memory efficiency
     priority: 4.0
     deep_analysis: true
     prefer_tech_report: true
 
-  # --- 大模型应用 ---
+  # --- Agent工程 (低权重，3个关键词) ---
+  LLM Agent & 工具调用:
+    keywords:
+    - agent
+    - tool use
+    - planning
+    priority: 3.5
+    deep_analysis: true
+    prefer_tech_report: true
+
+  # --- 后训练对齐 (低权重，3个关键词) ---
+  后训练 & 对齐:
+    keywords:
+    - RLHF
+    - DPO
+    - alignment
+    priority: 3.0
+    deep_analysis: false
+    prefer_tech_report: true
+
+  # --- 应用 (低权重，4个关键词) ---
   大模型应用 & 产品化:
     keywords:
     - RAG
-    - retrieval augmented
     - code generation
-    - LLM evaluation
     - benchmark
-    - hallucination
     - safety
     priority: 3.5
     deep_analysis: false
@@ -222,7 +201,7 @@ source_preference:
   
   # 降低学术水论文权重
   academic_penalty: 0.5
-  # 顶会不额外加分（之前可能过于重视）
+  # 顶会不额外加分
   conference_boost: 0.0
 
 # ===================== 商业 & 新闻关注 =====================

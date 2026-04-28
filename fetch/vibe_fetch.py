@@ -57,9 +57,9 @@ MAX_RETRIES = 3
 RETRY_DELAY = 2  # 秒
 
 # 4. arXiv API 速率限制防护
-ARXIV_REQUEST_DELAY = 3.0  # 每个关键词查询之间的固定延迟（秒）
-ARXIV_BACKOFF_BASE = 5.0   # 429错误的指数退避基数（秒）
-ARXIV_MAX_BACKOFF = 60.0   # 最大退避时间（秒）
+ARXIV_REQUEST_DELAY = 5.0  # 每个关键词查询之间的固定延迟（秒）
+ARXIV_BACKOFF_BASE = 10.0  # 429错误的指数退避基数（秒）
+ARXIV_MAX_BACKOFF = 120.0  # 最大退避时间（秒）
 
 # 配置日志
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
@@ -423,6 +423,7 @@ async def fetch_arxiv_papers(categories, keywords, since, http_client):
                 if consecutive_429s > 0:
                     delay = min(ARXIV_BACKOFF_BASE * (2 ** consecutive_429s), ARXIV_MAX_BACKOFF)
                     logger.info(f"检测到之前有{consecutive_429s}次429，增加延迟至 {delay:.1f} 秒")
+                logger.debug(f"等待 {delay:.1f} 秒后查询下一个关键词...")
                 await asyncio.sleep(delay)
             
             # 构建查询参数
