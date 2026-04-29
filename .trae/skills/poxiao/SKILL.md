@@ -299,3 +299,67 @@ fetch/vibe_fetch.py (极简) → briefs/YYYY-MM-DD/raw_context.md
 - [ ] 不使用 `📌`（已替换为 `🔬`）
 - [ ] 职场动态板块已输出
 - [ ] 最终报告已保存到 `briefs/YYYY-MM-DD/早报.md`
+
+---
+
+## 📚 重点领域知识库
+
+### AI for Automated Research（自动研究系统）
+
+**核心论文**：
+
+| 系统 | 论文 | 来源 | 关键能力 |
+|------|------|------|----------|
+| **The AI Scientist** | arXiv 2504.08066 | Sakana AI | 端到端论文生成（想法→实验→写作→审稿），成本约$15/篇 |
+| **The AI Scientist-v2** | arXiv 2504.08066v2 | Sakana AI | Workshop级别自动发现，已通过Nature同行评审 |
+| **SciAgents** | Advanced Materials 2024 | MIT | 多Agent图推理，从知识图谱生成假设，聚焦生物启发材料 |
+| **MLR-Copilot** | arXiv 2408.14033 | | 自动ML研究 |
+| **Agentic AI Survey** | arXiv 2503.08979 | | 覆盖Chemistry/Biology/Materials Science |
+
+**关键资源链接**：
+- Sakana AI 官网：https://sakana.ai/ai-scientist/
+- GitHub：https://github.com/sakanaai/ai-scientist
+- MIT SciAgents：https://github.com/lamm-mit/SciAgentsDiscovery
+- Nature 报道：https://www.nature.com/articles/d41586-026-00899-w
+
+**监控建议**：
+- arXiv 关键词：`AI scientist`, `automated research`, `scientific discovery`, `hypothesis generation`
+- 作者追踪：Markus Buehler (MIT), Sakana AI 团队
+- 会议关注：NeurIPS AI4Science workshop
+
+---
+
+### 预训练 & 精调领域动态（2026.04 观察）
+
+**现状**：领域成熟，突破性工作减少，多为增量改进
+
+**仍需关注的方向**：
+- 新缩放定律（如数据质量 vs 模型大小的权衡）
+- 新架构突破（如Mamba/SSM替代Transformer）
+- 高效精调方法（如LoRA变体、PEFT新方法）
+- 指令精调数据合成方法
+- 对齐新范式（如Constitutional AI、 scalable oversight）
+
+**监控关键词**：
+- 预训练：`scaling law`, `data mixing`, `compute optimal`, `architecture`
+- 精调：`instruction tuning`, `SFT`, `PEFT`, `LoRA`, `adapter`
+- 对齐：`RLHF`, `DPO`, `preference learning`, `scalable oversight`
+
+---
+
+### 信息源清单
+
+| 来源 | 类型 | 数量/天 | 价值点 |
+|------|------|---------|--------|
+| **arXiv** | 学术 | 300+篇 | 学术前沿第一手 |
+| **HackerNews** | 科技新闻 | 20条 | 硅谷科技源头 |
+| **Reddit LocalLLaMA** | 社区 | 20条 | 开源大模型实战经验 |
+| **Reddit MachineLearning** | 学术 | 10条 | AI学术界热点讨论 |
+| **Reddit Jobs & Careers** | 职场 | 15条 | Tech就业市场动态 |
+| **GitHub Releases** | 开源 | 2-5条 | vLLM、TRL等基建更新 |
+| **RSS: 机器之心/量子位** | 中文 | 若干 | 国内大厂动态 |
+| **RSS: VentureBeat/TechCrunch** | 融资 | 若干 | AI创业投融资 |
+| **RSS: The Verge/Ars Technica** | 深度 | 若干 | 大厂AI产品动态 |
+
+**总计**：约 400 条原始内容/天，经筛选后早报覆盖 15-20 条核心内容
+
