@@ -36,7 +36,7 @@ research_domains:
     deep_analysis: true
     prefer_tech_report: true
 
-  # --- 基础大模型 (6个关键词) ---
+  # --- 基础大模型 (增加关键词) ---
   基础大模型 & 预训练:
     keywords:
     - pretraining
@@ -45,6 +45,24 @@ research_domains:
     - language model
     - mixture of experts
     - transformer architecture
+    - post-training
+    - fine-tuning
+    - SFT
+    - instruction tuning
+    priority: 5.0
+    deep_analysis: true
+    prefer_tech_report: true
+
+  # --- AI for Automated Research (新增) ---
+  AI for Automated Research:
+    keywords:
+    - AI scientist
+    - automated research
+    - scientific discovery
+    - hypothesis generation
+    - autonomous experiment
+    - lab automation
+    - AI for science
     priority: 5.0
     deep_analysis: true
     prefer_tech_report: true
@@ -151,14 +169,17 @@ research_domains:
     deep_analysis: true
     prefer_tech_report: true
 
-  # --- 后训练对齐 (低权重，3个关键词) ---
+  # --- 后训练对齐 (增加关键词) ---
   后训练 & 对齐:
     keywords:
     - RLHF
     - DPO
     - alignment
-    priority: 3.0
-    deep_analysis: false
+    - preference learning
+    - reward model
+    - constitutional AI
+    priority: 4.0
+    deep_analysis: true
     prefer_tech_report: true
 
   # --- 应用 (低权重，4个关键词) ---
