@@ -199,10 +199,10 @@ source_preference:
   - DeepSeek
   - xAI
   
-  # 降低学术水论文权重
-  academic_penalty: 0.5
-  # 顶会不额外加分
-  conference_boost: 0.0
+  # 降低学术水论文权重（但不要太低）
+  academic_penalty: 0.8
+  # 顶会适度加分
+  conference_boost: 0.5
 
 # ===================== 商业 & 新闻关注 =====================
 business_focus:
@@ -284,9 +284,9 @@ business_focus:
 # ===================== 排版偏好 =====================
 format_preference:
   # 学术 Tier1 条件：大厂技术报告/影响范式/极高社区热度
-  # 降低纯学术论文的 Tier1 门槛
-  academic_tier1_min: 4
-  academic_top_n: 10
+  # 放宽标准，增加覆盖面
+  academic_tier1_min: 6
+  academic_top_n: 15
   community_top_n: 10
   finance_top_n: 8
   finance_min_score: 3.0
