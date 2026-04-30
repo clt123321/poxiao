@@ -55,6 +55,17 @@
       "sessionId": "scheduled-task-1776830000000-poxiao1-1777426327831",
       "finishedAt": 1777426328728,
       "durationMs": 825
+    },
+    {
+      "id": "exec-1777512611560-heoqz9",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1777512611486,
+      "startedAt": 1777512611560,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1777512611486",
+      "finishedAt": 1777512612380,
+      "durationMs": 820
     }
   ],
   "maxRecordsPerTask": 100
