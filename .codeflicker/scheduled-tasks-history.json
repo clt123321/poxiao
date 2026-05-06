@@ -66,6 +66,72 @@
       "sessionId": "scheduled-task-1776830000000-poxiao1-1777512611486",
       "finishedAt": 1777512612380,
       "durationMs": 820
+    },
+    {
+      "id": "exec-1777599270638-m95d1c",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1777599270598,
+      "startedAt": 1777599270638,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1777599270598",
+      "finishedAt": 1777599270684,
+      "durationMs": 46
+    },
+    {
+      "id": "exec-1777686224929-ktsokd",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1777686224926,
+      "startedAt": 1777686224929,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1777686224926",
+      "finishedAt": 1777686224944,
+      "durationMs": 15
+    },
+    {
+      "id": "exec-1777772056725-ci0xdf",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1777772056715,
+      "startedAt": 1777772056725,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1777772056715",
+      "finishedAt": 1777772057471,
+      "durationMs": 746
+    },
+    {
+      "id": "exec-1777858577016-tir5zv",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1777858577009,
+      "startedAt": 1777858577016,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1777858577009",
+      "finishedAt": 1777858577756,
+      "durationMs": 740
+    },
+    {
+      "id": "exec-1777944600033-cbk6l2",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1777944600024,
+      "startedAt": 1777944600033,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1777944600024",
+      "finishedAt": 1777944600346,
+      "durationMs": 313
+    },
+    {
+      "id": "exec-1778031000028-l2z5ma",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1778031000021,
+      "startedAt": 1778031000028,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1778031000021",
+      "finishedAt": 1778031000903,
+      "durationMs": 875
     }
   ],
   "maxRecordsPerTask": 100
