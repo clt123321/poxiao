@@ -154,6 +154,50 @@
       "sessionId": "scheduled-task-1776830000000-poxiao1-1778204400675",
       "finishedAt": 1778204401546,
       "durationMs": 821
+    },
+    {
+      "id": "exec-1778290201109-0mb2wq",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1778290201052,
+      "startedAt": 1778290201109,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1778290201052",
+      "finishedAt": 1778290201964,
+      "durationMs": 855
+    },
+    {
+      "id": "exec-1778376718653-z68hx3",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1778376718628,
+      "startedAt": 1778376718653,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1778376718629",
+      "finishedAt": 1778376718827,
+      "durationMs": 174
+    },
+    {
+      "id": "exec-1778463063500-vme8y0",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1778463063488,
+      "startedAt": 1778463063500,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1778463063488",
+      "finishedAt": 1778463063521,
+      "durationMs": 21
+    },
+    {
+      "id": "exec-1778549689661-ouy0vy",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1778549689634,
+      "startedAt": 1778549689661,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1778549689634",
+      "finishedAt": 1778549690433,
+      "durationMs": 772
     }
   ],
   "maxRecordsPerTask": 100
