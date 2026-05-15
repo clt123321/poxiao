@@ -220,6 +220,17 @@
       "sessionId": "scheduled-task-1776830000000-poxiao1-1778722823580",
       "finishedAt": 1778722824476,
       "durationMs": 849
+    },
+    {
+      "id": "exec-1778809116078-afrdfc",
+      "taskId": "task-1776830000000-poxiao1",
+      "taskName": "破晓日报 · 每日自动生成",
+      "scheduledAt": 1778809116046,
+      "startedAt": 1778809116078,
+      "status": "success",
+      "sessionId": "scheduled-task-1776830000000-poxiao1-1778809116046",
+      "finishedAt": 1778809116821,
+      "durationMs": 743
     }
   ],
   "maxRecordsPerTask": 100
