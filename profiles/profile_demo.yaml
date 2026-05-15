@@ -9,6 +9,23 @@ meta:
 # 精简策略：只保留高优先级核心关键词，减少arXiv API压力
 research_domains:
 
+  # --- 视频生成（新增高优先级）---
+  视频生成 & 视频理解:
+    keywords:
+    - video generation
+    - video diffusion
+    - text-to-video
+    - video synthesis
+    - video editing
+    - video understanding
+    - temporal consistency
+    - Sora
+    - video foundation model
+    - video LLM
+    priority: 5.5
+    deep_analysis: true
+    prefer_tech_report: true
+
   # --- 多 Agent 系统 (8个关键词) ---
   多 Agent 系统与协作:
     keywords:
@@ -20,7 +37,7 @@ research_domains:
     - game theory agent
     - agent communication
     - emergent behavior
-    priority: 5.0
+    priority: 3.0
     deep_analysis: true
     prefer_tech_report: true
 
@@ -117,7 +134,6 @@ research_domains:
     - vision language model
     - VLM
     - image generation
-    - video generation
     - visual reasoning
     priority: 4.5
     deep_analysis: true
@@ -165,11 +181,11 @@ research_domains:
     - agent
     - tool use
     - planning
-    priority: 3.5
+    priority: 2.5
     deep_analysis: true
     prefer_tech_report: true
 
-  # --- 后训练对齐 (增加关键词) ---
+  # --- 后训练对齐 (降低权重) ---
   后训练 & 对齐:
     keywords:
     - RLHF
@@ -178,7 +194,7 @@ research_domains:
     - preference learning
     - reward model
     - constitutional AI
-    priority: 4.0
+    priority: 2.5
     deep_analysis: true
     prefer_tech_report: true
 
