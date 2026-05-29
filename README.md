@@ -1,314 +1,230 @@
-# 破晓 PoXiao V2.0 - AI 原生驱动的个人情报系统
+# 破晓 PoXiao · AI 原生驱动的个人情报系统
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/Skill-V2.0-purple.svg" alt="Skill V2.0">
+  <img src="https://img.shields.io/badge/Skill-v1.6-purple.svg" alt="Skill v1.6">
+  <img src="https://img.shields.io/badge/Briefings-35+-orange.svg" alt="Briefings">
 </p>
 
 <p align="center">
   <strong>不出门，可知天下事</strong><br>
-  <sub>AI 驱动 • Vibe Coding 原生 • HermeScroll 双核</sub>
+  <sub>AI 驱动 · Vibe Coding 原生 · 学术 + 社区 + 财经 + 职场 全栈情报</sub>
 </p>
+
+---
+
+## ✨ 最近更新（v1.6 / 2026-05）
+
+- **🆕 信息图引用唯一化**：早报 markdown 中 `![今日早报信息图]` 引用强制去重，幂等插入逻辑已固化到 SKILL（修复 12 篇历史早报重复引用 bug）
+- **🆕 按月归档 briefs**：`briefs/YYYY-MM/DD/` 三级目录，每月最多 31 个子目录，浏览效率显著提升
+- **🆕 五板块格式标准化**：学术 + 社区 + 财经 + 职场 + 总结，每个板块字段精细化（详见 [SKILL.md](.codeflicker/skills/poxiao-briefing/SKILL.md)）
+- **🆕 配套信息图**：每篇早报自动生成 16:9 信息图（2K，约 5MB），相对路径嵌入 md，GitHub 直接可看
+- **🆕 三层 fallback 数据抓取**：vibe_fetch + gen_brief.sh + HuggingFace API 直取，应对 RSS 源不稳定
+- **🆕 敏感词净化对照表**：18 组生图 API 触发审核词的中性替换，保证信息图 100% 出图
+- **🆕 格式漂移自动修复**：定时任务自动生成的早报若不符合标准，技能会读取重写而非重跑
+- **🆕 raw_context.md → 早报.md 补写**：抓取成功但生成失败时可基于原始数据补写完整日报
+- **🆕 MIT License**：欢迎 fork、修改、二次分发
 
 ---
 
 ## 🎯 快速开始
 
-### 触发方式
-
-在支持 Skill 的 AI 编程助手中，直接发送：
+### 在 IDE 中触发（推荐）
 
 ```
-/poxiao
+生成今日早报      # 抓取 + 早报 + 信息图 + 推送 一条龙
+今天的日报        # 同上
+调整 profile     # 修改兴趣权重
+配置定时任务      # 设置每日 7:00 自动跑
 ```
 
-或使用完整命令：
-
-```
-/briefing
-/早报
-/deep_dive <arxiv_id>   # 单篇论文深度分析
-```
-
-### 本地运行
+### 命令行运行
 
 ```bash
-# 抓取数据
+cd poxiao-repo
+source venv/bin/activate
+
+# 数据抓取（输出到 briefs/YYYY-MM/DD/raw_context.md）
 python fetch/vibe_fetch.py
 
-# 输出：PoXiao_Briefs/raw_context.md
+# 备用：HN + HuggingFace + Reddit 补充
+bash scripts/gen_brief.sh
 
-# 深度分析某篇论文
-python fetch/deep_dive.py 2604.14895
-# 输出：PoXiao_Briefs/deep_context.md
+# 单篇论文深度分析
+python fetch/deep_dive.py 2605.27891
 ```
 
----
-
-## 📐 架构设计
-
-### 双核引擎
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        破晓 V2.0                            │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│   ┌──────────────┐    ┌──────────────┐                    │
-│   │  Hermes 循环  │    │ HermeScroll  │                    │
-│   │  (品味引擎)   │    │  (数据引擎)   │                    │
-│   │              │    │              │                    │
-│   │  • 读 profile│    │  • 抓取 raw  │                    │
-│   │  • 写 profile│    │  • 格式化 md │                    │
-│   │  • 自我进化  │    │  • 异步并发  │                    │
-│   └──────┬───────┘    └──────┬───────┘                    │
-│          │                   │                             │
-│          └─────────┬─────────┘                             │
-│                    ▼                                       │
-│          ┌─────────────────┐                              │
-│          │  raw_context.md │                              │
-│          └────────┬────────┘                              │
-│                   ▼                                       │
-│          ┌─────────────────┐                              │
-│          │   Trae/Skill    │                              │
-│          │  (智能过滤/输出) │                              │
-│          └────────┬────────┘                              │
-│                   ▼                                       │
-│          ┌─────────────────┐                              │
-│          │ YYYY-MM-DD_早报 │                              │
-│          └─────────────────┘                              │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### 核心模块
-
-| 模块 | 文件 | 职责 |
-|------|------|------|
-| **数据抓取** | `fetch/vibe_fetch.py` | 异步并发抓取 arXiv/RSS/HackerNews |
-| **深度分析** | `fetch/deep_dive.py` | 根据 arXiv ID 获取论文完整信息 |
-| **品味引擎** | `profiles/profile_demo.yaml` | 用户兴趣配置，Hermes 联动 |
-| **原始数据** | `PoXiao_Briefs/raw_context.md` | 所有抓取数据的统一输出 |
-| **早报生成** | `.trae/skills/poxiao/SKILL.md` | Trae 执行的 Skill 指令定义 |
-| **早报输出** | `PoXiao_Briefs/YYYY-MM-DD_早报.md` | 最终格式化早报 |
-| **信源配置** | `config.json` | RSS/API 源配置与开关 |
+> ⚠️ **跨平台 venv 不兼容**：如果是 Windows 创建的 venv，先 `rm -rf venv && python3 -m venv venv && pip install -r requirements.txt`。
 
 ---
 
 ## 📁 项目结构
 
 ```
-poxiao/
+poxiao-repo/
+├── briefs/                    # 早报输出（按月归档）
+│   ├── 2026-04/
+│   │   ├── 20/
+│   │   │   ├── 早报.md
+│   │   │   ├── infographic.jpg     # 16:9 配套信息图
+│   │   │   └── raw_context.md      # 原始抓取数据
+│   │   ├── 21/...
+│   │   └── 30/
+│   └── 2026-05/
+│       ├── 01/...
+│       └── 29/
 ├── fetch/
-│   ├── vibe_fetch.py          # 极简数据抓取（V2.0 核心）
-│   ├── deep_dive.py           # 论文深度分析（/deep_dive 引擎）
-│   └── diagnose_sources.py    # 信源诊断工具
+│   ├── vibe_fetch.py          # 异步多源抓取（核心）
+│   ├── deep_dive.py           # arXiv 论文深度分析
+│   └── diagnose_sources.py    # 信源连通性诊断
+├── scripts/
+│   └── gen_brief.sh           # HN/HF/Reddit fallback 抓取
 ├── profiles/
-│   ├── profile_demo.yaml      # 演示用户品味配置
-│   └── profile_example.yaml   # 示例模板
-├── PoXiao_Briefs/
-│   ├── raw_context.md         # 原始数据（自动生成）
-│   └── YYYY-MM-DD_早报.md     # 格式化早报
-├── .trae/skills/poxiao/
-│   └── SKILL.md              # Vibe Coding Skill 定义
-├── config.json                # RSS/API 源配置
+│   ├── profile_demo.yaml      # 默认兴趣配置
+│   └── profile_example.yaml   # 配置示例
+├── config.json                # RSS 源开关 + 信源配置
 ├── requirements.txt           # Python 依赖
-└── README.md                 # 本文件
+├── LICENSE                    # MIT
+└── README.md
 ```
+
+> 项目根目录 `.codeflicker/skills/poxiao-briefing/` 与 `.codeflicker/skills/poxiao-briefing-infographic/` 包含 Skill 定义，IDE 加载后即可触发。
 
 ---
 
-## � 筛选逻辑详解
+## 📐 早报格式规范（v1.3+）
 
-### 三层过滤架构
-
-#### 第一层：时间过滤（Time Filter）
-```python
-# vibe_fetch.py 中的时间窗口控制
-TIME_WINDOW_HOURS = 48  # 默认 48 小时
-
-# 论文是否在时间窗口内
-published > datetime.now(timezone.utc) - timedelta(hours=TIME_WINDOW_HOURS)
-```
-- **目的**：只保留最近 48 小时内的内容，避免信息过载
-- **Fallback**：如果某关键词在 48 小时内无新论文，收集最新 5 篇
-
-#### 第二层：关键词匹配（Keyword Matching）
-```yaml
-# profile_demo.yaml 中的关键词配置
-research_domains:
-  RL 推断 & 对齐:
-    keywords: [RLHF, GRPO, PPO, DPO, reasoning, alignment]
-    priority: 5.0
-  LLM Agent 工程:
-    keywords: [agent, multi-agent, tool use, MCP]
-    priority: 4.0
-  算力优化 & 推理加速:
-    keywords: [vLLM, PagedAttention, quantization, MoE]
-    priority: 4.0
-```
-
-**匹配逻辑**：
-```python
-def match_score(paper_title: str, keywords: list[str]) -> float:
-    """计算论文与关键词的匹配分数"""
-    title_lower = paper_title.lower()
-    score = 0.0
-    for keyword in keywords:
-        if keyword.lower() in title_lower:
-            score += 1.0
-    return score
-```
-
-#### 第三层：噪声过滤（Noise Filter）
-```yaml
-# profile_demo.yaml 中的噪声过滤
-noise_filter_prompt: >
-  排除纯宏观经济和传统金融新闻；
-  保留 AI 算力、顶尖 AI 初创融资、
-  科技大厂 AI 战略变动、AI 产品商业化里程碑。
-
-excluded_keywords:
-  - workshop
-  - medical image
-  - pathology
-  - remote sensing
-  - radiology
-```
-
-### 优先级评分公式
+每篇早报严格遵循五板块结构：
 
 ```
-final_score = base_priority * keyword_match_count * time_decay_factor
-
-其中：
-- base_priority: 用户配置的领域优先级（0-5）
-- keyword_match_count: 标题中匹配的关键词数量
-- time_decay_factor: 时间衰减因子（越新越高）
+📡 学术概览  →  🔥 社区速递  →  💰 财经简报  →  🏢 职场动态  →  📊 今日总结
 ```
 
-### 相似论文去重（SimHash）
+### 学术 Tier 1 必填字段
 
-```python
-def compute_similarity_hash(title: str) -> int:
-    """计算标题的特征哈希"""
-    words = title.lower().split()
-    # 取关键词的哈希叠加
-    hash_value = 0
-    for word in words:
-        if len(word) > 4:  # 忽略短词
-            hash_value ^= hash(word)
-    return hash_value
+- 一句话核心贡献（含"做了什么 + 解决什么 + 结果如何"）
+- 摘要精译（≥3 段，含背景/方法/量化结果）
+- 核心创新点（每点 ≤25 字）
+- `<details>` 折叠块（方法细节 + 实验结果 + 局限性 + 链接）
 
-def deduplicate(papers: list[dict]) -> list[dict]:
-    """去除相似论文（哈希值相近的）"""
-    seen_hashes = set()
-    unique_papers = []
-    for paper in papers:
-        h = compute_similarity_hash(paper['title'])
-        if h not in seen_hashes:
-            seen_hashes.add(h)
-            unique_papers.append(paper)
-    return unique_papers
-```
+### 社区 Tier 1 必填字段
+
+- 热度信号（HN Score / HF 排名）
+- 一句话核心 / 核心共识 / 主要争议 / 影响评估
+- 来源链接
+
+### 今日总结
+
+- 3 条独立洞察
+- 每条 ≥40 字，含**现象 → 逻辑 → 预测**三段
+
+完整规范见 [poxiao-briefing/SKILL.md](.codeflicker/skills/poxiao-briefing/SKILL.md)。
 
 ---
 
-## �🔧 配置说明
+## 🎨 配套信息图
 
-### 用户品味 (profile_demo.yaml)
+每篇早报附带 16:9 高清信息图（2K，约 5MB），放在同目录 `infographic.jpg`，markdown 通过相对路径 `![今日早报信息图](./infographic.jpg)` 嵌入。
+
+**生成原理**：
+1. 从早报中提炼 ≤8 个核心信息点（学术 Tier1 + 社区热点 + 今日总结）
+2. 敏感词净化（18 组对照表，避免触发生图 API 审核）
+3. 调用 `designai-infographic-image` skill 生图
+4. 唯一性约束（一篇一图，永不重复引用）
+
+---
+
+## ⚙️ 配置说明
+
+### 兴趣权重（profiles/profile_demo.yaml）
 
 ```yaml
 research_domains:
-  RL 推断 & 对齐 (RLHF/GRPO/PPO):
-    keywords: [RLHF, GRPO, PPO, DPO, reasoning, alignment]
+  视频生成 & 视频理解:
+    keywords: [video generation, video diffusion, world model, NeRF]
+    priority: 5.5    # 最高优先级
+  基础模型 & 推理:
+    keywords: [LLM, foundation model, reasoning, inference]
     priority: 5.0
-  LLM Agent 工程:
-    keywords: [agent, multi-agent, tool use, MCP]
-    priority: 4.0
-  算力优化 & 推理加速:
-    keywords: [vLLM, PagedAttention, quantization, MoE]
-    priority: 4.0
-
-business_focus:
-  sectors:
-    - 硅谷动态 (Anthropic/OpenAI/Meta AI)
-    - 国内大厂动向 (字节/阿里/腾讯)
-    - 芯片 & 算力基础设施
-  tracked_companies:
-    tier1: [Anthropic, OpenAI, DeepSeek, Google DeepMind]
-    tier2: [Meta AI, Mistral, 字节跳动, 阿里云]
-    tier3: [NVIDIA, 台积电, AMD]
-
-format_preference:
-  academic_top_n: 8
-  community_top_n: 10
-  finance_top_n: 8
+  多模态 / 3D / 具身智能:
+    keywords: [VLM, VLA, 3D generation, embodied AI]
+    priority: 4.5
+  Agent / RL:
+    keywords: [agent, RLHF, alignment]
+    priority: 2.5    # 大幅降低（避免 Agent 论文淹没视频内容）
 ```
 
-### 信源配置 (config.json)
+### 信源开关（config.json）
 
 ```json
 {
   "sources": {
-    "arxiv": {
-      "enabled": true,
-      "time_window_hours": 48,
-      "categories": ["cs.AI", "cs.LG", "cs.CL"]
-    },
+    "arxiv": { "enabled": true, "time_window_hours": 48 },
     "hackernews": { "enabled": true, "min_upvotes": 10 },
     "rss": [
-      {
-        "name": "TechCrunch AI",
-        "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
-        "enabled": true,
-        "category": "finance"
-      }
+      { "name": "Ars Technica AI", "enabled": true },
+      { "name": "Reddit MachineLearning", "enabled": true },
+      { "name": "HuggingFace Daily Papers", "enabled": false }
     ]
   }
 }
 ```
 
+> **当前已知不稳定源**：HuggingFace via rsshub.app（403）、36kr via rsshub（403）、量子位 decemberpei（404）、Reddit LocalLLaMA RSS（2026-05-28 起 403）。建议依赖 `gen_brief.sh` 的直接 API 调用兜底。
+
 ---
 
-## 🚀 迭代方向（Sign Action）
+## 🛠️ 已知问题与解决方案
 
-### Phase 1: 巩固数据层（已实现）
-- [x] arXiv 学术论文抓取
-- [x] HackerNews 社区热点
-- [x] RSS 财经动态
-- [x] 用户品味绑定（profile.yaml）
-- [x] /deep_dive 深度分析
+| 问题 | 解决 |
+|------|------|
+| venv 跨平台不兼容 | `rm -rf venv && python3 -m venv venv && pip install -r requirements.txt` |
+| RSS 源超时 | 降级到 `bash scripts/gen_brief.sh` |
+| arXiv API 严重限流 (429) | 用 HuggingFace Daily Papers 替代 |
+| 信息图生成"未找到相关内容" | 提示词触发审核，按 SKILL 中 18 组敏感词对照表替换 |
+| 信息图无 CDN URL | 已保存到本地 `infographic.jpg`，用相对路径嵌入即可 |
+| 早报里出现 2-3 个相同信息图 | 已修复并固化到 SKILL，存量数据已批量去重 |
+| 定时任务格式漂移 | SKILL 步骤 0 会先检查格式，不符则读取重写 |
+| raw_context.md 存在但早报缺失 | SKILL 步骤 6 支持基于原始数据补写完整日报 |
 
-### Phase 2: 增强交互层（进行中）
-- [ ] **Hermes 品味闭环验证**：测试 IDE 是否能响应用户修正，自动修改 profile.yaml
-- [ ] **多轮对话记忆**：在同一次 /poxiao 会话中记住上下文
-- [ ] **实时反馈机制**：用户对单条新闻点赞/踩，系统记录并调整权重
+---
 
-### Phase 3: 扩展信源层（规划中）
-- [ ] **PDF 全文提取**：/deep_dive 不仅抓摘要，还要能下载 PDF 并提取正文
-- [ ] **Twitter/X 追踪**：抓取特定 AI 研究员的最新动态
-- [ ] **Reddit 专题订阅**：追踪 r/MachineLearning 等高质量社区
-- [ ] **中文信源增强**：36kr、机器之心等国内高质量源
+## 🗺️ 路线图
 
-### Phase 4: 智能化层（远期规划）
-- [ ] **MCP 工具链集成**：标准化工具调用协议
-- [ ] **Crawl4AI 精读引擎**：网页深度内容提取
-- [ ] **向量数据库**：存储历史早报，支持语义检索
-- [ ] **多模型路由**：根据内容类型路由到最适合的 LLM
+### ✅ 已完成
+- [x] 五板块格式标准化（v1.3）
+- [x] 配套信息图生成（v1.4）
+- [x] 三层 fallback 数据抓取（v1.5）
+- [x] 信息图引用唯一化（v1.6）
+- [x] briefs 按月归档
+- [x] MIT License
+
+### 🚧 进行中
+- [ ] **品味闭环**：用户对单条新闻 👍/👎，自动调整 profile 权重
+- [ ] **多轮对话记忆**：同一会话内记住上下文偏好
+
+### 📅 规划中
+- [ ] **PDF 全文提取**：deep_dive 不止抓摘要
+- [ ] **Twitter/X 追踪**：特定研究员动态
+- [ ] **向量数据库**：历史早报语义检索
+- [ ] **MCP 工具链集成**：标准化工具调用
 
 ---
 
 ## 🤝 致谢
 
-- [arXiv](https://arxiv.org/) — 开放学术预印本平台
-- [Hacker News](https://news.ycombinator.com/) — 技术社区风向标
-- [TechCrunch](https://techcrunch.com/) — 全球创业融资第一手资讯
-- [httpx](https://www.python-httpx.org/) — 异步 HTTP 客户端
-- [feedparser](https://github.com/kurtmckee/feedparser) — RSS 解析利器
+- [arXiv](https://arxiv.org/) · [HuggingFace](https://huggingface.co/) · [Hacker News](https://news.ycombinator.com/) · [Reddit](https://reddit.com/)
+- [httpx](https://www.python-httpx.org/) · [feedparser](https://github.com/kurtmckee/feedparser) · [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
+
+---
+
+## 📄 License
+
+[MIT](./LICENSE) — 欢迎 fork、修改、二次分发，仅需保留版权声明。
 
 ---
 
 <p align="center">
-  <strong>破晓 PoXiao — 让 AI 帮你看世界</strong>
+  <strong>破晓 PoXiao · 让 AI 帮你看世界</strong>
 </p>
