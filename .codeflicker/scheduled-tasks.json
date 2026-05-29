@@ -6,7 +6,7 @@
       "name": "破晓日报 · 每日自动生成",
       "scheduleType": "cron",
       "cron": "30 9 * * *",
-      "prompt": "生成今天的破晓日报，步骤如下：\n\n1. 执行数据获取脚本（会自动获取HN、HF Papers、Reddit数据）：\n```bash\nbash /Users/chenglitao/Desktop/work_project/info-source-skill/scripts/gen_brief.sh\n```\n\n2. 基于脚本输出的数据，按照 `.trae/skills/poxiao/SKILL.md` 格式生成完整日报（学术概览Tier1+Tier2、社区速递Tier1+Tier2、财经简报、今日总结）\n\n3. 将日报保存到 `briefs/今日日期/早报.md`（日期格式YYYY-MM-DD）\n\n4. git推送：\n```bash\ncd /Users/chenglitao/Desktop/work_project/info-source-skill && git add -A && git commit -m \"feat: add $(date +%Y-%m-%d) daily briefing\" && git push origin main\n```",
+      "prompt": "生成今天的破晓日报，请严格按照以下步骤执行：\n\n**⚠️ 重要：必须读取并遵循 SKILL.md 规范**\n\n0. 首先读取技能规范文件，了解标准格式要求：\n   路径：`/Users/chenglitao/Desktop/explore_project/poxiao/.codeflicker/skills/poxiao-briefing/SKILL.md`\n\n1. 执行数据获取脚本（自动获取HN、HF Papers、Reddit数据）：\n```bash\nbash /Users/chenglitao/Desktop/explore_project/poxiao/poxiao-repo/scripts/gen_brief.sh\n```\n\n2. 基于脚本输出的数据，**严格按照 SKILL.md 中「排版规范速查」和「精细内容规范」**生成完整日报，必须包含：\n   - 📡 学术概览（Tier1：5-8篇，含「一句话核心贡献」+「摘要精译」+「核心创新点」；Tier2：3-5篇）\n   - 🔥 社区速递（含「一句话核心」+「核心共识」+「主要争议」+「影响评估」）\n   - 💰 财经简报\n   - 🏢 职场动态\n   - 📊 今日总结（每条洞察含「现象→逻辑→预测」三段结构）\n\n3. 将日报保存到 `briefs/今日日期/早报.md`（日期格式YYYY-MM-DD），项目根目录：`/Users/chenglitao/Desktop/explore_project/poxiao/poxiao-repo`\n\n4. 生成配套信息图并嵌入日报（参考 SKILL.md 步骤4）\n\n5. git推送：\n```bash\ncd /Users/chenglitao/Desktop/explore_project/poxiao/poxiao-repo && git add briefs/ && git commit -m \"feat: add $(date +%Y-%m-%d) daily briefing\" && git push origin main\n```",
       "enabled": true,
       "sessionMode": "new",
       "agentMode": "jam",

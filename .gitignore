@@ -28,6 +28,14 @@ PoXiao_Briefs/
 *.swp
 *.swo
 
+# 旧工具目录（已迁移到 .codeflicker）
+.trae/
+
+# Python 虚拟环境
+venv/
+.venv/
+env/
+
 # macOS
 .DS_Store
 .AppleDouble
