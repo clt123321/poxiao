@@ -7,9 +7,10 @@ SCRIPT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$SCRIPT_DIR"
 
 DATE="${1:-$(date +%Y-%m-%d)}"
-DATE_DIR="briefs/$DATE"
-RAW_FILE="$DATE_DIR/raw_context.md"
-BRIEF_FILE="$DATE_DIR/早报.md"
+YM="${DATE:0:7}"
+DATE_DIR="briefs/$YM/$DATE"
+RAW_FILE="$DATE_DIR/raw_context-$DATE.md"
+BRIEF_FILE="$DATE_DIR/早报-$DATE.md"
 LOG_FILE="/tmp/fetch_${DATE//-/}.log"
 
 echo "[gen_brief] 日期: $DATE"

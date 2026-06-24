@@ -20,7 +20,8 @@ logger = logging.getLogger(__name__)
 ARXIV_ABSTRACT_URL = "http://export.arxiv.org/api/query"
 OUTPUT_DIR = Path("briefs")
 DATE_STR = __import__('datetime').datetime.now().strftime("%Y-%m-%d")
-DEEP_CONTEXT_PATH = OUTPUT_DIR / DATE_STR / "deep_context.md"
+YM_STR = DATE_STR[:7]
+DEEP_CONTEXT_PATH = OUTPUT_DIR / YM_STR / DATE_STR / f"deep_context-{DATE_STR}.md"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",

@@ -577,7 +577,8 @@ async def main(days=2):
         config = load_config()
         
         date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-        date_dir = OUTPUT_DIR / date_str
+        ym_str = date_str[:7]  # YYYY-MM
+        date_dir = OUTPUT_DIR / ym_str / date_str
         date_dir.mkdir(parents=True, exist_ok=True)
         logger.info(f"输出目录已创建: {date_dir}")
 
@@ -592,7 +593,7 @@ async def main(days=2):
         async with httpx.AsyncClient(timeout=30, proxy=proxy, trust_env=bool(proxy)) as http_client:
             all_items = await fetch_all(config, since, http_client)
 
-        write_raw_context(all_items, date_dir / "raw_context.md")
+        write_raw_context(all_items, date_dir / f"raw_context-{date_str}.md")
         logger.info(f"数据抓取任务完成 - 共抓取 {len(all_items)} 条内容")
     except Exception as e:
         logger.critical(f"执行数据抓取任务时发生错误: {e}")

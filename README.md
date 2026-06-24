@@ -17,7 +17,7 @@
 ## ✨ 最近更新（v1.6 / 2026-05）
 
 - **🆕 信息图引用唯一化**：早报 markdown 中 `![今日早报信息图]` 引用强制去重，幂等插入逻辑已固化到 SKILL（修复 12 篇历史早报重复引用 bug）
-- **🆕 按月归档 briefs**：`briefs/YYYY-MM/DD/` 三级目录，每月最多 31 个子目录，浏览效率显著提升
+- **🆕 按月归档 briefs（带日期后缀）**：`briefs/YYYY-MM/YYYY-MM-DD/早报-YYYY-MM-DD.md`，文件夹和文件名都带完整日期，避免编辑器多 tab 时混淆
 - **🆕 五板块格式标准化**：学术 + 社区 + 财经 + 职场 + 总结，每个板块字段精细化（详见 [SKILL.md](.codeflicker/skills/poxiao-briefing/SKILL.md)）
 - **🆕 配套信息图**：每篇早报自动生成 16:9 信息图（2K，约 5MB），相对路径嵌入 md，GitHub 直接可看
 - **🆕 三层 fallback 数据抓取**：vibe_fetch + gen_brief.sh + HuggingFace API 直取，应对 RSS 源不稳定
@@ -45,7 +45,7 @@
 cd poxiao-repo
 source venv/bin/activate
 
-# 数据抓取（输出到 briefs/YYYY-MM/DD/raw_context.md）
+# 数据抓取（输出到 briefs/YYYY-MM/YYYY-MM-DD/raw_context-YYYY-MM-DD.md）
 python fetch/vibe_fetch.py
 
 # 备用：HN + HuggingFace + Reddit 补充
@@ -63,17 +63,17 @@ python fetch/deep_dive.py 2605.27891
 
 ```
 poxiao-repo/
-├── briefs/                    # 早报输出（按月归档）
+├── briefs/                    # 早报输出（按月归档，文件名带日期）
 │   ├── 2026-04/
-│   │   ├── 20/
-│   │   │   ├── 早报.md
-│   │   │   ├── infographic.jpg     # 16:9 配套信息图
-│   │   │   └── raw_context.md      # 原始抓取数据
-│   │   ├── 21/...
-│   │   └── 30/
+│   │   ├── 2026-04-20/
+│   │   │   ├── 早报-2026-04-20.md
+│   │   │   ├── infographic-2026-04-20.jpg     # 16:9 配套信息图
+│   │   │   └── raw_context-2026-04-20.md      # 原始抓取数据
+│   │   ├── 2026-04-21/...
+│   │   └── 2026-04-30/
 │   └── 2026-05/
-│       ├── 01/...
-│       └── 29/
+│       ├── 2026-05-01/...
+│       └── 2026-05-29/
 ├── fetch/
 │   ├── vibe_fetch.py          # 异步多源抓取（核心）
 │   ├── deep_dive.py           # arXiv 论文深度分析
