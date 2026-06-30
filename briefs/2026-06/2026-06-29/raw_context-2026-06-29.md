@@ -1,6 +1,54 @@
 # 破晓 PoXiao — 原始数据 (Raw Context)
-生成时间: 2026-06-29 06:46 UTC
+生成时间: 2026-06-29 23:13 UTC
 ================================================================================
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+Amodei: "Open Source Models Will Eat Your Children"
+https://www.reddit.com/r/LocalLLaMA/comments/1uiyrlq/amodei_open_source_models_will_eat_your_children/
+&#32; submitted by &#32; /u/johnnyApplePRNG [link] &#32; [comments]
+---
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+Effect of GLM 5.2 !!
+https://www.reddit.com/r/LocalLLaMA/comments/1uiv8e4/effect_of_glm_52/
+All hail Z. Ai &#32; submitted by &#32; /u/Independent-Wind4462 [link] &#32; [comments]
+---
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+on Dario’s statement
+https://www.reddit.com/r/LocalLLaMA/comments/1uj2yym/on_darios_statement/
+&#32; submitted by &#32; /u/turtle-toaster [link] &#32; [comments]
+---
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+It’s time, Sam, it’s time.
+https://www.reddit.com/r/LocalLLaMA/comments/1uj1kna/its_time_sam_its_time/
+I mean….. I’m no CEO…. but it seems like this would be the absolute perfect time to drop a super powerful GPT-OSS-2 to throw a big ol’ wet blanket on Anthropic’s IPO. It doesn’t need to be like frontier or anything, just a 20b and a 120b that is as fast as the old versions, add agentic coding focus,
+---
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+DeepSeek V4, PR merged into llama.cpp !
+https://www.reddit.com/r/LocalLLaMA/comments/1uj0fkw/deepseek_v4_pr_merged_into_llamacpp/
+The PR : https://github.com/ggml-org/llama.cpp/pull/24162 All to git pull, cmake , and download GGUFs ! A vos marques, prêt, partez ! &#32; submitted by &#32; /u/Squik67 [link] &#32; [comments]
+---
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+Anthropic's Amodei: "Open Source models [could take us to] a very dangerous place."
+https://www.reddit.com/r/LocalLLaMA/comments/1uixcof/anthropics_amodei_open_source_models_could_take/
+&#32; submitted by &#32; /u/johnnyApplePRNG [link] &#32; [comments]
+---
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+Samsung, SK hynix, Micron Sued in US Over Memory Price Fixing
+https://www.reddit.com/r/LocalLLaMA/comments/1uiwtd7/samsung_sk_hynix_micron_sued_in_us_over_memory/
+&#32; submitted by &#32; /u/johnnyApplePRNG [link] &#32; [comments]
+---
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+Introducing LongCat-2.0 - , a large-scale MoE language model with 1.6 trillion total parameters and ~48 billion activated per token. This was the stealth model that was on Openrouter under the name 'owl-alpha'.
+https://www.reddit.com/r/LocalLLaMA/comments/1uj7egu/introducing_longcat20_a_largescale_moe_language/
+&#32; submitted by &#32; /u/AnticitizenPrime [link] &#32; [comments]
+---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
 NPC Engine Using Local Models
@@ -9,237 +57,388 @@ I’ve been working on a game-agnostic NPC engine/backend based pretty heavily o
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-The number 1 public enemy of open-source.
-https://www.reddit.com/r/LocalLLaMA/comments/1ui241x/the_number_1_public_enemy_of_opensource/
-Dario's args: &quot;Opensource you can see the source, here you cannot see inside the model&quot; - yes you can that's literally the open weights part btw. - I cannot see the weights inside Claude, but I can GLM 5.2 - Models like Nemotron3 Ultra go further, all the data, training scripts, and model 
+Any good uses for a 192 GB DDR3 Server in the LLM world?
+https://www.reddit.com/r/LocalLLaMA/comments/1uiqiei/any_good_uses_for_a_192_gb_ddr3_server_in_the_llm/
+I've been gifted this old IBM System X V4 with a dual Xeon E5-2640 [6c12t @ 2.7 GHz] and a whooping 192 GB of DDR3 1666 ECC RAM There's a gen 2 x16 PCi-E port in there as well so it can take a single GPU... Does anyone have some fun ideas on what to do with this system? It's DDR3 so speed is not som
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-We're probably going to need that soon.
-https://www.reddit.com/r/LocalLLaMA/comments/1uht2m0/were_probably_going_to_need_that_soon/
-From: Vladik on 𝕏: https://x.com/Kostoglodov/status/2071144065857679631 Shaw (spirit/acc) on 𝕏: https://x.com/shawmakesmagic/status/2070918006033817867 &#32; submitted by &#32; /u/Nunki08 [link] &#32; [comments]
+GLM 5.2 Q1_S vs Qwen 27B Q8
+https://www.reddit.com/r/LocalLLaMA/comments/1uimjdi/glm_52_q1_s_vs_qwen_27b_q8/
+TL;DR; GLM-5.2 Q1_S beats Qwen 3.6 27B Q8, both run at KV Q8 edit: GLM run a K &amp; V Q8, Qwen run with KV cache at full FP16., with preserve thinking on. Disclaimer : This is a hobby/amateur comparison with n=1, so go easy on it. I just thought it would be fun to share. The Context and The Task So
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-China Has Matched Anthropic in Cybersecurity, Resetting AI Race
-https://www.reddit.com/r/LocalLLaMA/comments/1ui3tck/china_has_matched_anthropic_in_cybersecurity/
-&#32; submitted by &#32; /u/pscoutou [link] &#32; [comments]
+NASA testing local LLM inference for future space missions
+https://www.reddit.com/r/LocalLLaMA/comments/1uisspl/nasa_testing_local_llm_inference_for_future_space/
+Red Hat published a blog post last week about an initiative I supported with NASA researchers at Johnson Space Center building a medical AI assistant. It's called the Crew Medical Officer Digital Assistant (CMO-DA) and the system runs LLMs and other models on local hardware with zero cloud dependenc
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Locally running mode turns an Image into a Cute Controllable Character you can Play as
-https://www.reddit.com/r/LocalLLaMA/comments/1uicq8x/locally_running_mode_turns_an_image_into_a_cute/
-This is a sequel to my last post here !! It meant a lot to have such positive feedback last time. This is the 800M version of the previous model. It still has a LOT of issues but the promise is the same. Working comfortably on consumer GPUs The context is increased to 12 latent frames. The wierd fla
+Kimi and GLM on frontier code
+https://www.reddit.com/r/LocalLLaMA/comments/1uir5u3/kimi_and_glm_on_frontier_code/
+&#32; submitted by &#32; /u/Charuru [link] &#32; [comments]
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Update: First Manual Results from Testing Procedural Skill Transfer in Small Models
-https://www.reddit.com/r/LocalLLaMA/comments/1uii78d/update_first_manual_results_from_testing/
-Yesterday I posted an idea for testing whether a large model can transfer some of its procedural skill to a smaller model without fine-tuning. The short version of the idea was this: Small models are often not completely lacking knowledge. They know the syntax. They know the libraries. They usually 
+Going from single GPU to dual GPU is nice but not in the way I expected
+https://www.reddit.com/r/LocalLLaMA/comments/1uiuyyp/going_from_single_gpu_to_dual_gpu_is_nice_but_not/
+I was expecting what when doubling my VRAM from 24gb to 2x24gb I'd use higher quants with more context, and thus get smarter LLMs, but that's not what it ended up happening. At least for coding, I found that the difference in quality from, say, qwen 27B UD-Q4-XL to a Q6 or Q8 is rather small. Instea
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-High-quality GLM-5.2 Quant on 4x DGX Spark - Guide, Results, and Comps
-https://www.reddit.com/r/LocalLLaMA/comments/1uidtb8/highquality_glm52_quant_on_4x_dgx_spark_guide/
-I got GLM-5.2 NVFP4 running on four DGX Sparks at 128K context. This is still a niche/hacky setup, but it is now a real serving point rather than just a proof of life. Objective : A high quality 4-bit quant running on 4x spark. Model: https://huggingface.co/Mapika/GLM-5.2-NVFP4 TL;DR: 128k context a
+Ornith 35B works reasonably well with Qwen3.6 35B DFlash speculative model
+https://www.reddit.com/r/LocalLLaMA/comments/1uj4ojm/ornith_35b_works_reasonably_well_with_qwen36_35b/
+I saw a solid 30-40% token gen increase from this: ./llama-server --no-mmap --port 8080 --host 0.0.0.0 -kvu -ts 75,70 \ --alias qwen -hf bartowski/deepreinforce-ai_Ornith-1.0-35B-GGUF:Q8_0 -sm layer -c 255000 -cram 0 \ -ctk f16 -ctv f16 -fa 1 --jinja -t 7 --metrics --temp 0.6 --top-p 0.95 --top-k 20
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Trying to understand why so many trash fine-tuned models on HuggingFace ...
-https://www.reddit.com/r/LocalLLaMA/comments/1ui7xoj/trying_to_understand_why_so_many_trash_finetuned/
-The majority of these models do not perform even as well as the base model, not even worth wasting the disk space on HuggingFace server, Qwhoppass-27B-Mother-Ultimate-Lord, whatever... Seeing their proliferation and the booming AI job market, I think many of those are just for the authors scamming t
+Bolt Graphics GPU will have 2 DDR5 laptop DIMM slots
+https://www.reddit.com/r/LocalLLaMA/comments/1uiueqw/bolt_graphics_gpu_will_have_2_ddr5_laptop_dimm/
+They have a few working prototypes, &amp; are aiming for pre-production examples made by end of this year, &amp; full production by Christmas 2027. Interesting specs: 5nm GPU &quot;High performance CPU in GPU&quot; on-card LPDDR5X as primary memory pool 2 DDR5 SODIMM slots for 'spill over' memory, c
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-DFlash support merged into llama.cpp
-https://www.reddit.com/r/LocalLLaMA/comments/1uhx862/dflash_support_merged_into_llamacpp/
-&#32; submitted by &#32; /u/sammcj [link] &#32; [comments]
+Instead of decentralized training effort we should build the “One dataset”
+https://www.reddit.com/r/LocalLLaMA/comments/1uiuta1/instead_of_decentralized_training_effort_we/
+There are many threads here calling for united LLM training run of a new open model. Mainly, after govt. stunt of banning commercial frontier models. And also due to the lack of small-medium open-weight models releases lately. I genuinelly believe at some point we’ll have “SETI for LLM”. But not any
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Minimax M3 vs M2.7
-https://www.reddit.com/r/LocalLLaMA/comments/1uie1zl/minimax_m3_vs_m27/
-M3 has been out for ~2 weeks now. Would love to hear feedback from those who have updated to M3 from M2.7. &#32; submitted by &#32; /u/rm-rf-rm [link] &#32; [comments]
+An NGO for digital freedom of thought
+https://www.reddit.com/r/LocalLLaMA/comments/1uj0za3/an_ngo_for_digital_freedom_of_thought/
+Disclosure: I'm the chairman of this association and we're in the founding process (legal stuff, besides that we're settled). Also: I'm writing this manually, not via AI. Out of respect for this subreddit. I don't mean to spam here, but perhaps the information / opportunities I share here are releva
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Ornith-1.0-35B GGUF update: native MTP speculative-decode graft + full serving/TTFT/long-context numbers (llama.cpp, tp=1)
-https://www.reddit.com/r/LocalLLaMA/comments/1ui4yn6/ornith1035b_gguf_update_native_mtp/
-Follow-up to my previous Ornith-1.0-35B Q3_K_M post. I grafted a native MTP draft head onto the IQ4_XS body (head at Q6) for self-speculative decode, single GPU, llama.cpp: 1.3-1.35x single-stream decode (172.6 -&gt; 233.8 tok/s). Next-token distribution is byte-identical to target-only (KLD 0.0, 32
+CPU-only GLM 5.2: Epyc and 512GB RAM
+https://www.reddit.com/r/LocalLLaMA/comments/1uiqiqc/cpuonly_glm_52_epyc_and_512gb_ram/
+This is just a preview of some content I'm putting together to share with you all. I have a server I've put together and I'm testing the 4-bit version of GLM 5.2 (GLM-5.2-UD-Q4_K_XL). This is an Epyc Rome 7452 with 512GB of RAM. TLDR: This is the unedited prompt, response and code I set it to Medium
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-A lot of good M5 Max options available at Apple Refurbished
-https://www.reddit.com/r/LocalLLaMA/comments/1ui3oeu/a_lot_of_good_m5_max_options_available_at_apple/
-Just a heads-up. After Apple's price hike announcement, they added a bunch of top-of-the-line 14&quot; M5 Pro/Max options to their refurbished website. If you got discouraged by the price hike, check out their refurbished store. &#32; submitted by &#32; /u/Hanthunius [link] &#32; [comments]
+DeepSeek V4 by am17an · Pull Request #24162 · ggml-org/llama.cpp
+https://www.reddit.com/r/LocalLLaMA/comments/1uindb2/deepseek_v4_by_am17an_pull_request_24162/
+now you can run DeepSeek V4 locally &#32; submitted by &#32; /u/jacek2023 [link] &#32; [comments]
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-DeepSpec - a deepseek-ai Collection
-https://www.reddit.com/r/LocalLLaMA/comments/1uhyhl3/deepspec_a_deepseekai_collection/
-DeepSpec DeepSpec is a full-stack codebase for training and evaluating draft models for speculative decoding. It contains data preparation utilities, draft model implementations, training code, and evaluation scripts. Released Checkpoints The checkpoints below are the ones used for Table 1 in the pa
+Qwen3-tts.cpp + Compose Desktop GUI
+https://www.reddit.com/r/LocalLLaMA/comments/1uj0705/qwen3ttscpp_compose_desktop_gui/
+I improved my qwen3-tts.cpp implementation to be about 5x realtime on my RTX 5080. It is GGML based, so it should compile and run anywhere - however I only tested it with CPU &amp; CUDA under Windows &amp; Linux: https://github.com/Danmoreng/qwen3-tts.cpp Additionally I made a Desktop GUI with Kotli
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-I built an agent Harness for Small Models. I got Qwen 3.5 4b managing servers.
-https://www.reddit.com/r/LocalLLaMA/comments/1uicweb/i_built_an_agent_harness_for_small_models_i_got/
-This is something I've been working on, I like playing around with smaller local models but found most agent harness's not well suited for them. The failure modes across different model family's tend to be the same: Failed tool calls Poor varication of environment variables Poor recovery on common f
+Mellum2 local deployments
+https://www.reddit.com/r/LocalLLaMA/comments/1uisumj/mellum2_local_deployments/
+Hey local community, I work at JetBrains with the team that trained Mellum2 models — 12B-2.5A LLMs. Those models are trained completely from scratch, targeting fast inference: our primary goal were H100/H200s prod deployments, but local deployments are good as well. We open-sourced few checkpoints o
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-How many of you do use Q1 or Q2 of Big models(100-250B)? How's it?
-https://www.reddit.com/r/LocalLLaMA/comments/1uhummm/how_many_of_you_do_use_q1_or_q2_of_big/
-Sharing popular(also recent) models for reference: 151-250B : DeepSeek-V4-Flash Step-3.X-Flash Command-a-plus-05-2026 Laguna-M.1 MiniMax-M2.X Qwen3-235B-A22B 100-150B : GLM-4.5-Air Qwen3.5-122B-A10B NVIDIA-Nemotron-3-Super-120B-A12B Mistral-Small-4-119B-2603 Devstral-2-123B-Instruct-2512 Mistral-Med
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-Qwen3.6-27B UD Q3 with kv at q8 is quite amazing for simple proof of concepts
-https://www.reddit.com/r/LocalLLaMA/comments/1uibwn5/qwen3627b_ud_q3_with_kv_at_q8_is_quite_amazing/
-Preface, technology is not my industry, but I am a very passionate poor man. So much so that I discovered 'AI' - ChatGPT in the beginning of 2025. So go easy on me, I only try. I kind of understand MOE vs. Dense models, MOEs are much forgiving when it comes to running as there are only X amount of e
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-A barebones CPU-only inference engine for Qwen 3, written from scratch in pure C
-https://www.reddit.com/r/LocalLLaMA/comments/1uht9rf/a_barebones_cpuonly_inference_engine_for_qwen_3/
-TL;DR: The (very messy) code and writeups can be found at https://github.com/jakint0sh/qwen3-engine Read the README for instructions on how to get started. And for those who just want a bulleted list: - Inference engine for Qwen 3 sizes 4B and below - Written from scratch in pure C - No dependencies
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-Script to monitor llama cpp and analyze memory usage
-https://www.reddit.com/r/LocalLLaMA/comments/1ui0u4v/script_to_monitor_llama_cpp_and_analyze_memory/
-My goal has always been to be productive with commodity hardware. So far my workhorses have been the MoE editions of gemma 4 and Qwen 3.6 on an old desktop with a single 9060XT with 16GB ram. The problem has always been that every source is vague about Vram/ram requirements. Models are trained at 16
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-MLX Fine-Tune Example Guide
-https://www.reddit.com/r/LocalLLaMA/comments/1uid54g/mlx_finetune_example_guide/
-A Local MLX Fine-Tuning Experiment Just finished a local LoRA fine-tune of a 7B instruction model on Apple Silicon, via MLX, teaching it a high-fantasy literary register (Gene Wolfe and Tolkien). This is a more rigorous version with more data of something I tried two years ago and wanted to share so
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-Ubuntu, CUDA, llama.cpp , nvcc versioning
-https://www.reddit.com/r/LocalLLaMA/comments/1uif4g7/ubuntu_cuda_llamacpp_nvcc_versioning/
-The CUDA tool kit in apt is waaaaaaaay too old. I’ve been struggling with compute issues after all the other tweaking. Ubuntu latest is 12.0 newest is 13.3, I have a Blackwell and was dumbing it way down, 5060 ti 16gb, doubled the compute once fixed Had to specify the path on the llama.cpp though. S
+Apparently you can skip entire transformer blocks at load time with minimal performance impact
+https://www.reddit.com/r/LocalLLaMA/comments/1uip09j/apparently_you_can_skip_entire_transformer_blocks/
+The benefit is another trick to allow fitting a model that wouldn’t fit in your hardware otherwise. People currently rely on quantization, and this is just another tool that can be used for that purpose (and they can be used together as well) Following recent (very cool) papers, I implemented this a
 ---
 
 [RSS:TechCrunch AI (创业融资)]
-Ford rehires ‘gray beard’ engineers after AI falls short
-https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/
-"Mistakenly we thought that by just introducing artificial intelligence ... that would produce a high-quality product.”
+Gemini’s personalized AI image generation is now free for US users
+https://techcrunch.com/2026/06/29/geminis-personalized-ai-image-generation-is-now-free-for-u-s-users/
+Google is expanding Gemini’s personalized AI image generation to eligible free users in the U.S., allowing the chatbot to create images based on your interests and data from connected Google apps.
 ---
 
 [RSS:TechCrunch AI (创业融资)]
-Why Wall Street thinks US memory maker Micron is the next Nvidia
-https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/
-Eager to find more public AI-related companies that may do as well as Nvidia, Wall Street investors think they've found a winner with Micron.
+Anthropic and Gov. Newsom forge deal allowing California government to use Claude at half price
+https://techcrunch.com/2026/06/29/anthropic-and-gov-newsom-forge-deal-allowing-california-government-to-use-claude-at-half-price/
+As Anthropic forges a closer relationship with the state of California, the federal government has made an enemy out of the OpenAI rival.
+---
+
+[RSS:TechCrunch AI (创业融资)]
+South Korean tech giants commit over $550B to ease ‘RAMageddon’
+https://techcrunch.com/2026/06/29/south-korean-tech-giants-commit-over-550b-to-ease-ramageddon/
+The world's two largest memory chip companies vow to build more memory lab fabs as South Korea positions itself as an AI tech powerhouse country.
+---
+
+[RSS:TechCrunch AI (创业融资)]
+Arena, the AI leaderboard everyone uses, is now a $100M business
+https://techcrunch.com/2026/06/29/arena-the-ai-leaderboard-everyone-uses-is-now-a-100m-business/
+The startup, which runs a popular free AI leaderboard, launched its commercial service just last September.
+---
+
+[RSS:TechCrunch AI (创业融资)]
+Cursor now has a mobile app for guiding your coding agent on the go
+https://techcrunch.com/2026/06/29/cursor-now-has-a-mobile-app-for-guiding-your-coding-agent-on-the-go/
+Cursor has launched a new mobile app for remote oversight over coding agents.
+---
+
+[RSS:TechCrunch AI (创业融资)]
+TIDAL cracks down on AI music by cutting off monetization
+https://techcrunch.com/2026/06/29/tidal-cracks-down-on-ai-music-by-cutting-off-monetization/
+In addition, TIDAL will use automated tools to remove AI-generated music that attempts to impersonate an artist or a group, the company said.
+---
+
+[RSS:TechCrunch AI (创业融资)]
+Robot hand company settles Tesla trade secret suit and announces $11M raise
+https://techcrunch.com/2026/06/29/robot-hand-company-settles-tesla-trade-secret-suit-and-announces-11m-raise/
+The startup, Proception, is taking a unique approach to collecting training data to tackle one of the hardest problems in robotics: hands.
+---
+
+[RSS:TechCrunch AI (创业融资)]
+Omen AI’s plan to optimize data centers is all wet
+https://techcrunch.com/2026/06/29/omen-ais-plan-to-optimize-data-centers-is-all-wet/
+Omen AI raised a $31 million Series A to monitor chip coolant and stop bacterial outbreaks in data centers.
 ---
 
 [RSS:The Verge AI (科技大厂动态)]
-China’s Z.ai claims it can match Mythos on cybersecurity
-https://www.theverge.com/ai-artificial-intelligence/958804/chinas-z-ai-glm-52-mythos-cybersecurity
-China's Zhipu AI (Z.ai) released its open-weight GLM-5.2, and some researchers have claimed that it matches Mythos in certain bug-finding and cybersecurity scenarios. While GLM lags behind models from Anthropic and OpenAI in other, more general tasks, it seems that China has dramatically reduced the
+Tidal won’t pay royalties on AI-generated music but isn’t banning it outright
+https://www.theverge.com/tech/959211/tidal-ai-music-policy-demonetizingdetect-label
+Tidal shared its new policies regarding AI-generated music today and how the platform plans to "protect artists" and "inform listeners." Instead of banning it outright, starting on July 15th Tidal will label tracks it has identified as being 100 percent AI-generated with an icon. But starting today 
 ---
 
 [RSS:The Verge AI (科技大厂动态)]
-Suno launches Spark incubator program to feed independent artists to its AI machine
-https://www.theverge.com/ai-artificial-intelligence/958801/suno-launches-spark-incubator-program-to-feed-independent-artists-to-its-ai-machine
-Suno has ambitions to be more than just a toy to churn out AI slop, it also wants to be a streaming destination and to break new artists. Spark is their new incubator program for independent artists that provides grants, mentorship, and marketing support. To apply, artists need to be an unsigned sin
+OpenAI is teasing new hardware… for Codex
+https://www.theverge.com/ai-artificial-intelligence/959174/openai-codex-hardware-work-louder
+OpenAI is releasing some sort of device related to its AI-powered coding tool, Codex, on July 15th. In a video posted to X on Monday, OpenAI shows a square-shaped device with several buttons, alongside the caption, "Your favorite Codex shortcuts are getting an upgrade." This isn't the mysterious AI-
 ---
 
 [RSS:The Verge AI (科技大厂动态)]
-Prosecutors used ChatGPT logs as evidence in the Palisades fire trial
-https://www.theverge.com/ai-artificial-intelligence/958751/prosecutors-chatgpt-palisades-wildfire-arson-mistrial
-Jonathan Rinderknecht was facing arson charges for setting a fire on New Year's Day in 2025, which became one of the deadliest wildfires in LA history. To make their case, prosecutors turned to location data from his iPhone, security camera footage, and witness testimony. But they also turned to his
+Lawmakers want to ban AI companies from selling your health data
+https://www.theverge.com/ai-artificial-intelligence/959033/health-location-data-protection-act-ai-warren-scanlon
+A new proposal would ban the sale of Americans' health and location information to data brokers - including information people reveal to an AI chatbot like ChatGPT or Claude. In the coming weeks, Senator Elizabeth Warren (D-MA) and Representative Mary Gay Scanlon (D-PA) are planning to debut a new v
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Interview Discussion - June 29, 2026
+https://www.reddit.com/r/cscareerquestions/comments/1uil3yj/interview_discussion_june_29_2026/
+Please use this thread to have discussions about interviews, interviewing, and interview prep. Posts focusing solely on interviews created outside of this thread will probably be removed. Abide by the rules, don't be a jerk. This thread is posted each Monday and Thursday at midnight PST . Previous I
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Laid-off SWE with 5 YOE in the U.S. how long did it take you to land your next job?
+https://www.reddit.com/r/cscareerquestions/comments/1uixpt4/laidoff_swe_with_5_yoe_in_the_us_how_long_did_it/
+I have about 5 YOE, mostly in enterprise application development, internal tools, automation, integrations, Java/Spring Boot, Angular, REST APIs, SQL/PostgreSQL, ServiceNow, APIM related automation, and Sterling file transfer workflows. My background is not FAANG/big tech, but it is from a large ent
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Working on millions of lines of legacy code is destroying my confidence
+https://www.reddit.com/r/cscareerquestions/comments/1uixbmw/working_on_millions_of_lines_of_legacy_code_is/
+I’m a junior software engineer and lately I’ve been feeling completely discouraged. I’m working on a legacy codebase with millions of lines of code spread across multiple repositories. There are several different projects that all communicate with each other, so it’s hard to understand where anythin
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Career changer - Might have made the wrong decision
+https://www.reddit.com/r/cscareerquestions/comments/1uj0qm8/career_changer_might_have_made_the_wrong_decision/
+Feeling pretty down right now. I feel like I've got a golden ticket but it's not at all what I expected. Currently a mid-30s career changer who spent the last 3 years learning to code (web) while building numerous full stack applications with all kinds of custom API integrations, etc. I come from a 
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Jump from high pay startup to average tech company?
+https://www.reddit.com/r/cscareerquestions/comments/1uj6sr6/jump_from_high_pay_startup_to_average_tech_company/
+I’m working in a startup company, $250k base. The environment has gotten extremely stressful and toxic. Leadership is on that AI koolaid and I’m not sure if their vision for the company is doable in the next couple of months. We also laid off half the engineers and their work is dumped on us, includ
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Backend dev with 3 YOE
+https://www.reddit.com/r/cscareerquestions/comments/1uj2nmk/backend_dev_with_3_yoe/
+Laid off. Have 3 years of backend experience with spring/spring boot. I am lost on what to upskill on. what to focus on. At my job, while I did use spring and springboot, I feel like alot of concepts I did not get to touch on. Was just starting to work on a new microservice with kafka (consumer side
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Feeling completely burnt out after two years of job hunting. Any advice?
+https://www.reddit.com/r/cscareerquestions/comments/1uinsfi/feeling_completely_burnt_out_after_two_years_of/
+I don't even know why I'm writing this anymore. I'm a 2024 B.Tech CSE graduate and I've been trying for almost two years. I applied to tech and non tech roles. It hasn't just been rejections. I've been scammed, ghosted after clearing interviews, and even ghosted after completing onboarding. Every ti
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Feeling Lost and No Direction
+https://www.reddit.com/r/cscareerquestions/comments/1uizrcg/feeling_lost_and_no_direction/
+I am a 26 y/o with a computer science bachelor's degree from a pretty average college. I moved to NYC with a job in a rotational program with 6-month stints in Biotech that ended up getting cut after 2 years (none of the analysts got a full-time offer). Here I worked on small, surface-level projects
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Graduated with a CS degree, dislike coding
+https://www.reddit.com/r/cscareerquestions/comments/1uidyxu/graduated_with_a_cs_degree_dislike_coding/
+I graduated with a Bachelor's degree in CS with a good GPA, but I don't like coding at all. I can't even do a leetcode medium without external help and I don't want to watch tutorials and read books about it because I hate it even more. I don't want to learn &quot;patterns&quot; of coding problems b
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Question for older devs (40s, 50s, 60s)
+https://www.reddit.com/r/cscareerquestions/comments/1uij4b4/question_for_older_devs_40s_50s_60s/
+I’m a software engineer and have been in the industry for close to a decade. Currently in my early-mid thirties and am curious how you all stay sharp and healthy. In my case, I have high cholesterol, poor sleep, heart issues and the like and I feel like even if I wanted to continue in this professio
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Software internship has had almost no assigned work for a month. How should I handle it professionally?
+https://www.reddit.com/r/cscareerquestions/comments/1uix3do/software_internship_has_had_almost_no_assigned/
+I’m a CS student doing a software-related internship this summer at a large defense/government-contractor type company. I’m about a month in, and due to access/clearance-related constraints, I haven’t really been given technical work yet. I’m physically on-site for 8 hours a day, 5 days a week, and 
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+MSCA fully funded PhD vs staying in Usa with no job yet need outside perspective
+https://www.reddit.com/r/cscareerquestions/comments/1uix1ry/msca_fully_funded_phd_vs_staying_in_usa_with_no/
+International student currently on OPT in the US, no job offer yet, trying to decide between two paths. Option A: take a fully funded EU doctoral fellowship (MSCA) in AI with Industry patners, based in Europe, 3 year contract, funding already confirmed. Option B: keep searching for a job in the US o
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Taking leave of absence to work full time
+https://www.reddit.com/r/cscareerquestions/comments/1uj2wj5/taking_leave_of_absence_to_work_full_time/
+Hey all, I’m a rising sophomore at CMU currently interning at Nvidia, and I might have the option to join a successful (&gt;5B valuation, paying customers) chip startup as a full time (software) engineer going into the fall. And I want to have more conviction in what path I would take if I had to ma
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+how to plan 1-1 with my manager as a person who want to transfer from internship to full time
+https://www.reddit.com/r/cscareerquestions/comments/1uj2gxp/how_to_plan_11_with_my_manager_as_a_person_who/
+what's your tips and tricks &#32; submitted by &#32; /u/AbbreviationsLoud182 [link] &#32; [comments]
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+How do I stop thinking like a code monkey and start thinking architecturally?
+https://www.reddit.com/r/cscareerquestions/comments/1uj7o43/how_do_i_stop_thinking_like_a_code_monkey_and/
+As the title says. I’m a rising senior in college. Just got an internship. As interns we’ve been assigned fairly good/tough projects(which I’m happy about).. We have been spilt into teams and I’m mostly working on the backend for one of our projects. Now here comes the issue. For most of my projects
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+How smart is it to branch into Data Science with a CS degree?
+https://www.reddit.com/r/cscareerquestions/comments/1uj7nqc/how_smart_is_it_to_branch_into_data_science_with/
+I will be a sophomore at my college this August, and have started worrying about whether my degree is worth it. I will admit, I didn’t know specifically what I wanted to do in CS in my first year, but after a couple classes, I found I was more interested in the data side of things than coding. Is it
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Admitted to Columbia MSCS, Cornell Tech MEng CS, and Imperial Computing (AI/ML) , not sure where to go
+https://www.reddit.com/r/cscareerquestions/comments/1uin8g2/admitted_to_columbia_mscs_cornell_tech_meng_cs/
+I'm an international student finishing a CS degree in the US, and I got into three master's programs I can't decide between: Columbia MS Computer Science (NYC, ~1.5 years) Cornell Tech MEng CS (NYC/Roosevelt Island, ~1 year) Imperial College London MSc Computing, AI &amp; ML specialism (London, ~1 y
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+2026 SWE search vs. 2021 search (w/ Sankeys)
+https://www.reddit.com/r/cscareerquestions/comments/1uig0tf/2026_swe_search_vs_2021_search_w_sankeys/
+I kept records of my 2021 cycle, so here are some charts. Imgur compressed the sankeys weirdly, if you click to enlarge they display normally 2026 cycle Sankey Background: employed at a FAANG while recruiting. My area was very in demand. I went to a brand-name school. Targets: roles that I had relev
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+sofi externship proc
+https://www.reddit.com/r/cscareerquestions/comments/1uj4brz/sofi_externship_proc/
+i applied to SoFi’s externship 2 days ago and got rejected today. anyone know if externships are also rigorous and selective like internships? i’m just curious how SoFi’s externship hiring process looks and what the day-to-day program is like. &#32; submitted by &#32; /u/aaronamano05 [link] &#32; [c
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Linkedin Headline?
+https://www.reddit.com/r/cscareerquestions/comments/1uiu8pc/linkedin_headline/
+Unsure of what type of content should be in the headline as google gives me various different answers. Currently thinking of &quot;Recent CS Graduate | Software &amp; IT | (Skills?).&quot; Don't know if putting &quot;Software &amp; IT&quot; makes it seem too vague, but at this point looking to go in
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Final year student. Wasted 2 years and feeling completely lost about my career.
+https://www.reddit.com/r/cscareerquestions/comments/1uimkj1/final_year_student_wasted_2_years_and_feeling/
+Hey everyone, I'm a 3rd year student, and this is my final year. Honestly, I don't even know how I'm supposed to get a job anymore. I wasted my first two years of college thinking I was doing fine, until I realized that I only knew the basics of coding and didn't have any proper roadmap or direction
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Want to pivot to another career but don't know where to start any advice?
+https://www.reddit.com/r/cscareerquestions/comments/1uinqnm/want_to_pivot_to_another_career_but_dont_know/
+I'm 32 , 10 years in tech. For the past 5 years I've been a Tech Lead / Senior Dev for my team. Recently I discovered that I really enjoy giving classes and coaching junior devs after I gave a course in mobile development. Because of this I want to pivot to a more people oriented position maybe mana
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Unsure how honest to be in new job search
+https://www.reddit.com/r/cscareerquestions/comments/1uiwnl1/unsure_how_honest_to_be_in_new_job_search/
+Hey, so bit of context. About a month ago I left a cyber security engineer position after a good number of years and moved into a more generic software engineering position within the same company. It's absolutely not a move I'm happy about and I've already got an upcoming interview to move back int
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+I'm split between sysadmin and embedded dev.
+https://www.reddit.com/r/cscareerquestions/comments/1uirtm9/im_split_between_sysadmin_and_embedded_dev/
+Context: I always loved trying various linux distros, and I passed RHCSA when I was 18. And then I worked as a help desk for about a year. But after that, I went back and currently in college to get a CS degree. From this perspective, choosing sysadmin seems like a natural choice after graduation. B
 ---
 
 [HACKERNEWS]
-GLM 5.2 beats Claude in our benchmarks
-https://semgrep.dev/blog/2026/we-have-mythos-at-home-glm-52-beats-claude-in-our-cyber-benchmarks/
-Score: 687 | Comments: 328
+.self: A new top-level domain designed to support self-hosting
+https://hccf.onmy.cloud/2026/06/21/reclaiming-our-digital-selves-hccfs-vision-for-a-human-centered-top-level-domain/
+Score: 204 | Comments: 131
 ---
 
 [HACKERNEWS]
-HackerRank open sourced its ATS. My resume scored 90/100. Oh wait 74. No – 88
-https://danunparsed.com/p/hackerrank-open-source-ats
-Score: 214 | Comments: 46
+Qwen 3.6 27B is the sweet spot for local development
+https://quesma.com/blog/qwen-36-is-awesome/
+Score: 509 | Comments: 446
 ---
 
 [HACKERNEWS]
-Age verification is just a precursor to automated attribution of speech
-https://nonogra.ph/age-verification-is-just-a-precursor-to-attribution-of-speech-06-29-2026
-Score: 259 | Comments: 136
+Is It Out Yet?
+https://outyet.ai
+Score: 27 | Comments: 11
 ---
 
 [HACKERNEWS]
-Herdr: Agent multiplexer that lives in your terminal
-https://github.com/ogulcancelik/herdr
-Score: 25 | Comments: 7
+Rocketlab acquires Iridium
+https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-acquire-iridium-historic-deal-creating-fully
+Score: 332 | Comments: 203
 ---
 
 [HACKERNEWS]
-Dissecting Apple's Sparse Image Format (ASIF)
-https://schamper.dev/dissecting-apples-sparse-image-format-asif/
-Score: 19 | Comments: 0
+Ornith-1.0: self-improving open-source models for agentic coding
+https://github.com/deepreinforce-ai/Ornith-1
+Score: 125 | Comments: 27
 ---
 
 [HACKERNEWS]
-Lore – give your coding agent the decisions your team made
-https://github.com/itsthelore/rac-core
-Score: 11 | Comments: 7
+Scientists find molecular-level evidence for two structures in liquid water
+https://phys.org/news/2026-06-scientists-molecular-evidence-liquid.html
+Score: 10 | Comments: 1
 ---
 
 [HACKERNEWS]
-Historical memory prices 1960-2026
-https://dam.stanford.edu/memory-prices.html
-Score: 263 | Comments: 94
+A native graphical shell for SSH
+https://probablymarcus.com/blocks/2026/06/28/native-graphical-shell-for-SSH.html
+Score: 211 | Comments: 96
 ---
 
 [HACKERNEWS]
-5k menus from the New York Public Library’s Buttolph Collection (1880-1920)
-https://pudding.cool/2026/06/menu-story/
-Score: 351 | Comments: 90
+WATaBoy: JIT-Ing Game Boy Instructions to WASM Beats a Native Interpreter
+https://humphri.es/blog/WATaBoy/
+Score: 163 | Comments: 24
 ---
 
 [HACKERNEWS]
-I used Claude Code to get a second opinion on my MRI
-https://antoine.fi/mri-analysis-using-claude-code-opus
-Score: 397 | Comments: 520
+JumpServer: Open-Source Privileged Access Management
+https://github.com/jumpserver/jumpserver
+Score: 44 | Comments: 11
 ---
 
 [HACKERNEWS]
-Knowledge Distillation of Black-Box Large Language Models (2024)
-https://arxiv.org/abs/2401.07013
-Score: 78 | Comments: 13
+US Supreme Court rules geofence warrants require constitutional protections
+https://www.theguardian.com/us-news/2026/jun/29/supreme-court-geofence-warrants-case-decision
+Score: 374 | Comments: 175
 ---
 
 [HACKERNEWS]
-Show HN: Zanagrams
-https://zanagrams.com/
-Score: 251 | Comments: 58
+Micro-Agent: Beat Frontier Models with Collaboration Inside Model API
+https://vllm.ai/blog/2026-06-29-micro-agent-frontier-models
+Score: 40 | Comments: 11
 ---
 
 [HACKERNEWS]
-TOP500 at ISC’26: We have a New Number 1 Supercomputer
-https://chipsandcheese.com/p/top500-at-isc26-we-have-a-new-number
-Score: 94 | Comments: 57
+What happens when you run a CUDA kernel?
+https://fergusfinn.com/blog/what-happens-when-you-run-a-gpu-kernel/
+Score: 190 | Comments: 24
 ---
 
 [HACKERNEWS]
-Tokenmaxxing is dead, long live tokenmaxxing
-https://12gramsofcarbon.com/p/agentics-tech-things-tokenmaxxing
-Score: 136 | Comments: 165
+South Korea to spend $1T on more memory chip production and humanoid robots
+https://arstechnica.com/ai/2026/06/south-korea-to-spend-1t-on-more-memory-chip-production-and-humanoid-robots/
+Score: 17 | Comments: 0
 ---
 
 [HACKERNEWS]
-Professor denounces mass AI fraud on an exam at Brown
-https://english.elpais.com/education/2026-06-28/ai-fraud-at-brown-university-academic-integrity-is-at-risk.html
-Score: 355 | Comments: 470
+Working With AI: A concrete example
+https://htmx.org/essays/working-with-ai/
+Score: 61 | Comments: 24
 ---
 
-[HACKERNEWS]
-The KIDS Act would require age checks to get online
-https://www.eff.org/deeplinks/2026/06/kids-act-would-require-age-checks-get-online
-Score: 421 | Comments: 333
+[GITHUB]
+vllm-project/vllm released v0.24.0
+https://github.com/vllm-project/vllm/releases/tag/v0.24.0
+Author: khluu
+# vLLM v0.24.0 Release Notes ## Highlights This release features 571 commits from 256 contributors (77 new)! * **MiniMax-M3**: Added support for the new **MiniMax-M3** model (#45381), with a fast follow-on of BF16/FP8 indexer via MSA (#45892), MXFP4 support (#45896), FP8 sparse GQA (#45744), and ext
 ---
 
 [ACADEMIC - ARXIV]
