@@ -1,23 +1,47 @@
 # 破晓 PoXiao — 原始数据 (Raw Context)
-生成时间: 2026-07-04 05:52 UTC
+生成时间: 2026-07-04 23:22 UTC
 ================================================================================
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Uh.. Honey, how do you feel about takeout?
-https://www.reddit.com/r/LocalLLaMA/comments/1umokhj/uh_honey_how_do_you_feel_about_takeout/
-- 2x RTX Pro 6000 Max-Q (96GB) - 8x RTX 3090 (24GB) - 2x RTX 5090 (32GB) - 3 PSUs - 128GB DDR5 SDIMM RAM (4-channel) - Threadripper 9960x - 1x Ryobi Portable Fan - 1x large Uber Eats bill 448GB VRAM Running MiniMax M3 in AWQ-INT4 on VLLM via PP over TP groups of 2. ~30 tp/s per single stream ~960 tp
+possible evidence of literal prompt injection by anthropic
+https://www.reddit.com/r/LocalLLaMA/comments/1unif51/possible_evidence_of_literal_prompt_injection_by/
+&#32; submitted by &#32; /u/johnnyApplePRNG [link] &#32; [comments]
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-GLM5.2 on 5x Pro 6000s and a 5090, an expensive journey
-https://www.reddit.com/r/LocalLLaMA/comments/1umcr5m/glm52_on_5x_pro_6000s_and_a_5090_an_expensive/
-This started as something I thought was reasonable. I already had a 5090 for my gaming machine, and I thought a second 5090 would make me happy. Instead, it sent me down a rabbit hole that got completely out of control. I wanted something that would have full PCIe 5.0 x16 speed across all slots, whi
+google/tabfm-1.0.0
+https://www.reddit.com/r/LocalLLaMA/comments/1un5hyi/googletabfm100/
+TabFM is a zero-shot tabular foundation model from Google Research. It supports classification and regression on structured/tabular data with mixed numerical and categorical columns, requiring no fine-tuning or hyperparameter search - training examples are passed as context and predictions are made 
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Mistral released Leanstral-1.5-119B-A6B
-https://www.reddit.com/r/LocalLLaMA/comments/1umgdhx/mistral_released_leanstral15119ba6b/
-Leanstral 1.5, a free Apache-2.0 licensed model with 6B active parameters, delivers a major performance upgrade in formal verification, saturating miniF2F, solving 587/672 PutnamBench problems, and achieving state-of-the-art results on FATE-H (87%) and FATE-X (34%). Trained through mid-training, sup
+Ran a classic(medival europe) fantasy RP/agentic benchmark across 8 local models Qwen3.6-27B held up better than its size suggests
+https://www.reddit.com/r/LocalLLaMA/comments/1unbm45/ran_a_classicmedival_europe_fantasy_rpagentic/
+Threw together a benchmark suite (quest completion, scene endings, item/time tracking, character detection, storytelling, drafting) and ran it across 8 models people talk about a lot on here. Judged with an external LLM grader, N varies per category (shown on the chart). Overall pass rates: gemma-4-
+---
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+I merged fixes for quantized KV cache into my DeepSeek V4 branch
+https://www.reddit.com/r/LocalLLaMA/comments/1une2il/i_merged_fixes_for_quantized_kv_cache_into_my/
+Check it out: https://github.com/fairydreaming/llama.cpp/tree/dsv4 They are PRs #25247 , #25303 (mine) and #25202 (from am17an) but I omitted some padding changes from the last one that I think are not necessary. So if it crashes for you let me know. You can now fit the antirez IQ2XXS model with 1M 
+---
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+Doing the actual math on a $20k local AI rig breakeven
+https://www.reddit.com/r/LocalLLaMA/comments/1un6njn/doing_the_actual_math_on_a_20k_local_ai_rig/
+Everyone under the sun says &quot;it's free after you buy the hardware&quot; and skips the electricity bill. Ran the numbers against a mid tier subscription to see where the crossover actually sits. Every thread about self hosting eventually has someone say some version of &quot;once you own the har
+---
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+Using local models with Hermes vs Claude code
+https://www.reddit.com/r/LocalLLaMA/comments/1unbjr2/using_local_models_with_hermes_vs_claude_code/
+Today I saw this in StepFun’s blog for their Step 3.7 Flash model. Running the model with CC performed better results vs Hermes. Curious why? &#32; submitted by &#32; /u/GreatMammad [link] &#32; [comments]
+---
+
+[RSS:Reddit LocalLLaMA (社区共识)]
+Is dSpark, dflash, MTP, QAT, and similar tech going to increase inference speed enough to where model spillover to disk will be more tolerable?
+https://www.reddit.com/r/LocalLLaMA/comments/1un6f8u/is_dspark_dflash_mtp_qat_and_similar_tech_going/
+We’re seeing all these performance boosts coming to inference lately with things like dSpark, dllash, MTP, etc. and I know the whole model spillover-to-disk has always been the inflection point where a model would go from maybe a barely acceptable 4 to 5 tokens per second to like a completely unusab
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
@@ -27,171 +51,129 @@ I used Claude Code locally running this model. Took a surprisingly long amount o
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Longcat 2 model weights have been published
-https://www.reddit.com/r/LocalLLaMA/comments/1umo8zu/longcat_2_model_weights_have_been_published/
-https://huggingface.co/meituan-longcat/LongCat-2.0-INT8 https://huggingface.co/meituan-longcat/LongCat-2.0-FP8 &#32; submitted by &#32; /u/RhubarbSimilar1683 [link] &#32; [comments]
+DGX Spark and Overtemps
+https://www.reddit.com/r/LocalLLaMA/comments/1unavzr/dgx_spark_and_overtemps/
+For anyone who has a DGX-Spark and is having problems during these very hot summer months, you can underclock with: sudo nvidia-smi -lgc 0,900 My temps dropped from 85C to 60C and this fixed my problem of overtemp lockups. Edit: Yes, I know that fans exist &#32; submitted by &#32; /u/Simusid [link] 
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Palantir is a free org on HF with 0 open-source models and 0 public datasets shared
-https://www.reddit.com/r/LocalLLaMA/comments/1umbw0v/palantir_is_a_free_org_on_hf_with_0_opensource/
-From clem 🤗 on X: https://x.com/ClementDelangue/status/2072683707001930215 From Palantir on X (video): https://x.com/PalantirTech/status/2072326189079757277 The information: Palantir CEO Says Some U.S. Government Customers Switched to Open Source AI: https://www.theinformation.com/newsletters/applie
+Qwen3.6 27B on a 5090, 6.4k sample tok/s distribution after tuning MTP/cache settings
+https://www.reddit.com/r/LocalLLaMA/comments/1unbi4a/qwen36_27b_on_a_5090_64k_sample_toks_distribution/
+Spent a while tuning llama.cpp for Qwen3.6 27B on a 9800X3D / 64GB / 5090 box and wanted to share the real distribution instead of just a headline number, since averages hide a lot. Ran with q8 KV cache, 192k context, MTP draft=10, spec-draft-p-min=0.5, batch/ubatch 512. Logged 6,454 samples across 
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Deepseek drops another HUGE breakthrough - DSpark. Waaay faster than MTP [Video explaining it]
-https://www.reddit.com/r/LocalLLaMA/comments/1um9j5q/deepseek_drops_another_huge_breakthrough_dspark/
-Hi folks. I found this video explaining latest DSpark breakthrough from Deepseek. Seems like a huge change coming. https://www.youtube.com/watch?v=J0D7qV3nl7w &#32; submitted by &#32; /u/BringTea_666 [link] &#32; [comments]
+Gemma 4 12B - MLX Kernel
+https://www.reddit.com/r/LocalLLaMA/comments/1uneztp/gemma_4_12b_mlx_kernel/
+I've mentioned this kernel project I was working on in a few posts and figured I would just open the project code for anyone curious: MLX Gemma 12B The main constraints for this on my end is an M5 16GB Macbook Pro. I usually do a model development on clusters in the cloud but have been playing with 
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-According to Bernstein, SK Hynix has 90% profit margin on dram
-https://www.reddit.com/r/LocalLLaMA/comments/1umgsu2/according_to_bernstein_sk_hynix_has_90_profit/
-https://x.com/jukan05/status/2073032040451366952 https://www.google.com/search?q=bernstein+dram+report Now if we could get them down to a typical automotive profit margin of 5%, then we would have ram for our local systems at 1/10th the cost? &#32; submitted by &#32; /u/Terminator857 [link] &#32; [c
+[Paper] Multi-Block Diffusion Language Models
+https://www.reddit.com/r/LocalLLaMA/comments/1un8y5p/paper_multiblock_diffusion_language_models/
+Block Diffusion Language Models (BD-LMs) improve diffusion-based text generation with KV caching and flexible-length generation. A natural next step is to extend them from Single-Block Diffusion (SingleBD) to Multi-Block Diffusion (MultiBD), where a running-set of consecutive blocks is decoded concu
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-gemma4 e2b is really good, what other small models work on crappy computers?
-https://www.reddit.com/r/LocalLLaMA/comments/1umpxhg/gemma4_e2b_is_really_good_what_other_small_models/
-I run it on i5 6500 and I get 9t/s its really fast and the output is a lot better than ChatGPT 3.5 and maybe its as good as ChatGPT 4 but I didn't use that 4.0 much. What are other good small models? I used Qwen 3.5 4b before this and that one blew me away too. &#32; submitted by &#32; /u/InsideYork
+PSA: Upscaling Gemma 4 requires a proportional layer_scalar adjustment
+https://www.reddit.com/r/LocalLLaMA/comments/1un9muu/psa_upscaling_gemma_4_requires_a_proportional/
+A lot of people seem to be confused or mystified about this so figured I'd spell it out. I played around with RYS and realized that it broke Gemma 4 models. Turns out there's a `layer_scalar` value that is applied at each layer. If you don't adjust that so that the resulting model gets &quot;the sam
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Portugal just released their own LLM Amalia (9B)!
-https://www.reddit.com/r/LocalLLaMA/comments/1umhrn8/portugal_just_released_their_own_llm_amalia_9b/
-I didnt see any mention here. Source: https://portugal.gov.pt/en/gc25/communication/news/llm-amalia-shows-portugals-potential HF link SFT: https://huggingface.co/amalia-llm/AMALIA-9B-0626-SFT HF link DFO (Direct Preference Optimization): amalia-llm/AMALIA-9B-0626-DPO · Hugging Face Paper: https://ar
+RTX5090, gemma-4-31B-it-Q6_K.gguf. Context: before - 35k, after - 80k!
+https://www.reddit.com/r/LocalLLaMA/comments/1un6c4s/rtx5090_gemma431bitq6_kgguf_context_before_35k/
+Yesterday there was a message that you can increase the context for Deepseek Flash. But it turned out that everything works for Gemma4 too! function dockergemma () { docker run \ -e GGML_CUDA_NO_PINNED=1 \ -p &quot;$PORT_GEMMA&quot;:&quot;$PORT_GEMMA&quot; \ -v &quot;$LLM_PATH&quot; \ -v &quot;$WORK
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Qwen 27B
-https://www.reddit.com/r/LocalLLaMA/comments/1umk3ax/qwen_27b/
-Just a datapoint I wanted to share.Qwen 27b, at q6kxl, with multi-token prediction, on a 4090+3090 system, using lcpp, puts out 50-90 tokens/s decode and 1500-2200 token/s pre-fill. Regardless of harness, it reliably interfaces with every API I have asked it to as long as I can link it to the docs. 
+[Paper] GEAR: Guided End-to-End AutoRegression for Image Synthesis
+https://www.reddit.com/r/LocalLLaMA/comments/1un9955/paper_gear_guided_endtoend_autoregression_for/
+Visual generative models are typically trained in two stages. A tokenizer is first trained for reconstruction and then frozen, after which a generator is trained on its discrete indices or continuous latents. This decoupling leaves the tokenizer unaware of what the generator finds easy to model. We 
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Deepseek V4 Flash running on RTX 5090 MoE
-https://www.reddit.com/r/LocalLLaMA/comments/1umsik8/deepseek_v4_flash_running_on_rtx_5090_moe/
-Here is the results of optimizing it for my setup: Benchmark results of the optimisation showing TG T/S from 22.7 to 21.3, and PP T/S from 1105 to 927, test ranges Prompt Processing from 8192 tokens to 65536 tokens, and is set to MoE with no unified KV, no memory map, n-cpu-moe 37 My setup: X870 AOR
+Is there some KDL chart for MiMo-V2.5 or something regarding the quants quality?
+https://www.reddit.com/r/LocalLLaMA/comments/1unfyfo/is_there_some_kdl_chart_for_mimov25_or_something/
+I'm using the model with opencode and the issue is it's looping hard when reasoning. It's not a deranged babbling though, the reasoning is legit large spans of text, it just can't get outside of the loop and make a decision. So I babysit it, stop and direct it to the right path, and it mostly does o
 ---
 
 [RSS:Reddit LocalLLaMA (社区共识)]
-Follow-up: DeepSeek V4 Flash on 2x RTX PRO 6000 finishes real coding tasks faster than Sonnet and Opus, at about Sonnet quality
-https://www.reddit.com/r/LocalLLaMA/comments/1um84bd/followup_deepseek_v4_flash_on_2x_rtx_pro_6000/
-This is a follow-up to post about which local models stay fast deep into long context and I learned a lot from people here. I kept measuring after that and it turned into a proper indie coding bench. With DeepSeek V4 Flash running on vLLM it lands around Sonnet quality and it finishes the whole task
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-This 3 slot 3080 20GB with 12v2x6 I got for €422,45
-https://www.reddit.com/r/LocalLLaMA/comments/1umrcbi/this_3_slot_3080_20gb_with_12v2x6_i_got_for_42245/
-&#32; submitted by &#32; /u/xw1y [link] &#32; [comments]
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-Whats the catch with SwiReasoning?
-https://www.reddit.com/r/LocalLLaMA/comments/1ump3nw/whats_the_catch_with_swireasoning/
-I just heard about SwiReasoning and tried it out on Qwen 3.6 27b and im kinda surprised. Its answers are more on point and it solves questions aloooot quicker. It seems a bit slower in t/s but the amount of tokens it needs is so much lower, it feels faster. Anybody else tried it? Wheres the catch? I
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-GLM5.2 performance.
-https://www.reddit.com/r/LocalLLaMA/comments/1umtiw4/glm52_performance/
-I was wondering how fast GLM5.2 (Nvidia’s 460GB nvfp4 checkpoint) is running on your rigs. I have it running at ~1tok/s in the simulation harness. The data extrapolates to 75tok/s on the real Cuda MGPU machine. So I would like to collect data from you how fast it runs for you. State your tok/s first
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-Any idea why bartowski claims DeepSeek-V4-Flash is MXFP4?
-https://www.reddit.com/r/LocalLLaMA/comments/1umka9t/any_idea_why_bartowski_claims_deepseekv4flash_is/
-https://huggingface.co/bartowski/DeepSeek-V4-Flash-GGUF This model is in MXFP4 and as such has only been provided in MXFP4 format! Original model: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash But on original's page none of tensors is MXFP4 : Tensor type BF16 I64 F32 F8_E8M0 F8_E4M3 I8 Am I m
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-My DeepSeek V4 Pro at home got faster again
-https://www.reddit.com/r/LocalLLaMA/comments/1umdjxd/my_deepseek_v4_pro_at_home_got_faster_again/
-You may remember my earlier posts about DeepSeek V4 Pro at home. Today I checked the performance in my llama.cpp branch that contains various fixes and optimizations not yet included in mainline. Benchmark is still running, will update the post with full results later (assuming it finishes today): $
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-Particle Scattering Sampler for llama.cpp
-https://www.reddit.com/r/LocalLLaMA/comments/1umqgnl/particle_scattering_sampler_for_llamacpp/
-https://github.com/IceFog72/llama.cpp I added an experimental sampler to llama.cpp called scatter . The short version: it slightly smooths the model’s next-token probability distribution inside the already-selected top candidates. It is meant to make generation less rigid without doing the usual “ra
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-Micro-World - Action-controlled Interactive world model - AMD
-https://www.reddit.com/r/LocalLLaMA/comments/1umey6p/microworld_actioncontrolled_interactive_world/
-In this work, we introduce Micro-World, an action-controlled interactive world model designed to generate high-quality, open-domain scenes. Built on top of the Wan2.1 family of models, we train both image-to-world (I2W) and text-to-world (T2W) variants to support a wide range of use cases. To foster
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-Gemma Avatar: Talk to Gemma 4-31B face to face
-https://www.reddit.com/r/LocalLLaMA/comments/1umee2i/gemma_avatar_talk_to_gemma_431b_face_to_face/
-This is a voice chat with Gemma 4 31B where you talk to a 3D avatar. It listens while you speak, answers with a voice and a face (the avatar is exposed to the LLM as function tools: set_mood, make_hand_gesture, make_facial_expression) and Gemma decides the expressions on its own. The stack is all op
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-Claude Desktop (code) but use local API?
-https://www.reddit.com/r/LocalLLaMA/comments/1ums14f/claude_desktop_code_but_use_local_api/
-Hey all, So I tend to favor the Claude Desktop app in Code mode as the GUI does a great job of previewing code, MCP browser interactions/screenshot evals/etc. But I recall people saying they could get Claude Desktop to use a local API. Does anybody know how to do this? Specifically, where can I conf
----
-
-[RSS:Reddit LocalLLaMA (社区共识)]
-For RAG specifically, prefill speed matters more than decode and why Strix Halo struggles for interactive use
-https://www.reddit.com/r/LocalLLaMA/comments/1umlqwn/for_rag_specifically_prefill_speed_matters_more/
-Seeing a lot of &quot;what hardware for local RAG&quot; threads lately, and the framing that keeps getting missed is: decode tok/s is not the bottleneck for RAG. Prefill is the bottleneck for RAG. RAG queries stuff thousands of tokens of retrieved context into every prompt. On unified memory boxes l
+A fully local, self-hosted repo index for coding agents (Rust, MIT, runs offline)
+https://www.reddit.com/r/LocalLLaMA/comments/1un430x/a_fully_local_selfhosted_repo_index_for_coding/
+If you run local models for coding, feeding them repo context without blowing the context window is half the battle. I built basemind to index a repo locally and serve it over MCP: a code map across 300+ languages, git history and blame, and document RAG over 90+ formats, all on your machine, no clo
 ---
 
 [RSS:TechCrunch AI (创业融资)]
-The only AI glossary you’ll need this year
-https://techcrunch.com/2026/07/03/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/
-The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter.
+New Google commercial imagines a Declaration of Independence written with help from AI
+https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/
+Two hundred and fifty years after the signing of the Declaration of Independence, a new commercial asks: What if the Founding Fathers had access to Google Workspace?
 ---
 
 [RSS:TechCrunch AI (创业融资)]
-The browser wars aren’t about search anymore — here are the best alternatives to Chrome and Safari
-https://techcrunch.com/2026/07/03/as-the-browser-wars-heat-up-here-are-the-hottest-alternatives-to-chrome-and-safari-in-2026/
-We’ve compiled an overview of some of the top alternative browsers available today aiming to challenge Chrome and Safari.
+Midjourney wants Hollywood studios to reveal the details of their AI usage
+https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/
+As part of an ongoing legal dispute with three Hollywood studios, Midjourney is seeking to compel those studios to reveal how they use AI themselves.
+---
+
+[RSS:TechCrunch AI (创业融资)]
+Alibaba reportedly bans employees from using Claude Code
+https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/
+Alibaba has reportedly classified Claude Code as high-risk software.
+---
+
+[RSS:TechCrunch AI (创业融资)]
+What is Mistral AI? Everything to know about the OpenAI competitor
+https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/
+Mistral AI, which offers some open source AI models, has raised significant funding since its creation in 2023, with the ambition to “put frontier AI in the hands of everyone.”
 ---
 
 [RSS:The Verge AI (科技大厂动态)]
-Anthropic wants to develop its own drugs
-https://www.theverge.com/ai-artificial-intelligence/961311/anthropic-claude-science-ai-drug-development
-At the event "The Briefing: AI for Science" earlier this week, Anthropic announced Claude Science, a new "AI workbench for scientists" that pulls fragmented tools and datasets into one environment, and generates figures and visuals. Anthropic, already dominating the industry with its popular coding 
----
-
-[RSS:The Verge AI (科技大厂动态)]
-A behind-the-scenes look at Midjourney’s medical scanner leaves many questions unanswered
-https://www.theverge.com/ai-artificial-intelligence/961265/midjourney-medical-ultrasound-scanner-behind-the-scenes-video
-Midjourney has shown more of its futuristic medical scanner. It still hasn't shown much proof it works. The AI startup, best known for generating images, released a behind-the-scenes video of its dunk-tank ultrasound scanner, which it plans to deploy in spas and hopes will transform medicine with ch
+The fanfiction community is at war with AI — and itself
+https://www.theverge.com/tech/960854/ai-fanfiction-ao3-claude-detector
+Over the past week, a new fanworks movement has kicked off, with the aim to root out authors using generative AI. But the detection methods being implemented are questionable, and any fanfic writer could be caught in the crossfire. Broad distaste around the use of Claude, ChatGPT, and other AI tools
 ---
 
 [RSS:Reddit Jobs & Careers (职场动态)]
-DEAR PROFESSIONAL COMPUTER TOUCHERS -- FRIDAY RANT THREAD FOR July 03, 2026
-https://www.reddit.com/r/cscareerquestions/comments/1um76fl/dear_professional_computer_touchers_friday_rant/
-AND NOW FOR SOMETHING ENTIRELY DIFFERENT. THE BUILDS I LOVE, THE SCRIPTS I DROP, TO BE PART OF, THE APP, CAN'T STOP THIS IS THE RANT THREAD. IT IS FOR RANTS. CAPS LOCK ON, DOWNVOTES OFF, FEEL FREE TO BREAK RULE 2 IF SOMEONE LIKES SOMETHING THAT YOU DON'T BUT IF YOU POST SOME RACIST/HOMOPHOBIC/SEXIST
+Resume Advice Thread - July 04, 2026
+https://www.reddit.com/r/cscareerquestions/comments/1un267i/resume_advice_thread_july_04_2026/
+Please use this thread to ask for resume advice and critiques. You should read our Resume FAQ and implement any changes from that before you ask for more advice. Abide by the rules, don't be a jerk. Note on anonomyizing your resume: If you'd like your resume to remain anonymous, make sure you blank 
 ---
 
 [RSS:Reddit Jobs & Careers (职场动态)]
-Yet another AI burnout post
-https://www.reddit.com/r/cscareerquestions/comments/1umjipn/yet_another_ai_burnout_post/
-5YoE, FAANG. I guess I'm dealing with a sense of burnout. I'm really lacking the energy to do things. I don't know if it's a health issue, but I don't think it is. I eat well and I'm feel fairly fit and okay, but I'm just tired. With AI, I've started to expected myself to be more productive. When I'
+how do you all approach "mentorship"?
+https://www.reddit.com/r/cscareerquestions/comments/1undxc3/how_do_you_all_approach_mentorship/
+I recently got asked to do some internship/job-search mentoring for students and early-career people. I’m considering it because I’ve been through the process myself and think it could be useful to give back, but I also don’t want to just repeat generic advice or make it feel transactional. For peop
 ---
 
 [RSS:Reddit Jobs & Careers (职场动态)]
-Google Application got Closed (Early Career SWE L3)
-https://www.reddit.com/r/cscareerquestions/comments/1umpevc/google_application_got_closed_early_career_swe_l3/
-I just had a call with my recruiter where he said that my application was going to be closed for the above role after I passed the onsite and moved on to team matching. I've been in the team matching stage for about 2 months, but haven't received any interest in my profile yet. He said that my inter
+Do I put this job on my linkedin?
+https://www.reddit.com/r/cscareerquestions/comments/1unl0tr/do_i_put_this_job_on_my_linkedin/
+New grad: Interned with the same start up for 6 months as an ML engineer. Full time return offer after graduating and been working for 1 month. Received an ML engineer offer from a very large tech company I had been interviewing with before I received a return offer originally and will likely take i
 ---
 
 [RSS:Reddit Jobs & Careers (职场动态)]
-I am in a frontier team .. hundreds of line a day and no one has idea what is doing. Depressing.
-https://www.reddit.com/r/cscareerquestions/comments/1um6z81/i_am_in_a_frontier_team_hundreds_of_line_a_day/
-product owner gave vague guidelines, they don’t know themselves what is the answer to many of the questions. AI creates text walls of specifications that no one reads neither cares. later in the process we notice something wrong because of some stupid assumption. we commit a lot of code into reposit
+Did I mess up accepting the job offer?
+https://www.reddit.com/r/cscareerquestions/comments/1unjza3/did_i_mess_up_accepting_the_job_offer/
+Hi, after months of looking I finally found a role that seems semi relevant. It is a CRM Data Coordinator where a big part of the job would be cleaning data and making sure its correct, lots of excel and some SQL. The salary is 50k plus benefits and bonuses. It would be a new role for the company an
 ---
 
 [RSS:Reddit Jobs & Careers (职场动态)]
-Backend/Data Engineer with 3 YoE: Job Search Experience and Sankey in 2026.
-https://www.reddit.com/r/cscareerquestions/comments/1umq29w/backenddata_engineer_with_3_yoe_job_search/
-Sankey: https://imgur.com/a/5OFUJAD Wanted to give back to this community and add some context to my job search since getting laid off in November 2025. When I got laid off, I had almost 3 years of experience in software engineering, primarily building real-time data pipelines and backend systems (w
+Cardiff MSc AI + Cyber Security vs Lancaster MSc Information Systems & Digital Business Innovation – Which has better UK job prospects?
+https://www.reddit.com/r/cscareerquestions/comments/1unhivx/cardiff_msc_ai_cyber_security_vs_lancaster_msc/
+Post on behalf of a friend: Hi everyone, I'm an international female student and have received offers from Lancaster and Cardiff universities. I'm trying to decide which programme would give me the best chance of finding a good job (ideally one that offers Skilled Worker sponsorship but not mandator
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Developing Java / Python skills
+https://www.reddit.com/r/cscareerquestions/comments/1unghms/developing_java_python_skills/
+TLDR: I need suggestions on how to advance Java skills an what to focus on when doing so. : ) focusing on learning concepts and being able to explain them myself for deeper understanding (no AI pls) Hello! I'm a junior in college studying CS, interested in Full Stack development. I've only really us
+---
+
+[RSS:Reddit Jobs & Careers (职场动态)]
+Advice for using AI at internship
+https://www.reddit.com/r/cscareerquestions/comments/1un30tx/advice_for_using_ai_at_internship/
+I'm doing an internship where I'm expected to heavily rely on AI. Every day, all I do is pick up new tickets, write a plan using Claude, review the plan, then execute the plan phase by phase while reviewing each change. Whenever Claude uses techniques/libraries that I'm not aware of, I do research a
 ---
 
 [RSS:Reddit Jobs & Careers (职场动态)]
@@ -201,183 +183,123 @@ I'm pivoting from mobile into ML engineering roles. I have the theory foundation
 ---
 
 [RSS:Reddit Jobs & Careers (职场动态)]
-Has AI actually changed what it takes to get hired as a junior dev, or is it still the same fundamentals?
-https://www.reddit.com/r/cscareerquestions/comments/1umk207/has_ai_actually_changed_what_it_takes_to_get/
-There's a lot of back and forth here lately, some experienced folks saying AI is making it easier for companies to justify hiring fewer juniors, others saying the fundamentals (debugging, understanding why code breaks, communication) still matter just as much as before. I've read through a bunch of 
+At this point I'm confused when learning is labelled as "automation" and when it stops being learning
+https://www.reddit.com/r/cscareerquestions/comments/1un88kl/at_this_point_im_confused_when_learning_is/
+For some context, basically everyone ik has been using all sorts of AI tools like Claude, Copilot chat, Antigravity etc and for a long time I felt like it wasn't a good thing since we're all students still and we won't actually learn but now it feels like I might be left behind and not considered fo
 ---
 
 [RSS:Reddit Jobs & Careers (职场动态)]
-What's AI-driven engineering like at frontier labs
-https://www.reddit.com/r/cscareerquestions/comments/1umsrim/whats_aidriven_engineering_like_at_frontier_labs/
-I'm curious what's engineering like at the frontier labs. I imagine the workflows are mostly (fully?) AI driven. Do the (internal?) AI models actually live up to the hype? How do you handle AI slop? Or are the internal models so good that there is no slop to begin with? What do you feel the general 
+When using Claude Code, what AI model do you use for daily coding tasks?
+https://www.reddit.com/r/cscareerquestions/comments/1unil1r/when_using_claude_code_what_ai_model_do_you_use/
+Fable, Sonnet, Opus, curious what's the one you select. Im just ramping up to it so curious. &#32; submitted by &#32; /u/Vivid_Tennis6983 [link] &#32; [comments]
 ---
 
 [RSS:Reddit Jobs & Careers (职场动态)]
-Feeling directionless in my career. How did you figure out what you liked?
-https://www.reddit.com/r/cscareerquestions/comments/1umpcef/feeling_directionless_in_my_career_how_did_you/
-Hello! I graduated with my masters in engineering in 2022 and became an MLE. I am not particularly good at coding and couldn’t do any work without the help of ai except very basic coding so I decided to switch my path to becoming a Product manager and I am 3 weeks in and absolutely dislike it, it do
+What search term should I be prioritizing on job boards as a new grad
+https://www.reddit.com/r/cscareerquestions/comments/1un6ycf/what_search_term_should_i_be_prioritizing_on_job/
+I'm just getting a diploma from a local college (~2 year program - around 22-24 total courses ranging from python, java, database, c+, react (mobile and web apps), web programming, cloud, security, etcetera.) .... its very general. The program is called &quot;computer programming&quot; Are people ge
 ---
 
 [RSS:Reddit Jobs & Careers (职场动态)]
-Goldman Sachs vs Nasdaq for Java Backend (1 YOE)
-https://www.reddit.com/r/cscareerquestions/comments/1umeq30/goldman_sachs_vs_nasdaq_for_java_backend_1_yoe/
-I have ~1 year of experience as a Java backend engineer at Goldman Sachs and recently received an offer from Nasdaq. Current compensation is similar, but I think Goldman has higher long-term compensation and promotion potential. At Goldman I’m working on an internal Java backend platform for large b
+SWE here, Azure Cloud Engineer int next week. Am I cooked chat?
+https://www.reddit.com/r/cscareerquestions/comments/1un74jq/swe_here_azure_cloud_engineer_int_next_week_am_i/
+I will start with this, I'm not a Cloud Engineer. I'm a junior SDE. Never worked on Azure (used Azure Repos and Azure Pipeline here and there once). recruiter said that it will be an hour long pure-technical interview. I am going through John Savill's Azure Masterclass for now but have no idea what 
 ---
 
 [RSS:Reddit Jobs & Careers (职场动态)]
-Has anyone heard of AaraTech?
-https://www.reddit.com/r/cscareerquestions/comments/1ummhok/has_anyone_heard_of_aaratech/
-I am currently being interviewed by them, but I am unsure if they are a legitimate company in the style of most WITCH companies where they contract me out, or if it's a data harvesting scam. I'm curious if anyone else has had any experience with them lately. &#32; submitted by &#32; /u/HearthPanda [
----
-
-[RSS:Reddit Jobs & Careers (职场动态)]
-Ropes.AI screening and showing ID?
-https://www.reddit.com/r/cscareerquestions/comments/1umln15/ropesai_screening_and_showing_id/
-Pretty much as the title suggests. Been job hunting for a bit and started talking to technical recruiters who use Ropes.AI to conduct one of those AI-driven anti-applicant fraud screenings. Problem is it's asking for pictures of my ID and other things I'm really not comfortable sharing with a third-
----
-
-[RSS:Reddit Jobs & Careers (职场动态)]
-CS graduate looking for an up-to-date roadmap to become a full-stack web developer
-https://www.reddit.com/r/cscareerquestions/comments/1umgk2d/cs_graduate_looking_for_an_uptodate_roadmap_to/
-Hi everyone, I graduated with a Computer Science degree a little over a year ago, but unfortunately I still haven't been able to get a job in the field. One thing that has made this difficult is that I most likely have ADHD (I'm not formally diagnosed yet), so I struggle with staying focused and stu
----
-
-[RSS:Reddit Jobs & Careers (职场动态)]
-Study abroad or summer internship
-https://www.reddit.com/r/cscareerquestions/comments/1umm0hh/study_abroad_or_summer_internship/
-I'm in a bit of a dilemma because it has been my dream to study abroad, but the school only offers the spring semester abroad, which would end late July, which means I would miss the summer internships back home. This would be my summer going into my senior year, which is a very important summer to 
----
-
-[RSS:Reddit Jobs & Careers (职场动态)]
-Doing masters after 8yoe
-https://www.reddit.com/r/cscareerquestions/comments/1umlnzw/doing_masters_after_8yoe/
-I have a very shitty dead end job and a very shitty market, it would take me at least a year to find a new job under such conditions so I Thout to do masters as well in parallel. Any advices how can I make the most of it? &#32; submitted by &#32; /u/Delicious_Crazy513 [link] &#32; [comments]
----
-
-[RSS:Reddit Jobs & Careers (职场动态)]
-Not sure which Tech Role to go for as a 2027 CSE Grad to end up as a data engineer?
-https://www.reddit.com/r/cscareerquestions/comments/1um7tn6/not_sure_which_tech_role_to_go_for_as_a_2027_cse/
-Hi! I am getting confused on which track to go for, data analyst or software development as I am looking to go into data engineering in the end. Thanks a lot! I have worked on project for both data analyst and full stack web dev(java), I am looking to have a less competition environment and to grow 
----
-
-[RSS:Reddit Jobs & Careers (职场动态)]
-Best YT resources for DSA in JAVA
-https://www.reddit.com/r/cscareerquestions/comments/1umjph2/best_yt_resources_for_dsa_in_java/
-Hey guys so i have completed basics of java, i want to know which youtube playlist would be the best to learn DSA in Java from complete zero level , and how? Please be a bit specific about it... Like i see a video of Arrays and then go to leetcode and select easy level questions of arrays and try so
----
-
-[RSS:Reddit Jobs & Careers (职场动态)]
-jobs in trading firms that do not involve software development
-https://www.reddit.com/r/cscareerquestions/comments/1umi3vx/jobs_in_trading_firms_that_do_not_involve/
-currently interning at one of the biggest banks in the country in building software for the market. however, I kind of dislike the work to be completely honest and I do not enjoy the amount of brain dead AI coding my manager keeps asking me to do. I enjoyed the process of speaking to traders and var
----
-
-[RSS:Reddit Jobs & Careers (职场动态)]
-Future
-https://www.reddit.com/r/cscareerquestions/comments/1umg6na/future/
-Hello guys. I Will graduate in about 3/4 months (CS 3 Years). What advice do you have for a student that has only heard bad things about this degree/career? ( Entry level fucked, ai layoff, outsourcing ecc....) PS: i want to continue my studies with some Major in engeneering or biotech. &#32; submit
----
-
-[RSS:Reddit Jobs & Careers (职场动态)]
-Looking for a team to build a project
-https://www.reddit.com/r/cscareerquestions/comments/1umevte/looking_for_a_team_to_build_a_project/
-Hello, Long story short, I am looking for ways to boost my CV as a Software Engineering student. An idea that came through my mind was to develop a Roblox game, given the high demand and slightly lower requirements compared to other game projects. Especially now with AI slop being shipped everywhere
+AI enjoyers think it’s to make their life good
+https://www.reddit.com/r/cscareerquestions/comments/1unblnm/ai_enjoyers_think_its_to_make_their_life_good/
+Seriously, multi trillion dollar investments are just to make a random Joe vibecode some shit no one will use or to ask Claude code to make a rest endpoint triggering one of the CRUD. Otherwise I don’t understand that euphoria about “yet another AI breakthrough”. What do you guys expect from smarter
 ---
 
 [HACKERNEWS]
-Agentic coding notes from Galapogos Island
-https://danluu.com/ai-coding/#appendix-agentic-loops-and-writing-this-post
-Score: 30 | Comments: 9
+Command and Conquer Generals natively ported to macOS, iPhone, iPad using Fable
+https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/tree/main
+Score: 255 | Comments: 112
 ---
 
 [HACKERNEWS]
-Giant trees have no trouble pumping water to top branches: new research
-https://news.exeter.ac.uk/faculty-of-environment-science-and-economy/giant-trees-have-no-trouble-pumping-water-to-top-branches/
-Score: 154 | Comments: 78
+GPT-5.5 Codex reasoning-token clustering may be leading to degraded performance
+https://github.com/openai/codex/issues/30364
+Score: 65 | Comments: 8
 ---
 
 [HACKERNEWS]
-GLM5.2 on AMD MI355X at 2626 tok/s/node at over 2x lower cost than Blackwell
-https://www.wafer.ai/blog/glm52-amd
-Score: 180 | Comments: 51
+Leaking YouTube creators' private videos
+https://javoriuski.com/post/youtube
+Score: 427 | Comments: 222
 ---
 
 [HACKERNEWS]
-Leanstral 1.5: Proof abundance for all
-https://mistral.ai/news/leanstral-1-5/
-Score: 152 | Comments: 35
+Google Books (or similar) all book scans – $200k bounty (2025)
+https://software.annas-archive.gl/AnnaArchivist/annas-archive/-/work_items/234
+Score: 271 | Comments: 145
 ---
 
 [HACKERNEWS]
-Synthesis is harder than analysis
-https://surfingcomplexity.blog/2026/07/03/synthesis-is-harder-than-analysis/
-Score: 34 | Comments: 8
+Better Models: Worse Tools
+https://lucumr.pocoo.org/2026/7/4/better-models-worse-tools/
+Score: 55 | Comments: 14
 ---
 
 [HACKERNEWS]
-MSI Center – How to gain SYSTEM privileges in seconds
-https://mrbruh.com/msicenter/
-Score: 60 | Comments: 11
+Verizon is About to Break our Watches
+https://www.jefftk.com/p/verizon-is-about-to-break-our-watches
+Score: 114 | Comments: 50
 ---
 
 [HACKERNEWS]
-Steam Controller Auto-Charge – pilot to magnetic charging puck using CV
-https://github.com/FossPrime/Steam-Controller-Auto-Charge
-Score: 107 | Comments: 21
+Potential session/cache leakage between workspace instances or consumer accounts
+https://github.com/anthropics/claude-code/issues/74066
+Score: 260 | Comments: 120
 ---
 
 [HACKERNEWS]
-SearXNG: A free internet metasearch engine
-https://github.com/searxng/searxng
-Score: 179 | Comments: 49
+Explanation of everything you can see in htop/top on Linux (2019)
+https://peteris.rocks/blog/htop/
+Score: 359 | Comments: 46
 ---
 
 [HACKERNEWS]
-The circuit that lets your brain think and see
-https://www.engineering.columbia.edu/about/news/circuit-lets-your-brain-think-and-see
-Score: 67 | Comments: 14
+Zig: All Package Management Functionality Moved from Compiler to Build System
+https://ziglang.org/devlog/2026/#2026-06-30
+Score: 100 | Comments: 21
 ---
 
 [HACKERNEWS]
-Odin, Wikipedia and engagement farming
-https://katamari64.se/posts/2026/odin-wikipedia/
-Score: 92 | Comments: 105
+Protocol Prying: Vulnerability Research in AirDrop and Quick Share
+https://arxiv.org/abs/2606.26967
+Score: 7 | Comments: 0
 ---
 
 [HACKERNEWS]
-The firefighting system of the Van der Heyden brothers in 17th century Amsterdam
-https://worksinprogress.co/issue/how-amsterdam-invented-the-fire-department/
-Score: 61 | Comments: 12
+Windows CE Dreamcast Community Edition (wince-dc)
+https://github.com/maximqaxd/wince-dc
+Score: 80 | Comments: 16
 ---
 
 [HACKERNEWS]
-Jamesob's guide to running SOTA LLMs locally
-https://github.com/jamesob/local-llm
-Score: 312 | Comments: 141
+Astrophysicists Puzzle over Webb’s New Universe
+https://www.quantamagazine.org/astrophysicists-puzzle-over-webbs-new-universe-20260702/
+Score: 181 | Comments: 116
 ---
 
 [HACKERNEWS]
-Soatok's Informal Guide to Threat Models
-https://soatok.blog/2026/06/30/soatoks-informal-guide-to-threat-models/
-Score: 56 | Comments: 8
+Curveball
+https://mightyburger.net/projects/curveball/
+Score: 42 | Comments: 9
 ---
 
 [HACKERNEWS]
-Applied Category Theory Course (2018)
-https://math.ucr.edu/home/baez/act_course/index.html
-Score: 82 | Comments: 7
+EndBASIC 0.14: Are we multimedia yet?
+https://www.endbasic.dev/2026/07/endbasic-0.14.html
+Score: 21 | Comments: 2
 ---
 
 [HACKERNEWS]
-New serious vulnerabilities spiked around release of Claude Mythos Preview
-https://epoch.ai/data-insights/cve-severity-spike
-Score: 77 | Comments: 24
----
-
-[HACKERNEWS]
-Maybe you should learn something
-https://www.marginalia.nu/log/a_135_learn/
-Score: 13 | Comments: 3
+Fable created novel 4D splat format
+https://adamraudonis.github.io/splats4D/
+Score: 75 | Comments: 17
 ---
 
 [GITHUB]
@@ -1185,46 +1107,6 @@ Author: qgallouedec
 链接: https://arxiv.org/abs/2607.01511v1
 完整摘要: Chain-of-thought (CoT) reasoning has emerged as an effective approach for activating latent reasoning capabilities in large language models. However, most existing CoT methods use reasoning chains mainly as inference-time prompts, while the generated reasoning traces are rarely reused as semi-supervised learning signals. In this report, we define \textbf{Semi-supervised Chain-of-Thought Learning} and propose \textbf{Semi-CoT}, a simple framework that uses unlabeled questions to construct pseudo reasoning supervision. Semi-CoT samples multiple pseudo-CoTs for each unlabeled question, estimates answer-level semantic entropy, and selects low-entropy reasoning chains as reliable pseudo-CoT demonstrations. This extends the self-training view of CoT from inference-time refinement to semi-supervised pseudo-supervision. Pilot experiments on AQuA, SVAMP, GSM8K, and MultiArith show that the entropy gate selects high-precision pseudo-CoTs, with pseudo-answer precision ranging from $91.36\%$ to $100\%$. Semi-CoT also gives small gains on SVAMP and GSM8K, while AQuA shows negative transfer and MultiArith reaches a ceiling. These results suggest that unlabeled questions can provide reliable pseudo reasoning signals, but their effective use still requires stronger demonstration selection or student training.
 匹配关键词: chain-of-thought
----
-
-[ACADEMIC - ARXIV]
-标题: Online Safety Monitoring for LLMs
-作者: Mona Schirmer, Metod Jazbec, Alexander Timans, Christian Naesseth, Maja Waldron, Eric Nalisnick
-链接: https://arxiv.org/abs/2607.02510v1
-完整摘要: Despite alignment training, LLMs remain prone to generating unsafe outputs at deployment time. Monitoring outputs online and raising an alarm when safety can no longer be assumed is therefore critical. We study a simple real-time monitor that turns a verifier signal from an external model into an alarm decision by thresholding, with the threshold calibrated via risk control. In experiments on mathematical reasoning and red teaming datasets, we show that this simple design is competitive with more advanced monitors based on sequential hypothesis testing.
-匹配关键词: test-time compute
----
-
-[ACADEMIC - ARXIV]
-标题: DemoPSD: Disagreement-Modulated Policy Self-Distillation
-作者: Yunhe Li, Hao Shi, Wenhao Liu, Mengzhe Ruan, Hanxu Hou, Zhongxiang Dai, Shuang Qiu, Linqi Song
-链接: https://arxiv.org/abs/2607.02502v1
-完整摘要: On-policy self-distillation (OPSD) has emerged as a practical method for training large language models (LLMs) to reason, where a single model acts as both the teacher and the student with different levels of information access. However, recent studies have found that the teacher's dense token-level supervision, conditioned on privileged information, can lead to overfitting to in-domain patterns, suppress exploration, and hurt cross-domain generalization, while also introducing a more fundamental issue: *privileged information leakage*, where the student encodes answer-dependent shortcuts that are unavailable at test time. We introduce **DemoPSD**, a novel framework that resolves such problems through the idea of *selective adoption of teacher guidance*. Instead of fitting the full teacher distribution, DemoPSD steers the student toward a *reverse-KL barycenter target*, a weighted geometric combination of the teacher and student distributions, that naturally balances learning from the teacher with preserving the student's own reasoning capacity. We measure the difference between their distributions and use such a discrepancy to adaptively control the blending at each token position. We provably show that DemoPSD achieves **(1)** *leakage attenuation*, i.e., effective mitigation of privileged information leakage; and **(2)** *exploration preservation*, i.e., preservation of exploration capacity under dense token-level distillation. Extensive experiments on SciKnowEval across four scientific fields show that DemoPSD outperforms both GRPO and SDPO while maintaining higher training entropy and robustly generalizing to out-of-distribution GPQA benchmarks.
-匹配关键词: test-time compute
----
-
-[ACADEMIC - ARXIV]
-标题: Audio-Based Understanding of Audiobook Narration Appeal
-作者: Shahar Elisha, Mariano Beguerisse-Díaz, Emmanouil Benetos
-链接: https://arxiv.org/abs/2607.02473v1
-完整摘要: Narration is central to the audiobook listening experience, shaping how listeners engage with and understand the content. This work explores how narration qualities shape an audiobook's appeal, noting that their effects can vary by genre, title, and audience. We extract vocal and acoustic features (e.g., tone, pace, loudness) from LibriVox using pre-trained audio models and analyse their relationship with consumption data (specifically, view-rate) and their interplay with genre and title. Despite limited consumption data, we find that acoustic information alone has a robust association with appeal, even after accounting for title effects. We further validate these findings using more nuanced proprietary engagement metrics. To our knowledge, this is the first systematic computational study linking narration qualities, genre, title, and audiobook consumption, highlighting the potential of data-driven insights to improve audiobook personalisation and narrator casting.
-匹配关键词: test-time compute
----
-
-[ACADEMIC - ARXIV]
-标题: Will Scaling Improve Social Simulation with LLMs?
-作者: Caleb Ziems, William Held, Su Doga Karaca, David Grusky, Tatsunori Hashimoto, Diyi Yang
-链接: https://arxiv.org/abs/2607.02464v1
-完整摘要: Large Language Model (LLM) social simulations are a promising research method, but they are not yet faithful enough to be adopted widely. In this work, we investigate whether the current scaling paradigm in language modeling is likely to close these gaps, or whether simulation fidelity is orthogonal to general capabilities and therefore deserving of more research attention. We use scaling laws to study the relationship between LLMs' compute scale, general capability benchmarks, and the fidelity of social simulation in three representative sub-domains: opinion modeling, behavioral simulation, and longitudinal forecasting. Surprisingly, we discover strong compute scaling in all three settings, using a suite of 85 transformer LLMs with the Qwen3 architecture pre-trained on the DCLM web text corpus under fixed-compute budgets from $10^{18}$ to $10^{20}$ FLOPs. Then we evaluate 35 larger and more capable open-weight models up to 70B parameters, allowing us to predict downstream accuracy from loss. This reveals that the majority of behavioral and opinion simulation tasks will rapidly improve with scale, particularly when they involve populations that are well-represented in English web corpora. Longitudinal forecasting and underrepresented opinions scale more slowly, especially when they are less correlated with general knowledge and reasoning benchmarks like MMLU. In behavior simulation, scaling fails to improve model calibration with human cognitive biases like risk aversion, as well as human heuristics like learning correlated rewards from related tasks. On these tasks, even fine-tuned models fail to noticeably scale up performance from 0.5B to 8B parameters. Taken together, we conclude that scale will improve social simulations in most settings, but outliers exist, and improvements will be less reliable in low-resource domains.
-匹配关键词: test-time compute
----
-
-[ACADEMIC - ARXIV]
-标题: Reasoning effort, not tool access, buys first-try reliability in agentic code generation: an observational study
-作者: Achint Mehta
-链接: https://arxiv.org/abs/2607.02436v1
-完整摘要: Agentic coding assistants are increasingly given extra capabilities, such as browser based testing tools and design oriented system prompts, on the assumption that more capability yields better software. This study tested that assumption directly. Ninety independent agent runs built the same application, a real time retrospective board, from one detailed specification, each scored on a fixed 14 criterion functional rubric (42 point maximum) and a visual quality review. The runs spanned several model generations, two agent harnesses, two reasoning effort levels, a testing tool, and two design oriented prompts. Capability tier dominated: frontier models clustered near the ceiling while a low cost local model fell to 24 to 37 points. A criterion level analysis revealed what run totals conceal. Container deployment was the dominant defect, failing first try in 44 percent of runs, with its failure rate shifting sharply across model generations while mean totals moved less than a point. The testing tool raised cost by 42 to 68 percent without improving functional score or reliability, even on interface visible criteria. Raising reasoning effort from High to xHigh lifted first try perfect runs from 28 percent to 89 percent and cut corrective prompts about five fold, for 9 to 29 percent more cost. A design oriented prompt raised visual quality, 4.5 versus 3.0 on a 5 point scale, without lifting function, and a one paragraph paraphrase of its directive reproduced the entire lift. The practical lesson is to match the fix to the failure: most first run failures came from weak reasoning, which a stronger model or more effort prevents, not from visible flaws a checking tool would catch.
-匹配关键词: test-time compute
 ---
 
 [ACADEMIC - ARXIV]
